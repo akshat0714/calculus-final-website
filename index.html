@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Single Variable Calculus II: Final Examination and Studies · A. Agarwal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<style>
+  :root{
+    --serif:'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --sans:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+    --ink:#242424;
+    --soft:#41413f;
+    --muted:#6b6b6b;
+    --faint:#8c8c8c;
+    --rule:#e6e6e6;
+    --rule-d:#d4d4d4;
+    --bg:#ffffff;
+    --accent:#0b6e4f;
+    --code-bg:#f7f7f5;
+    --measure:43rem;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--serif);font-size:20px;line-height:1.62;
+    letter-spacing:-0.003em;
+    -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;
+  }
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.94);
+    backdrop-filter:saturate(180%) blur(6px);
+    border-bottom:1px solid var(--rule);
+  }
+  .topbar-inner{
+    max-width:64rem;margin:0 auto;padding:0 24px;height:58px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{font-family:var(--sans);font-weight:800;font-size:0.95rem;letter-spacing:-0.01em;color:var(--ink);}
+  .brand .sep{color:var(--rule-d);font-weight:500;margin:0 0.5em;}
+  .brand .course{font-weight:500;color:var(--muted);}
+  .topnav{display:flex;gap:1.6rem;}
+  .topnav a{
+    font-family:var(--sans);font-weight:600;font-size:0.9rem;color:var(--muted);
+    text-decoration:none;cursor:pointer;padding:2px 0;border-bottom:2px solid transparent;
+    transition:color .15s ease,border-color .15s ease;
+  }
+  .topnav a:hover{color:var(--ink);}
+  .topnav a.active{color:var(--ink);border-bottom-color:var(--accent);}
+  /* ---------- layout ---------- */
+  main{width:100%;}
+  .view[hidden]{display:none;}
+  .container{max-width:var(--measure);margin:0 auto;padding:0 24px 7rem;}
+  .container.wide{max-width:45rem;}
+  /* ---------- type ---------- */
+  h1,h2,h3,h4{font-family:var(--sans);color:var(--ink);}
+  h1{font-weight:800;font-size:2.55rem;line-height:1.16;letter-spacing:-0.025em;margin:0 0 0.25rem;}
+  h2{font-weight:800;font-size:1.72rem;line-height:1.24;letter-spacing:-0.02em;margin:3rem 0 0.55rem;}
+  h3{font-weight:700;font-size:1.24rem;line-height:1.3;letter-spacing:-0.015em;margin:2.1rem 0 0.4rem;}
+  h4{font-weight:700;font-size:1.02rem;letter-spacing:-0.01em;margin:1.6rem 0 0.3rem;color:var(--soft);}
+  p{margin:1.45rem 0 0;}
+  .lead p:first-of-type, .view p:first-of-type{margin-top:1.2rem;}
+  a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule-d);text-underline-offset:2px;}
+  a:hover{text-decoration-color:var(--accent);color:var(--accent);}
+  strong{font-weight:700;}
+  em{font-style:italic;}
+  ul,ol{margin:1.4rem 0 0;padding-left:1.4rem;}
+  li{margin:0.55rem 0;padding-left:0.25rem;}
+  li::marker{color:var(--faint);}
+  hr{border:none;border-top:1px solid var(--rule);margin:3.2rem 0;}
+  .hr-dot{border:none;text-align:center;margin:2.8rem 0;color:var(--rule-d);}
+  .hr-dot::before{content:"\00B7 \00B7 \00B7";letter-spacing:0.6em;font-size:1.1rem;}
+  /* ---------- kickers, labels ---------- */
+  .kicker{
+    font-family:var(--sans);font-weight:700;font-size:0.72rem;letter-spacing:0.13em;
+    text-transform:uppercase;color:var(--accent);margin:0 0 0.6rem;
+  }
+  .subtitle{font-family:var(--sans);font-weight:500;font-size:1.3rem;line-height:1.4;color:var(--muted);letter-spacing:-0.01em;margin:0.6rem 0 0;}
+  .byline{font-family:var(--sans);font-size:0.92rem;color:var(--faint);margin:1.6rem 0 0;font-weight:500;}
+  .abstract-label,.connect-label{font-family:var(--sans);font-weight:700;color:var(--soft);}
+  /* ---------- problem blocks (overview) ---------- */
+  .problem{padding-top:2.6rem;margin-top:2.6rem;border-top:1px solid var(--rule);}
+  .problem:first-of-type{border-top:none;}
+  .pk{font-family:var(--sans);font-weight:700;font-size:0.74rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin:0 0 0.7rem;}
+  .statement{color:var(--soft);}
+  .connection{margin-top:1.3rem;}
+  .studylink{font-family:var(--sans);font-weight:600;font-size:0.86rem;}
+  .answerline{margin-top:1.1rem;}
+  /* ---------- theorem / definition ---------- */
+  .thm,.defn,.lemma,.remark{border-left:3px solid var(--accent);padding:0.1rem 0 0.1rem 1.15rem;margin:1.7rem 0;}
+  .remark{border-left-color:var(--rule-d);}
+  .thm .lab,.defn .lab,.lemma .lab,.remark .lab{
+    font-family:var(--sans);font-weight:700;font-size:0.97rem;color:var(--ink);display:block;margin-bottom:0.15rem;letter-spacing:-0.01em;
+  }
+  .remark .lab{color:var(--soft);}
+  .thm p,.defn p,.lemma p,.remark p{margin-top:0.5rem;}
+  .thm p:first-of-type,.defn p:first-of-type,.lemma p:first-of-type,.remark p:first-of-type{margin-top:0;}
+  /* ---------- math ---------- */
+  .katex{font-size:1.02em;}
+  .katex-display{margin:1.3rem 0;overflow-x:auto;overflow-y:hidden;padding:2px 0;}
+  .katex-display>.katex{font-size:1.05em;}
+  /* ---------- code ---------- */
+  pre,code{font-family:'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;}
+  code{background:var(--code-bg);padding:0.1em 0.35em;border-radius:4px;font-size:0.86em;color:#2a2a2a;}
+  pre{background:var(--code-bg);border:1px solid var(--rule);border-radius:8px;padding:1rem 1.15rem;overflow-x:auto;font-size:0.83rem;line-height:1.55;margin:1.5rem 0;}
+  pre code{background:none;padding:0;font-size:inherit;}
+  /* ---------- study cards ---------- */
+  .studycard{padding:2rem 0;border-top:1px solid var(--rule);}
+  .studycard:first-of-type{border-top:none;}
+  .studycard h3{margin-top:0.2rem;font-size:1.5rem;font-weight:800;letter-spacing:-0.02em;}
+  .studycard .meta{font-family:var(--sans);font-weight:700;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin:0;}
+  .readlink{display:inline-block;margin-top:1.1rem;font-family:var(--sans);font-weight:700;font-size:0.92rem;color:var(--accent);text-decoration:none;cursor:pointer;}
+  .readlink:hover{color:var(--ink);}
+  .readlink .arr{transition:transform .15s ease;display:inline-block;}
+  .readlink:hover .arr{transform:translateX(3px);}
+  /* ---------- paper apparatus ---------- */
+  .backlink{font-family:var(--sans);font-weight:600;font-size:0.86rem;color:var(--muted);text-decoration:none;cursor:pointer;display:inline-block;margin-bottom:2.2rem;}
+  .backlink:hover{color:var(--accent);}
+  .paper-head{margin-bottom:0.5rem;}
+  .paper-head .kicker{margin-bottom:0.7rem;}
+  .paper-meta{font-family:var(--sans);font-size:0.88rem;color:var(--faint);margin-top:1.4rem;font-weight:500;}
+  .abstract{background:#fafafa;border:1px solid var(--rule);border-radius:10px;padding:1.5rem 1.6rem;margin:2.4rem 0 0;font-size:0.97rem;line-height:1.6;}
+  .abstract .alab{font-family:var(--sans);font-weight:800;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin:0 0 0.5rem;}
+  .abstract p{margin-top:0.7rem;}
+  .abstract p:first-of-type{margin-top:0;}
+  .toc{font-family:var(--sans);font-size:0.92rem;margin:2.2rem 0 0;padding:1.3rem 1.5rem;border:1px solid var(--rule);border-radius:10px;}
+  .toc .tlab{font-weight:800;font-size:0.72rem;letter-spacing:0.13em;text-transform:uppercase;color:var(--muted);margin:0 0 0.6rem;}
+  .toc ol{margin:0;padding-left:1.3rem;}
+  .toc li{margin:0.3rem 0;color:var(--soft);}
+  .refs{margin-top:1.2rem;font-size:0.9rem;line-height:1.5;counter-reset:ref;list-style:none;padding-left:0;}
+  .refs li{padding-left:2.4rem;position:relative;margin:0.7rem 0;color:var(--soft);}
+  .refs li::before{counter-increment:ref;content:"["counter(ref)"]";position:absolute;left:0;font-family:var(--sans);font-weight:600;color:var(--faint);font-size:0.82rem;}
+  .nextprev{display:flex;justify-content:space-between;gap:1rem;margin-top:3.5rem;padding-top:1.8rem;border-top:1px solid var(--rule);font-family:var(--sans);}
+  .nextprev a{font-weight:700;font-size:0.92rem;color:var(--accent);text-decoration:none;cursor:pointer;max-width:48%;}
+  .nextprev a.prev{text-align:left;}
+  .nextprev a.next{text-align:right;margin-left:auto;}
+  .nextprev a:hover{color:var(--ink);}
+  .nextprev .nplab{display:block;font-weight:600;font-size:0.7rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--faint);margin-bottom:0.2rem;}
+  .footnote{font-family:var(--sans);font-size:0.82rem;color:var(--faint);}
+  sup.cite{font-family:var(--sans);font-size:0.72em;font-weight:600;color:var(--accent);vertical-align:super;line-height:0;}
+  .sec-no{color:var(--faint);font-weight:700;}
+  .figure{margin:2rem 0;padding:1.3rem 1.5rem;background:var(--code-bg);border:1px solid var(--rule);border-radius:10px;font-size:0.92rem;}
+  .figure .cap{font-family:var(--sans);font-size:0.8rem;color:var(--muted);margin-top:0.8rem;font-weight:500;}
+  /* ---------- responsive ---------- */
+  @media (max-width:680px){
+    body{font-size:18px;}
+    h1{font-size:2rem;}
+    h2{font-size:1.45rem;}
+    h3{font-size:1.18rem;}
+    .subtitle{font-size:1.12rem;}
+    .topbar-inner{padding:0 16px;height:54px;}
+    .topnav{gap:1.1rem;}
+    .brand .course{display:none;}
+    .container{padding:0 18px 5rem;}
+    .abstract,.toc{padding:1.2rem;}
+  }
+  @media print{
+    .topbar,.nextprev,.backlink,.readlink{display:none;}
+    .view[hidden]{display:block !important;}
+    a{color:#000;text-decoration:none;}
+    body{font-size:11pt;}
+  }
+  /* ---------- pedagogical callouts ---------- */
+  .plain{background:#f3f8f5;border-left:3px solid var(--accent);padding:0.9rem 1.2rem;margin:1.6rem 0;border-radius:0 7px 7px 0;}
+  .plain .lab{font-family:var(--sans);font-weight:700;font-size:0.85rem;color:var(--accent);display:block;margin-bottom:0.2rem;letter-spacing:-0.01em;}
+  .plain p{margin-top:0.45rem;font-size:0.99rem;}
+  .plain p:first-of-type{margin-top:0;}
+  .worked{background:var(--code-bg);border:1px solid var(--rule);border-radius:9px;padding:1.05rem 1.3rem;margin:1.6rem 0;}
+  .worked .lab{font-family:var(--sans);font-weight:700;font-size:0.76rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:0.45rem;}
+  .worked p{margin-top:0.55rem;font-size:0.98rem;}
+  .worked p:first-of-type{margin-top:0;}
+  .roadmap{border:1px dashed var(--rule-d);border-radius:10px;padding:1.15rem 1.4rem;margin:2rem 0;background:#fcfcfb;font-size:0.97rem;}
+  .roadmap .lab{font-family:var(--sans);font-weight:800;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin:0 0 0.5rem;display:block;}
+  .roadmap p{margin-top:0.55rem;}
+  .roadmap p:first-of-type{margin-top:0;}
+  .roadmap ol{margin:0.5rem 0 0;padding-left:1.3rem;}
+  .roadmap li{margin:0.3rem 0;color:var(--soft);}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">Akshat Agarwal<span class="sep">/</span><span class="course">Single Variable Calculus II</span></div>
+    <nav class="topnav">
+      <a id="nav-overview" data-view="overview">Overview</a>
+      <a id="nav-research" data-view="research">Research</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== OVERVIEW ===================== -->
+<section class="view" id="view-overview">
+<div class="container">
+
+  <p class="kicker">Final Examination</p>
+  <h1>Single Variable Calculus II</h1>
+  <p class="subtitle">A concise solution to each examination problem, together with the advanced mathematics that the problem was built to anticipate.</p>
+  <p class="byline">Akshat Agarwal &nbsp;·&nbsp;Grade 11</p>
+
+  <div class="lead">
+  <p>This document collects the problems from my Single Variable Calculus II final examination. For each problem it records a short solution, giving the essential steps and the final value, and then names the higher mathematics to which the problem is connected. Every problem can be solved entirely with the methods of the course: substitution and integrating factors, convergence tests and telescoping, the methods of disks and shells, polar area and arc length, Taylor's theorem with the Lagrange remainder, numerical integration, optimization, and the geometry of space curves. Each was nevertheless constructed so that its solution opens onto a structure of independent and current mathematical interest.</p>
+
+  <p>The connection noted after each problem identifies the field it points toward. Three of these fields are studied in depth in the accompanying research section: the theory of the Riccati equation and its role in estimation and modern sequence models, the approximation of irrational numbers and the machine discovery of mathematics, and the Legendre transform with the convex duality that organizes contemporary optimization. The solutions below are deliberately brief. The full development of the three highlighted themes is reserved for the research papers.</p>
+  </div>
+
+  <h2>The problems</h2>
+
+  <!-- Problem 1 -->
+  <div class="problem">
+    <p class="pk">Problem 1 · Riccati differential equation</p>
+    <p class="statement">Let $f$ satisfy $f(0)=1$ and $\dfrac{d}{dx}\!\left[\ln\dfrac{\sqrt{f(x)}}{1-x}\right]=\dfrac{\sqrt{f(x)}}{(1-x)^3}.$ Determine the coefficient of $x^4$ in the Maclaurin series of $f$.</p>
+    <p>Write $y=\sqrt{f}$. The left side is $y'/y+1/(1-x)$, so the equation becomes the Bernoulli equation $y'+\dfrac{y}{1-x}=\dfrac{y^2}{(1-x)^3}.$ Substituting $v=1/y$ linearizes it to $v'-\dfrac{v}{1-x}=-\dfrac{1}{(1-x)^3},$ whose integrating factor is $1-x$. Solving with $v(0)=1$ gives $v=\dfrac{1-2x}{(1-x)^2},$ hence</p>
+    $$f=\frac{1}{v^2}=\frac{(1-x)^4}{(1-2x)^2}.$$
+    <p>Expanding $(1-2x)^{-2}=\sum_{m\ge 0}(m+1)2^m x^m$ against $(1-x)^4$, the coefficient of $x^4$ is $80-128+72-16+1$.</p>
+    <p class="answerline">$$\boxed{\,[x^4]\,f = 9\,}$$</p>
+    <p class="connection"><span class="connect-label">Higher-level connection.</span> The same kind of equation that governs this problem guided the Apollo spacecraft to the Moon and today keeps every GPS receiver, self-driving car, and weather model honest about its own uncertainty. The governing equation is a <em>Riccati equation</em>, the most general first-order equation that is quadratic in the unknown, and its defining feature is a hidden double nature: although it is nonlinear and resists direct integration, a single substitution reveals that it is a second-order linear equation in disguise. In matrix form this very equation propagates the error covariance of the Kalman filter, the optimal way to fuse a noisy model with noisy measurements, and the quadratic term that earns it the name Riccati is precisely the measurements removing uncertainty. What makes the story compelling is its reach across three centuries: an equation Riccati studied in 1724 became the heart of optimal estimation in 1960 and, read backwards as a learnable system, now drives the state-space sequence models that rival the Transformer. <a class="studylink" data-view="paper1">Developed in Study I &rarr;</a></p>
+  </div>
+
+  <!-- Problem 2 -->
+  <div class="problem">
+    <p class="pk">Problem 2 · Polar area, arc length, and a threshold</p>
+    <p class="statement">For the spiral $r=\theta^{-p}$ with $\theta\ge 1$, determine the set of exponents $p$ for which the enclosed area is finite while the arc length is infinite, and give the length of that set.</p>
+    <p>The area $\tfrac12\int_1^\infty \theta^{-2p}\,d\theta$ is finite exactly when $p\gt \tfrac12$. The arc-length integrand $\theta^{-p}\sqrt{1+p^2/\theta^2}$ is squeezed between $\theta^{-p}$ and $\sqrt{1+p^2}\,\theta^{-p}$ for $\theta\ge 1$, so the length is finite exactly when $p\gt 1$ and infinite when $p\le 1$. Finite area with infinite length therefore holds on $\big(\tfrac12,\,1\big]$.</p>
+    <p class="answerline">$$\boxed{\,\text{length of }\big(\tfrac12,1\big]=\tfrac12\,}$$</p>
+    <p class="connection"><span class="connect-label">Higher-level connection.</span> The lungs fold the surface area of a tennis court into the volume of a chest, and the antenna inside a phone packs many wavelengths of conductor into a fingernail of space, both exploiting the fact that boundary and bulk are independent. This problem is the cleanest first encounter with that independence: a spiral can enclose a finite area while its boundary runs on to infinite length. The true depth lies just past calculus, in the recognition that length and area are different notions of size that need not scale together, which is the seed of <em>Hausdorff measure and the fractional dimensions of fractal geometry</em>, and the same finite-area, infinite-length paradox is the painter's paradox of Gabriel's horn. It is striking precisely because it overturns the intuition that an infinite edge must enclose an infinite region, an intuition that coastlines, blood vessels, and snowflakes have been quietly violating all along.</p>
+  </div>
+
+  <!-- Problem 3 -->
+  <div class="problem">
+    <p class="pk">Problem 3 · Tangent intercepts, quadrature, and the Legendre transform</p>
+    <p class="statement">A beam has profile $y=a\big(2x^2+x\ln(1+x)\big)$. At each $x$ the side of an equilateral cross-section equals the magnitude of the $y$-intercept of the tangent line to the profile, and the cross-sectional area is calibrated so that $A(3)=\tfrac{50}{3}$. With $V$ the exact volume on $[0,3]$ and $S_2$ its two-subinterval Simpson estimate, decide whether Simpson is exact and, if not, find $|S_2-V|$.</p>
+    <p>The $y$-intercept of the tangent line at $x$ is $y-xy'=-a\,\dfrac{x^2(2x+3)}{1+x},$ so the side is $s(x)=a\,\dfrac{x^2(2x+3)}{1+x}$ and $A(x)=\tfrac{\sqrt3}{4}s^2$. Calibration absorbs the constant into $A(x)=\dfrac{800}{19683}\Big(\dfrac{x^2(2x+3)}{1+x}\Big)^2.$ Polynomial division gives $\dfrac{x^4(2x+3)^2}{(1+x)^2}=4x^4+4x^3-3x^2+2x-1+\dfrac{1}{(x+1)^2},$ a degree-four integrand, so Simpson, exact only through cubics, cannot be exact. Then $V=\dfrac{800}{19683}\cdot\dfrac{5103}{20}=\dfrac{280}{27}.$ Simpson with $h=\tfrac32$ uses $A(0)=0,\ A(\tfrac32)=\tfrac{32}{27},\ A(3)=\tfrac{50}{3}$, giving $S_2=\tfrac12\big(0+4\cdot\tfrac{32}{27}+\tfrac{50}{3}\big)=\dfrac{289}{27}.$</p>
+    <p class="answerline">$$\boxed{\,|S_2-V|=\left|\tfrac{289}{27}-\tfrac{280}{27}\right|=\tfrac13\,}$$</p>
+    <p class="connection"><span class="connect-label">Higher-level connection.</span> The tangent-intercept at the centre of this problem is the same operation that lets physicists pass between the two great formulations of mechanics and that, in its modern form, helps train the generative models behind image synthesis. The $y$-intercept of the tangent line, the quantity $y-xy'$, is exactly the <em>Legendre transform</em> of the profile, which re-describes a convex function by the family of its tangent lines rather than by its values, and Simpson's rule is the first nontrivial case of Gaussian quadrature, whose sample points are the roots of Legendre polynomials. The deeper truth is that this single transform is the language of duality: it converts the Lagrangian of mechanics into the Hamiltonian, internal energy into the thermodynamic free energies, and, in current machine learning, organizes optimal transport, mirror descent, and the dual view of learning. What is remarkable is that an idea as humble as the intercept of a tangent line, computed without a second thought, turns out to be the hinge on which modern optimization swings. <a class="studylink" data-view="paper3">Developed in Study III &rarr;</a></p>
+  </div>
+
+  <!-- Problem 4 -->
+  <div class="problem">
+    <p class="pk">Problem 4 · Telescoping series</p>
+    <p class="statement">Evaluate $\displaystyle\sum_{n=1}^{\infty}\frac{n^3-2n^2+1}{(n+1)!}.$</p>
+    <p>Seek a summand of the form $b_n=\dfrac{n^2+\beta n+\gamma}{n!}$ for which the general term equals $b_n-b_{n+1}$. Matching numerators forces $\beta=-2,\ \gamma=2$, so</p>
+    $$\frac{n^3-2n^2+1}{(n+1)!}=\frac{n^2-2n+2}{n!}-\frac{(n+1)^2+1}{(n+1)!}=b_n-b_{n+1}.$$
+    <p>The sum telescopes to $b_1=\dfrac{1-2+2}{1!}$, since $b_n\to 0$.</p>
+    <p class="answerline">$$\boxed{\,\sum_{n=1}^{\infty}\frac{n^3-2n^2+1}{(n+1)!}=1\,}$$</p>
+    <p class="connection"><span class="connect-label">Higher-level connection.</span> The collapse-by-cancellation that makes this sum exact is the same mechanism computer-algebra systems exploit to prove identities automatically, and the speed with which factorial-denominator series converge is why a calculator can return a sine or an exponential in microseconds. Finding the antidifference $b_n$ so that the term equals $b_n-b_{n+1}$ is the discrete analogue of finding an antiderivative, the summation form of the Fundamental Theorem of Calculus. The true connection is to mechanical summation: <em>Gosper's algorithm</em> finds such antidifferences automatically, and the Wilf–Zeilberger theory of creative telescoping proves whole families of binomial identities and supplied the engine behind Apéry's proof that $\zeta(3)$ is irrational. It is intriguing that an infinite sum collapses to exactly $1$ through a structure invisible at first glance, and more intriguing still that machines now discover such structure on their own, a theme taken up in Study II.</p>
+  </div>
+
+  <!-- Problem 5 -->
+  <div class="problem">
+    <p class="pk">Problem 5 · Hyperbolic functions, critical points, and a symmetric area</p>
+    <p class="statement">Let $q(x)=\sqrt{1-\tfrac32\tanh^2 x}$ and $f(x)=\dfrac{9}{4}\cdot\dfrac{\tanh x\,\operatorname{sech}^2 x\,(5q-1)}{q\,(1+q)^3}$ on the interval where $q$ is real. Let $a$ and $b$ be the two nonzero critical numbers of $f$. Find the area enclosed by $y=f(x)$ and $y=f(-x)$ from $x=a$ to $x=b$.</p>
+    <p>Since $\tanh x$ is odd and $\operatorname{sech} x$ is even, $q(-x)=q(x)$ and therefore $f(-x)=-f(x)$: the two curves are reflections of each other across the $x$-axis. Writing $f$ as a function of $q$ and differentiating, the critical condition factors so that the only admissible root is $2q-1=0$, that is $q=\tfrac12$, giving $\tanh^2 x=\tfrac12$ and $b=\operatorname{artanh}(1/\sqrt2)=-a$. Because $f\gt 0$ on $(0,b)$ and $f$ is odd, the enclosed area is $A=4\displaystyle\int_0^b f\,dx$. The substitution $u=\tanh x$, then $u=\sqrt{\tfrac23}\sin\theta$, then $v=\cos\theta$ turns this into $\displaystyle\int_{1/2}^{1}\!\Big(\tfrac{15}{2}(1+v)^{-2}-9(1+v)^{-3}\Big)dv=\tfrac38$.</p>
+    <p class="answerline">$$\boxed{\,A=4\cdot\tfrac38=\tfrac32\,}$$</p>
+    <p class="connection"><span class="connect-label">Higher-level connection.</span> The hyperbolic functions in this problem are the natural language of the hanging cable and the soaring arch, of Einstein's law for adding velocities near the speed of light, and of the light pulses that carry the internet through optical fiber. The profile is built from $\tanh$ and its derivative $\operatorname{sech}^2$, and because $f$ is odd, it and its mirror image $y=f(-x)$ bound a region symmetric across the axis whose area a careful substitution evaluates exactly. The connection runs in two directions: $\tanh$ is the classic activation function that gave early neural networks their nonlinearity, and the bump $\operatorname{sech}^2$ is the exact profile of a <em>soliton</em>, a solitary wave that travels without spreading, first seen by a man on horseback chasing a wave down a Scottish canal in 1834 and now the basis of soliton transmission in fiber optics. What makes the hyperbolic functions fascinating is that they do for the hyperbola, and for the geometry of spacetime, exactly what the circular sine and cosine do for the circle.</p>
+  </div>
+
+  <!-- Problem 6 -->
+  <div class="problem">
+    <p class="pk">Problem 6 · Surface of revolution and the Cayley transform</p>
+    <p class="statement">With $A_n=\sum_{k=1}^{2n}\frac{(-1)^{k+1}}{k}$, the curve $x+i(y-3)=\left(\dfrac{1-3i\tanh(t/2)}{1+3i\tanh(t/2)}\right)^{4}$ for $t\in[0,A_n]$ is revolved about the $x$-axis. Find $\displaystyle\lim_{n\to\infty} S_n/\pi^2$, where $S_n$ is the surface area.</p>
+    <p>Put $u=3\tanh(t/2)$. The quotient $\dfrac{1-iu}{1+iu}$ has modulus $1$ and argument $-2\arctan u$, so the fourth power equals $\cos w-i\sin w$ with $w=8\arctan\!\big(3\tanh(t/2)\big)$. The curve is therefore $x=\cos w,\ y=3-\sin w$: a unit circle centered at $(0,3)$. As $n\to\infty$, $A_n\to\ln 2$, and since $\tanh\!\big(\tfrac{\ln 2}{2}\big)=\tfrac13$ we get $w\to 8\arctan 1=2\pi$, a full revolution. The surface is a torus with center-radius $R=3$ and tube-radius $r=1$, so $S_n\to 2\pi\!\int_0^{2\pi}(3-\sin w)\,dw=12\pi^2.$</p>
+    <p class="answerline">$$\boxed{\,\lim_{n\to\infty} S_n/\pi^2 = 12\,}$$</p>
+    <p class="connection"><span class="connect-label">Higher-level connection.</span> The algebraic fraction at the centre of this problem is the same transform that turns an analog filter into the digital filter running in your headphones and that aerodynamicists use to convert the flow around a circle into the flow around a wing. The map $z\mapsto(1-iz)/(1+iz)$ is the <em>Cayley transform</em>, the canonical conformal identification of a half-plane with a disk and of the real line with the circle, which is why a fourth power of it traces a perfect circle and sweeps out a torus. Its true depth is that it translates between the additive world of lines and the multiplicative world of rotations, the same translation the bilinear, or Tustin, transform performs in signal processing when it carries continuous-time stability to discrete-time stability, the very step taken when the state-space models of Study I are discretized. It is intriguing that one short fraction can turn straight lines into circles and addition into rotation, bridging the analog and the digital in a single gesture.</p>
+  </div>
+
+  <!-- Problem 7 -->
+  <div class="problem">
+    <p class="pk">Problem 7 · Taylor remainder, the complex exponential, and approximation</p>
+    <p class="statement">Let $f(x)=e^{x}(\cos x+i\sin x)$, and let $P_n$ be its degree-$n$ Maclaurin polynomial, with $P_n(1)=A_n+B_n i$. Find the smallest $n$ for which the Lagrange remainder bound guarantees $|R_n(1)|\lt \tfrac12$, and for that $n$ compute $A_n+B_n$.</p>
+    <p>Here $f(x)=e^{(1+i)x}$, so $f^{(n+1)}(x)=(1+i)^{n+1}e^{(1+i)x}$ and on $[0,1]$ the Lagrange bound is $|R_n(1)|\le \dfrac{e\,(\sqrt2)^{\,n+1}}{(n+1)!}.$ This equals $e\sqrt2/3\approx 1.28$ at $n=2$ and $e/6\approx 0.45$ at $n=3$, so $n=3$ is the first index below $\tfrac12$. Using $(1+i)^2=2i$ and $(1+i)^3=-2+2i$, $P_3(1)=1+(1+i)+\tfrac{2i}{2}+\tfrac{-2+2i}{6}=\tfrac{5}{3}+\tfrac{7}{3}i.$</p>
+    <p class="answerline">$$\boxed{\,n=3,\qquad A_3+B_3=4\,}$$</p>
+    <p class="connection"><span class="connect-label">Higher-level connection.</span> The complex exponential at the heart of this problem, $e$ raised to an imaginary power, is the single most useful function in engineering, underlying alternating-current circuits, all of signal processing, and the wavefunctions of quantum mechanics. By Euler's formula the function is $e^{(1+i)x}$, a spiral that rotates and grows at once, and the Lagrange error bound is exactly the tool by which a processor decides how many Taylor terms it needs to reach a guaranteed accuracy. The deeper thread is the question that the base $1+i$, a Gaussian integer, quietly raises: how well can a number be approximated by simpler ones, and which numbers resist approximation most? That is the field of <em>Diophantine approximation</em>, where the golden ratio is provably the hardest number to approximate and Hurwitz's constant $\sqrt5$ is the sharp limit. It is striking that the same complex exponential that runs the electrical grid lives inside a number system, the Gaussian integers, with its own primes and its own deep approximation theory. <a class="studylink" data-view="paper2">Developed in Study II &rarr;</a></p>
+  </div>
+
+  <!-- Problem 8 -->
+  <div class="problem">
+    <p class="pk">Problem 8 · Volumes and the Beta function</p>
+    <p class="statement">The region under $y=6(1-\sqrt{x})^{k}$ on $[0,1]$ is revolved about the $x$-axis and, separately, about the line $x=-1$. Find the value of $k\gt 0$ for which the two volumes are equal.</p>
+    <p>With the substitution $u=\sqrt{x}$ every integral becomes an Euler Beta integral $B(p,q)=\int_0^1 u^{p-1}(1-u)^{q-1}\,du=\dfrac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}.$ The disk method gives $V_x=\dfrac{36\pi}{(k+1)(2k+1)},$ while shells about $x=-1$ give $V_{-1}=24\pi\big[B(4,k+1)+B(2,k+1)\big].$ Equating and clearing denominators reduces to $(k-2)(k^2+5k+18)=0$, whose only real root is positive.</p>
+    <p class="answerline">$$\boxed{\,k = 2\,}$$</p>
+    <p class="connection"><span class="connect-label">Higher-level connection.</span> The integrals that solve this volume define the Beta and Gamma functions, which describe random proportions in Bayesian A/B testing, waiting times in queues, and the rounded-square icons on a phone screen. Every integral here reduces, through one substitution, to an Euler Beta integral, and the Beta function is built from the <em>Gamma function</em>, the unique smooth extension of the factorial to all real and complex numbers. The true connection is that factorials need not stop at the whole numbers: the Gamma function interpolates between them, singled out by the Bohr–Mollerup theorem as the only log-convex extension, and the boundary of this region is a superellipse, the Lamé curve that designers from Piet Hein to Apple have chosen for its pleasing fullness. It is intriguing that the same Beta integral measuring this beam reappears as the Veneziano amplitude at the historical origin of string theory.</p>
+  </div>
+
+  <!-- Problem 9 -->
+  <div class="problem">
+    <p class="pk">Problem 9 · Space curves and the Frenet–Serret frame</p>
+    <p class="statement">For the helix $\mathbf r(\theta)=\langle 2\cos\theta,\,2\sin\theta,\,b\theta\rangle$, the binormal makes an angle $\pi/4$ with the vertical at $\theta=\pi/2$. With the height of a moving point evolving so that its speed is determined at $\theta=\pi/2$, find $\lVert d\mathbf B/dt\rVert$ at that instant. (The data give $b=2$ and arc-speed $24$.)</p>
+    <p>The binormal is $\mathbf B=\dfrac{\langle b\sin\theta,-b\cos\theta,2\rangle}{\sqrt{4+b^2}}.$ The angle condition $\dfrac{2}{\sqrt{4+b^2}}=\dfrac{\sqrt2}{2}$ gives $b=2$, and the torsion is $\tau=\dfrac{8}{32}=\dfrac14.$ By the Frenet–Serret relation $d\mathbf B/ds=-\tau\,\mathbf N$, the magnitude is $\lVert d\mathbf B/dt\rVert=\tau\,v$ where $v$ is the speed. With $v=24$,</p>
+    <p class="answerline">$$\boxed{\,\lVert d\mathbf B/dt\rVert=\tfrac14\cdot 24=6\,}$$</p>
+    <p class="connection"><span class="connect-label">Higher-level connection.</span> The torsion computed here is the precise quantity that measures how DNA supercoils on itself, how a roller coaster or a highway on-ramp must twist so that riders are not jerked, and how a charged particle spirals through the field of a mass spectrometer. The tangent, normal, and binormal vectors, with curvature and torsion, form the <em>Frenet–Serret apparatus</em>, the differential geometry that describes any space curve by how it bends and how it twists out of its plane. The true connection is that two numbers, curvature and torsion, determine a curve completely up to its position, so torsion is exactly the single quantity that distinguishes a flat spiral from a three-dimensional spring. It is intriguing that this one local twist rate governs structures as different as the genetic molecule, a railway transition curve, and the orientation frame a drone or a camera carries with it.</p>
+  </div>
+
+  <!-- Problem 10 -->
+  <div class="problem">
+    <p class="pk">Problem 10 · Optimization of an inscribed cone</p>
+    <p class="statement">The polar curve $r=\dfrac{9\cos\theta}{1+\cos^2\theta}$ is revolved about the $x$-axis. A cone is inscribed with its apex at the origin and its base a cross-section of the solid. Find the base radius of the cone of maximum volume.</p>
+    <p>In Cartesian form the curve is $2x^2+y^2=9x$, so the solid has radius $y=\sqrt{9x-2x^2}$. A cone with apex at the origin and base at abscissa $x$ has volume $V(x)=\tfrac{\pi}{3}y^2x=\tfrac{\pi}{3}\big(9x^2-2x^3\big).$ Then $V'(x)=2\pi x(3-x)=0$ gives the interior maximum at $x=3$, where $y=\sqrt{27-18}=3.$</p>
+    <p class="answerline">$$\boxed{\,\text{base radius}=3\,}$$</p>
+    <p class="connection"><span class="connect-label">Higher-level connection.</span> The single derivative set to zero that solves this problem embodies the same principle that designs the lightest safe beam, schedules an airline, and, scaled to billions of variables, trains every modern neural network by gradient descent. The task maximizes a volume over a family of inscribed cones, a constrained extremal problem dispatched by the first-derivative test, and its polar curve conceals a clean conic, the ellipse $2x^2+y^2=9x$. The true connection is that optimization, choosing the best member of an infinite family, is the spine of applied mathematics, and inscribed-extremum problems of this kind generalize to the calculus of variations and to convex optimization, where first-order conditions become the universal language of optimality. It is a fitting close to the examination that the same act of setting a derivative to zero that finds the best cone is the act that, repeated a trillion times, teaches an artificial intelligence to see and to speak, as the optimization sections of Study III make explicit.</p>
+  </div>
+
+  <hr>
+  <p>Three of the connections above are not merely historical footnotes. The Riccati equation of Problem&nbsp;1, the Legendre transform of Problem&nbsp;3, and the approximation question behind Problem&nbsp;7 each sit at the foundation of an active research frontier in mathematics and artificial intelligence. The following section develops them as three self-contained studies.</p>
+  <p style="margin-top:1.6rem;"><a class="readlink" data-view="research">Continue to the research studies <span class="arr">&rarr;</span></a></p>
+
+</div>
+</section>
+
+<!-- ===================== RESEARCH LANDING ===================== -->
+<section class="view" id="view-research" hidden>
+<div class="container">
+
+  <p class="kicker">Research</p>
+  <h1>Three Studies</h1>
+  <p class="subtitle">Each begins with a single examination problem and follows the mathematics to a contemporary frontier of artificial intelligence.</p>
+  <p class="byline">Akshat Agarwal &nbsp;·&nbsp;Single Variable Calculus II</p>
+
+  <div class="lead">
+  <p>The examination problems were designed so that elementary techniques would reveal deeper structure. Three of those structures are not finished chapters of mathematics but living research programs, and in each the classical idea from the examination turns out to be the mathematical core of a current method in machine learning. The three studies below are written to be read on their own. Each opens with the precise classical mathematics, including statements and proofs at the level of the course and a little beyond, and then traces, carefully and without gaps, how that mathematics became central to modern artificial intelligence. Citations are given inline in numbered form and collected at the end of each paper.</p>
+  </div>
+
+  <div class="studycard">
+    <p class="meta">Study I · from Problem 1</p>
+    <h3>The Riccati Equation, Kalman Filtering, and State-Space Models</h3>
+    <p>A first-order equation that is quadratic in its unknown cannot, in general, be integrated in closed form, yet it linearizes under a single substitution and reappears, in matrix form, as the equation governing optimal estimation. This study develops the scalar and matrix Riccati equations, the Kalman and Kalman–Bucy filters, and the exactly solvable nonlinear filters of Beneš, and then shows how the same linear state-space recurrence became the foundation of the structured state-space sequence models, S4 and Mamba, that now rival attention on long sequences.</p>
+    <a class="readlink" data-view="paper1">Read the full paper <span class="arr">&rarr;</span></a>
+  </div>
+
+  <div class="studycard">
+    <p class="meta">Study II · from Problem 7</p>
+    <h3>The Golden Ratio, Diophantine Approximation, and the Machine Discovery of Mathematics</h3>
+    <p>How well a number can be approximated by fractions is measured by its continued fraction, and the golden ratio is, in a precise sense, the number that resists approximation most stubbornly. This study develops continued fractions, Hurwitz's theorem, the Markov and Lagrange spectra, and the metric theory of the Gauss map, and then turns to a recent and striking development: algorithms, from the Ramanujan Machine to program-search systems, that conjecture and even prove new mathematics about exactly these objects.</p>
+    <a class="readlink" data-view="paper2">Read the full paper <span class="arr">&rarr;</span></a>
+  </div>
+
+  <div class="studycard">
+    <p class="meta">Study III · from Problem 3</p>
+    <h3>The Legendre Transform, Convex Duality, and Optimization in Machine Learning</h3>
+    <p>Replacing a convex function by the envelope of its tangent lines is a small idea with enormous reach. This study develops the Legendre transform and its convex-analytic completion, the Legendre–Fenchel conjugate, together with Gaussian quadrature and its Legendre-polynomial nodes, and then shows that this single duality organizes optimal transport and Wasserstein distances, mirror descent, the exponential families behind variational inference, and the dual formulation of support vector machines.</p>
+    <a class="readlink" data-view="paper3">Read the full paper <span class="arr">&rarr;</span></a>
+  </div>
+
+  <hr>
+  <p class="footnote">A note on sources. Every reference below is a real, published work. Theorems are stated with their actual hypotheses, and where a recent system is a preprint rather than a peer-reviewed article, or where a record has since been improved, this is noted in the text.</p>
+
+</div>
+</section>
+
+<!-- ===================== PAPER 1 ===================== -->
+<section class="view" id="view-paper1" hidden>
+<div class="container wide">
+
+  <a class="backlink" data-view="research">&larr. All studies</a>
+
+  <div class="paper-head">
+    <p class="kicker">Study I · from Problem 1</p>
+    <h1>The Riccati Equation, Kalman Filtering, and Structured State-Space Models</h1>
+    <p class="subtitle">A first-order equation that resists integration becomes the equation of optimal estimation, and then, read backwards, a competitive layer of a neural network. This study follows that single thread from beginning to end.</p>
+    <p class="paper-meta">Akshat Agarwal · Single Variable Calculus II · Research Study I</p>
+  </div>
+
+  <div class="abstract">
+    <p class="alab">Abstract</p>
+    <p>The first examination problem is governed by what is called a Riccati equation: a first-order differential equation in which the unknown appears squared. Such an equation looks only slightly more complicated than the linear equations of a first course, but that small difference has a large consequence. It cannot, in general, be solved by ordinary integration, and yet a single clever substitution reveals that it is secretly a linear equation of one order higher. This study takes that one fact and follows where it leads. In the first act we develop the scalar theory completely and prove the linearizing substitution carefully. In the second act we pass to the matrix version of the equation and discover that it is exactly the equation that governs the uncertainty of the best possible estimate of a hidden quantity measured through noise, which is the celebrated Kalman filter. In the third act we make a conceptual turn: instead of using a linear system to estimate the state of the world, we let a learning algorithm choose the system so that it becomes a useful transformation of a long sequence of data. That turn produced the structured state-space models, S4 and Mamba, which now rival the dominant Transformer on tasks involving very long sequences while running far faster. Every section is written so that a reader who has finished a calculus sequence can follow each step. The single idea that unifies the whole study is this: a change of representation can turn a problem we cannot solve into one we already understand, and the Riccati equation is the cleanest example of that idea in all of mathematics.</p>
+  </div>
+
+  <div class="toc">
+    <p class="tlab">Contents</p>
+    <ol>
+      <li>Introduction: one thread, three acts</li>
+      <li>What makes the Riccati equation special</li>
+      <li>From one equation to a matrix equation</li>
+      <li>The Kalman filter: estimation under uncertainty</li>
+      <li>When the world is nonlinear: the Beneš filter</li>
+      <li>The turn: a linear system as a learnable layer</li>
+      <li>S4: a linear system as a fast convolution</li>
+      <li>Diagonal simplifications and gating</li>
+      <li>Mamba: making the system selective</li>
+      <li>Differentiable Kalman filters and deep state-space models</li>
+      <li>Applications</li>
+      <li>Why this story matters</li>
+      <li>References</li>
+    </ol>
+  </div>
+
+  <div class="roadmap">
+    <span class="lab">How to read this study</span>
+    <p>The study has three acts that build on one another, and it helps to keep the destination in view while reading. Act one, Sections 2 and 3, is pure differential equations: we learn what a Riccati equation is and prove the one structural fact that makes everything else possible. Act two, Sections 4 and 5, is estimation: we meet the Kalman filter and see the matrix Riccati equation appear as the equation of uncertainty. Act three, Sections 6 through 10, is machine learning: we reread the same linear system as something a network can learn. Sections marked <em>In plain words</em> restate the preceding idea without symbols, and sections marked <em>Worked example</em> carry a small calculation all the way through. Nothing later depends on a definition that has not already been given.</p>
+  </div>
+
+  <h2><span class="sec-no">1.</span>&ensp;Introduction: one thread, three acts</h2>
+  <p>When the logarithm in Problem&nbsp;1 is cleared away, the differential equation that remains is</p>
+  $$y'+\frac{y}{1-x}=\frac{y^2}{(1-x)^3}.$$
+  <p>The feature that matters is the $y^2$ on the right. A differential equation in which the unknown function appears only to the first power, never squared or multiplied by itself, is called linear, and linear first-order equations are completely understood: there is a formula, the integrating factor, that solves every one of them. The moment we allow a $y^2$, that comfortable world ends. An equation of the shape</p>
+  $$y'(x)=a(x)\,y^2+b(x)\,y+c(x),\qquad a(x)\neq 0,$$
+  <p>is called a <em>Riccati equation</em>, after the Venetian mathematician Jacopo Francesco Riccati, who studied a special case in 1724. It is the most general first-order equation that is a polynomial of degree two in the unknown, and it sits right at the boundary between the equations we can solve and the equations we cannot.</p>
+  <p>Two facts about this equation will organize the entire study, and it is worth stating them before any work is done. The first is a warning: a general Riccati equation has no solution formula in terms of elementary functions and integrals. The second is a rescue: although the equation is nonlinear, a single substitution converts it into a linear equation of second order, which is a kind of equation with a rich and complete theory. So the Riccati equation is nonlinear on its surface and linear underneath. This double nature is exactly why it appears wherever a quadratic notion of cost or uncertainty meets a linear system, and that is a description of an enormous part of control theory, estimation, and, as we will see, modern artificial intelligence.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>A linear differential equation is one we can always solve with a known recipe. The Riccati equation breaks the recipe by squaring the unknown, but it breaks it in the gentlest possible way: a change of variables turns it back into something solvable. The whole study is the story of that one change of variables, told three times at increasing depth.</p>
+  </div>
+
+  <h2><span class="sec-no">2.</span>&ensp;What makes the Riccati equation special</h2>
+  <p>Fix continuous coefficient functions $a,b,c$ on an interval, with $a$ never zero. We build the scalar theory from the ground up.</p>
+
+  <div class="defn">
+    <span class="lab">Definition 2.1 (Riccati equation).</span>
+    <p>A first-order differential equation is of Riccati type if it can be written as $y'=a(x)y^2+b(x)y+c(x)$ with $a$ not identically zero. If the constant term $c$ is identically zero, the equation is called a Bernoulli equation of degree two. If the quadratic coefficient $a$ is identically zero, the equation is linear.</p>
+  </div>
+
+  <h3>2.1&ensp;The easiest case, and the examination problem</h3>
+  <p>Suppose first that $c\equiv 0$, so the equation is $y'=a y^2+b y$. There is a substitution that turns this into a linear equation, and it is the most important trick in the subject in miniature. Let $v=1/y$. Then by the chain rule $v'=-y^{-2}y'$, and substituting $y'=ay^2+by$ gives</p>
+  $$v'=-y^{-2}\big(ay^2+by\big)=-a-\frac{b}{y}=-a-bv.$$
+  <p>Rearranged, this is $v'+b(x)\,v=-a(x)$, a first-order <em>linear</em> equation, which the integrating factor $\mu=\exp\!\int b\,dx$ solves immediately. The lesson is precise and worth naming: the only thing that prevents us from integrating a Riccati equation is the constant term $c$. Remove it, and the substitution $v=1/y$ collapses the equation to something elementary.</p>
+  <p>This is exactly the route through Problem&nbsp;1. There the equation in $y=\sqrt f$ is $y'+\dfrac{y}{1-x}=\dfrac{y^2}{(1-x)^3}$, which is Bernoulli with $a(x)=(1-x)^{-3}$, $b(x)=(1-x)^{-1}$, and $c\equiv 0$. Setting $v=1/y$ produces the linear equation $v'-\dfrac{v}{1-x}=-\dfrac{1}{(1-x)^3}$, whose integrating factor is $1-x$. Solving with the initial condition gives $v=(1-2x)/(1-x)^2$, hence $f=1/v^2=(1-x)^4/(1-2x)^2$, and the coefficient of $x^4$ in the resulting series is $9$. The examination problem is, in disguise, a first lesson in the Riccati substitution.</p>
+
+  <h3>2.2&ensp;The substitution that linearizes everything</h3>
+  <p>The central theorem of the scalar theory removes even the term $c$, at the price of raising the order of the equation by one. This is the formal statement of the claim that the Riccati equation is a second-order linear equation in disguise.</p>
+  <div class="thm">
+    <span class="lab">Theorem 2.2 (Linearization).</span>
+    <p>Assume $a$ is differentiable and never zero. The substitution</p>
+    $$y=-\frac{w'}{a\,w}$$
+    <p>turns the Riccati equation $y'=ay^2+by+c$ into the second-order linear equation</p>
+    $$w''-\Big(b+\frac{a'}{a}\Big)w'+a\,c\,w=0.$$
+    <p>Conversely, any solution $w$ of this linear equation that does not vanish on a subinterval gives a solution $y=-w'/(aw)$ of the Riccati equation there.</p>
+  </div>
+  <p><em>Proof.</em> We compute $y'$ from $y=-w'/(aw)$ and substitute. Write the quotient as $y=-(1/a)\,(w'/w)$. Differentiating, and using the quotient rule on $w'/w$,</p>
+  $$y'=-\frac{1}{a}\Big(\frac{w''}{w}-\frac{(w')^2}{w^2}\Big)+\frac{a'}{a^2}\,\frac{w'}{w}.$$
+  <p>Now form $ay^2$ and $by$. Since $y=-(1/a)(w'/w)$ we have $ay^2=\dfrac{1}{a}\dfrac{(w')^2}{w^2}$ and $by=-\dfrac{b}{a}\dfrac{w'}{w}$. Adding $ay^2+by+c$ and subtracting from $y'$, the two terms involving $(w'/w)^2$ cancel exactly, and what remains is</p>
+  $$y'-ay^2-by-c=-\frac{1}{a}\frac{w''}{w}+\frac{a'}{a^2}\frac{w'}{w}+\frac{b}{a}\frac{w'}{w}-c.$$
+  <p>Setting this to zero and multiplying through by $-aw$ gives $w''-(b+a'/a)w'+acw=0$, which is the claimed linear equation. The converse is the same computation read in reverse. $\;\blacksquare$</p>
+  <p>In the cleanest case, when $a\equiv 1$, the substitution is simply $y=-w'/w$ and it turns $y'=y^2+by+c$ into $w''-bw'+cw=0$. The reader should notice what has happened. We started with a nonlinear equation and produced a linear one without any approximation, exactly, for free. The price was that the new equation is of second order, so it has a two-dimensional space of solutions, and the ratio $-w'/(aw)$ erases the freedom to scale $w$, leaving precisely the one-parameter family that a first-order equation should have.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>Theorem 2.2 says that Riccati equations and second-order linear equations are the same subject wearing two different costumes. If you can solve one, you can solve the other. This is why the special functions of mathematical physics, which are defined as solutions of second-order linear equations, keep showing up as solutions of Riccati equations.</p>
+  </div>
+
+  <h3>2.3&ensp;Three examples that show the range</h3>
+  <p>The theorem lets us read off solutions, and three examples display the full spectrum from elementary to hopeless.</p>
+  <div class="worked">
+    <span class="lab">Worked example</span>
+    <p><strong>An elementary case.</strong> The equation $y'=y^2+1$ has $a=1,\,b=0,\,c=1$, so it corresponds to $w''+w=0$. The general solution of that linear equation is $w=A\cos x+B\sin x$, and $y=-w'/w$. Choosing $w=\cos x$ gives $y=\sin x/\cos x=\tan x$, the familiar solution that blows up at $x=\pi/2$ exactly where $\cos x$ vanishes.</p>
+    <p><strong>A special-function case.</strong> The equation $y'+y^2=-x$, that is $y'=-y^2-x$, corresponds after the substitution to the Airy equation $w''+xw=0$. Its solutions are the Airy functions, not elementary but completely understood, and $y=w'/w$ is expressed through them.</p>
+    <p><strong>A genuinely hard case.</strong> The equation $y'=y^2-x^2$ corresponds to a parabolic-cylinder equation, which has no solution in elementary functions at all. This is the precise sense in which a generic Riccati equation cannot be integrated: its linear partner is itself unsolvable in closed form.</p>
+  </div>
+
+  <h3>2.4&ensp;One solution unlocks all of them</h3>
+  <p>A second fact is enormously useful in practice. If we are lucky enough to spot a single solution of a Riccati equation, the rest come for free by one integration.</p>
+  <div class="lemma">
+    <span class="lab">Proposition 2.3.</span>
+    <p>If $y_1$ is any solution of the Riccati equation, then the substitution $y=y_1+1/v$ produces a solution exactly when $v$ satisfies the linear equation</p>
+    $$v'+\big(2a\,y_1+b\big)\,v=-a.$$
+    <p>Hence from one particular solution the general solution follows by a single integration.</p>
+  </div>
+  <p><em>Proof.</em> Write $y=y_1+u$. Because $y_1$ already solves the equation, every term that does not involve $u$ cancels, and $u$ is left satisfying $u'=(2ay_1+b)u+au^2$, which is a Bernoulli equation of degree two. The substitution $v=1/u$ of Section 2.1 linearizes it to the stated form. $\;\blacksquare$</p>
+  <div class="worked">
+    <span class="lab">Worked example</span>
+    <p>Consider $y'=1+x^2-2xy+y^2$. One checks by direct substitution that $y_1=x$ is a solution, since $y_1'=1$ and $1+x^2-2x\cdot x+x^2=1$. By Proposition 2.3, writing $y=x+1/v$ gives $v'+(2\cdot 1\cdot x-2x)v=-1$, that is $v'=-1$, so $v=C-x$ and the general solution is $y=x+\dfrac{1}{C-x}$. A single guessed solution produced the entire family.</p>
+  </div>
+
+  <div class="remark">
+    <span class="lab">What to remember from Section 2.</span>
+    <p>Three facts carry forward. First, removing the constant term reduces a Riccati equation to a linear one through $v=1/y$. Second, the substitution $y=-w'/(aw)$ converts any Riccati equation into a second-order linear equation, exactly. Third, one known solution yields all solutions by one integration. The matrix generalizations of these facts are the subject of the rest of the study.</p>
+  </div>
+  <h2><span class="sec-no">3.</span>&ensp;From one equation to a matrix equation</h2>
+  <p>Almost every application of the Riccati equation is matrix-valued, so we must take the step from a single unknown function to a whole matrix of them. The step is conceptually small and worth taking slowly. Imagine a system described not by one number but by several at once, collected into a vector, for example the position and velocity of a moving object, which is a vector with two components. The state of the system is then a vector $\mathbf x$, its evolution is governed by matrices, and the uncertainty about the state is described by a covariance matrix, a symmetric matrix $P$ whose diagonal entries are the variances of the components and whose off-diagonal entries record how the errors in different components are correlated.</p>
+  <p>With constant matrices $A,B,Q,H,R$ of compatible sizes, $R$ symmetric and positive definite and $Q$ symmetric and positive semidefinite, the <em>matrix differential Riccati equation</em> in the form relevant to estimation is</p>
+  $$\dot P = A P + P A^{\!\top} + Q - P H^{\!\top} R^{-1} H P,\qquad P(t_0)=P_0.$$
+  <p>Read it term by term, because each term has a meaning we will need. The unknown $P(t)$ is the covariance, the current uncertainty. The terms $AP+PA^{\top}$ describe how the uncertainty is stretched and rotated by the system's own dynamics. The term $+Q$ is the rate at which fresh randomness, the process noise, is injected and so the uncertainty grows. The final term $-PH^{\top}R^{-1}HP$, the only nonlinear one, is the rate at which measurements remove uncertainty, and the appearance of $P$ squared in it is exactly what makes this a Riccati equation, now matrix-valued.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>This equation is a budget for uncertainty. The dynamics reshape what we do not know, process noise adds to it, and measurements subtract from it. The subtraction term involves the square of the uncertainty, which is the matrix echo of the $y^2$ in the scalar equation. That is the entire reason a Riccati equation governs estimation.</p>
+  </div>
+
+  <h3>3.1&ensp;The steady state: the algebraic Riccati equation</h3>
+  <p>If the system does not change in time, the uncertainty often settles to a constant value, the point at which the growth from process noise exactly balances the reduction from measurement. At that balance $\dot P=0$, and the differential equation becomes an algebraic one, the <em>continuous-time algebraic Riccati equation</em>,</p>
+  $$A P + P A^{\!\top} + Q - P H^{\!\top} R^{-1} H P = 0.$$
+  <p>Its twin in control theory, obtained by the formal exchange $A\mapsto A^{\top}$ and $H\mapsto B^{\top}$, is $A^{\top}P+PA-PBR^{-1}B^{\top}P+Q=0$, the equation that defines the optimal linear-quadratic regulator, the controller that steers a linear system at least cost. That the same equation governs both the best estimator and the best controller is the first sign of a deep symmetry, which we make precise in Section 4.</p>
+
+  <h3>3.2&ensp;How the matrix equation is solved, and what the conditions mean</h3>
+  <p>The matrix equation inherits the linearizing idea of Theorem 2.2 in a geometric form that is the basis of every numerical solver. We state it carefully and then translate every technical word.</p>
+  <div class="thm">
+    <span class="lab">Theorem 3.1 (Hamiltonian structure and the stabilizing solution).</span>
+    <p>Associate to the algebraic Riccati equation the $2n\times 2n$ <em>Hamiltonian matrix</em></p>
+    $$\mathcal H=\begin{pmatrix} A & -BR^{-1}B^{\!\top}\\[2pt] -Q & -A^{\!\top}\end{pmatrix}.$$
+    <p>Its eigenvalues come in pairs symmetric about the imaginary axis. If the pair $(A,B)$ is stabilizable and the pair $(A,Q^{1/2})$ is detectable, then $\mathcal H$ has no eigenvalue exactly on the imaginary axis, and the equation has a unique symmetric positive-semidefinite solution $P^\star$ that is <em>stabilizing</em>, meaning that the closed-loop matrix $A-BR^{-1}B^{\top}P^\star$ has all eigenvalues with negative real part. If the columns of $\left(\begin{smallmatrix}X_1\\X_2\end{smallmatrix}\right)$ span the invariant subspace of $\mathcal H$ belonging to its stable eigenvalues, then $X_1$ is invertible and $P^\star=X_2X_1^{-1}$.</p>
+  </div>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>Three pieces of vocabulary appear, and each is intuitive. A matrix is called <em>Hurwitz</em>, or stable, when all of its eigenvalues have negative real part, which means that the system it governs decays toward equilibrium rather than blowing up. <em>Stabilizable</em> means that whatever unstable directions the system has can be influenced by the controls, so they can be tamed. <em>Detectable</em> means that whatever unstable directions there are can be seen in the measurements, so they cannot grow unnoticed. The theorem says that under these two reasonable conditions, the uncertainty has a unique sensible steady value, and that value can be read off from the eigenvectors of a single matrix. The construction $P^\star=X_2X_1^{-1}$ is the matrix version of $y=-w'/(aw)$: just as the scalar solution was a ratio built from solutions of a linear equation, the matrix solution is a ratio of blocks of the eigenvectors of the linear object $\mathcal H$.</p>
+  </div>
+  <div class="worked">
+    <span class="lab">Worked example</span>
+    <p>Take the simplest possible case, all quantities equal to one: $A=0$, $B=1$, $Q=1$, $R=1$, $H=1$. The scalar algebraic Riccati equation $2AP+Q-P^2HR^{-1}H=0$ becomes $1-P^2=0$, so $P^\star=1$ is the positive solution. The Hamiltonian matrix is $\left(\begin{smallmatrix}0&-1\\-1&0\end{smallmatrix}\right)$, with eigenvalues $\pm 1$, symmetric about the imaginary axis as promised. The stable eigenvalue is $-1$, with eigenvector $(1,1)^{\top}$, so $X_1=1,\,X_2=1$ and $P^\star=X_2/X_1=1$, agreeing with the direct solution. The closed-loop value $A-BR^{-1}B^{\top}P^\star=-1$ is indeed negative, confirming stability.</p>
+  </div>
+  <p>The full matrix theory is developed in the books of Reid<sup class="cite">[12]</sup>, Lancaster and Rodman<sup class="cite">[8]</sup>, and the edited volume of Bittanti, Laub, and Willems<sup class="cite">[1]</sup>.</p>
+
+  <h2><span class="sec-no">4.</span>&ensp;The Kalman filter: estimation under uncertainty</h2>
+  <p>We now arrive at the application that made the matrix Riccati equation indispensable, and it is worth motivating before any formula appears. Suppose we want to know a quantity we cannot observe directly, only through noisy and indirect measurements. A satellite navigation receiver wants your position but only measures delays in radio signals corrupted by the atmosphere. A self-driving car wants the positions and velocities of nearby vehicles but only sees noisy detections in camera frames. In every such problem we have two imperfect sources of knowledge, a model of how the world evolves and a stream of noisy measurements, and we must combine them optimally. The Kalman filter is the exact solution to this problem when the model is linear and the noise is Gaussian, and it was published by Rudolf Kalman in 1960<sup class="cite">[2]</sup>.</p>
+
+  <h3>4.1&ensp;The model, stated carefully</h3>
+  <p>The hidden state is a vector $\mathbf x_k$ that evolves and is measured according to</p>
+  $$\mathbf x_{k+1}=F\,\mathbf x_k+\mathbf w_k,\qquad \mathbf y_k=H\,\mathbf x_k+\mathbf v_k,$$
+  <p>where $F$ is the matrix describing how the state evolves from one step to the next, $H$ is the matrix describing how the state is turned into a measurement, $\mathbf w_k$ is the process noise with covariance $Q$ representing everything our model leaves out, and $\mathbf v_k$ is the measurement noise with covariance $R$ representing sensor error. Both noises are assumed Gaussian and independent. As a concrete running example, imagine tracking an object moving along a line: the state is $\mathbf x=(\text{position},\text{velocity})$, the matrix $F$ advances position by velocity times the time step, and the measurement reads only position, so $H=(1,\ 0)$.</p>
+
+  <h3>4.2&ensp;The two steps</h3>
+  <p>Kalman's theorem is that the conditional distribution of the state given all measurements so far stays exactly Gaussian, and that its mean $\hat{\mathbf x}$ and covariance $P$ evolve by a simple two-step recursion. The first step, <em>prediction</em>, uses the model alone to push the estimate forward in time:</p>
+  $$\hat{\mathbf x}_{k|k-1}=F\,\hat{\mathbf x}_{k-1},\qquad P_{k|k-1}=F\,P_{k-1}\,F^{\!\top}+Q.$$
+  <p>The estimate moves the way the model says it should, and the uncertainty grows, both because the dynamics stretch the old uncertainty, the term $FPF^{\top}$, and because new process noise is added, the term $+Q$. The second step, <em>update</em>, folds in the new measurement. We first form the <em>innovation</em>, the surprise in the measurement relative to what we predicted, and its covariance:</p>
+  $$\tilde{\mathbf y}_k=\mathbf y_k-H\,\hat{\mathbf x}_{k|k-1},\qquad S_k=H\,P_{k|k-1}\,H^{\!\top}+R.$$
+  <p>We then compute the <em>Kalman gain</em> and correct the estimate:</p>
+  $$K_k=P_{k|k-1}\,H^{\!\top}\,S_k^{-1},\qquad \hat{\mathbf x}_k=\hat{\mathbf x}_{k|k-1}+K_k\,\tilde{\mathbf y}_k,\qquad P_k=(I-K_kH)\,P_{k|k-1}.$$
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>The gain $K_k$ is the heart of the filter, and it is a thermostat for trust. When our prediction is uncertain but the sensor is precise, the gain is large and we move the estimate most of the way toward the measurement. When our prediction is confident but the sensor is noisy, the gain is small and we barely budge. The filter automatically computes the optimal balance at every step from the two covariances, which is precisely why it is the best possible estimator and not merely a reasonable one.</p>
+  </div>
+
+  <h3>4.3&ensp;The covariance recursion is a Riccati equation</h3>
+  <p>Now comes the point of the whole section. Substitute the gain $K_k=P_{k|k-1}H^{\top}S_k^{-1}$ into the update for $P_k$, and then substitute the prediction $P_{k|k-1}=FP_{k-1}F^{\top}+Q$. The covariance $P_k$ then satisfies a recursion in which $P_{k-1}$ appears, among other places, squared through the measurement term. That recursion is the discrete-time matrix Riccati equation. In the continuous-time limit the two covariance steps merge into the differential Riccati equation of Section 3, and the steady-state gain of a time-invariant filter is computed from the algebraic Riccati equation. This is the exact sense in which the Riccati equation is the equation of optimal estimation: it propagates the uncertainty of the best possible estimate, and its quadratic term is the measurements doing their work. The continuous-time version, the Kalman–Bucy filter<sup class="cite">[3]</sup>, writes the estimate's evolution as $d\hat{\mathbf x}_t=A\hat{\mathbf x}_t\,dt+K(t)\big(d\mathbf y_t-H\hat{\mathbf x}_t\,dt\big)$ with $K(t)=P(t)H^{\top}R^{-1}$ and $P$ solving the forward Riccati differential equation.</p>
+  <div class="worked">
+    <span class="lab">Worked example</span>
+    <p>Track a single constant but unknown number, so the state is a scalar with $F=1$, and suppose process noise is negligible, $Q=0$, with measurement matrix $H=1$ and measurement-noise variance $R$. The covariance update becomes $P_k=\dfrac{P_{k-1}R}{P_{k-1}+R}$, which is the rule for combining two variances in parallel. Starting from a large initial uncertainty $P_0$, one finds $P_k=\dfrac{P_0R}{R+kP_0}\to 0$, and the gain $K_k=\dfrac{P_{k-1}}{P_{k-1}+R}\to 0$. The filter learns the constant, its uncertainty shrinks toward zero like $R/k$, and each new measurement matters less than the last, which is exactly the behavior of a running average. The Riccati recursion has reproduced, and justified, the most basic estimator there is.</p>
+  </div>
+
+  <h3>4.4&ensp;A hidden symmetry: estimation and control are dual</h3>
+  <p>One structural feature deserves emphasis because it recurs in the learning models later. The covariance recursion does not use the measurements at all. It depends only on the matrices of the model, so it can be computed in advance, offline, before any data arrive, and for a time-invariant system it converges to the steady value $P^\star$ from the algebraic Riccati equation. Only the update of the mean consumes data. This clean separation between a data-independent flow of uncertainty and a data-dependent correction of the estimate is the same separation expressed by the <em>separation principle</em> of optimal control, which states that the best controller for a noisy linear system can be designed in two independent halves, an estimator and a feedback law, each obtained from its own Riccati equation. The control Riccati equation and the estimation Riccati equation are mirror images under the exchange of roles between inputs and measurements, a duality that the matched pair of algebraic equations in Section 3.1 already revealed. The classic treatments are Anderson and Moore<sup class="cite">[5]</sup>, Astrom<sup class="cite">[6]</sup>, and Jazwinski<sup class="cite">[9]</sup>. The control background is Brockett<sup class="cite">[7]</sup> and Sontag<sup class="cite">[10]</sup>.</p>
+
+  <h2><span class="sec-no">5.</span>&ensp;When the world is nonlinear: the Beneš filter</h2>
+  <p>The Kalman filter is exact only because the model is linear and the noise Gaussian. The moment the dynamics become nonlinear, something dramatic happens to the difficulty of the problem, and understanding why is illuminating. Consider a hidden quantity that evolves by a nonlinear stochastic equation and is observed through noise,</p>
+  $$dX_t=f(X_t)\,dt+\sigma\,dW_t,\qquad dY_t=h(X_t)\,dt+dV_t,$$
+  <p>where $f$ is now an arbitrary drift function and $W,V$ are independent sources of continuous random noise. For a linear $f$ the conditional distribution of the state stays Gaussian, so two numbers, a mean and a variance, describe it completely at every instant. For a nonlinear $f$ this is no longer true. The conditional distribution can take any shape, and to describe it we need not two numbers but an entire function, the whole probability density, which evolves according to a partial differential equation driven by the incoming observations. In unnormalized form this is the Zakai equation<sup class="cite">[13]</sup>, and its normalized version is the Kushner–Stratonovich equation<sup class="cite">[14]</sup>. The practical consequence is severe: an exact nonlinear filter generally requires infinitely many numbers to run, and the filters used in engineering, the extended and unscented Kalman filters and the particle filter, are all approximations.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>Linearity is what keeps the problem finite. With a linear model the answer is always a bell curve, and a bell curve is just a center and a width. Break linearity and the answer can be any curve at all, which takes infinitely much information to store. This is why nonlinear filtering is hard.</p>
+  </div>
+  <p>It is therefore remarkable that some nonlinear filtering problems can be solved <em>exactly</em> with finitely many numbers after all, and the condition for this is, once again, a Riccati condition. This is the result of Beneš from 1981<sup class="cite">[4]</sup>.</p>
+  <div class="thm">
+    <span class="lab">Theorem 5.1 (Beneš, 1981).</span>
+    <p>Suppose the observation is linear, $h(x)=\alpha x+\beta$, and the drift $f$ satisfies the condition</p>
+    $$f'(x)+f(x)^2=a x^2+b x+c\qquad(a\ge 0).$$
+    <p>Then the unnormalized conditional density factors as $q_t(x)=\exp\!\big(F(x)\big)\,g_t(x)$, where $F$ is an antiderivative of $f$ and $g_t$ is a Gaussian whose mean and variance obey a finite system of ordinary differential equations of exactly Kalman type.</p>
+  </div>
+  <p>The defining identity $f'+f^2=\text{quadratic}$ should look familiar. If we set $f=F'$, it is a condition on the logarithmic derivative of the density, and it is precisely a Riccati condition: it is the requirement that makes the governing equation collapse to something finite-dimensional, exactly as removing the constant term collapsed the scalar Riccati equation in Section 2. The cleanest example is $f(x)=\tanh x$, the hyperbolic tangent. Then $f'+f^2=(1-\tanh^2 x)+\tanh^2 x=1$, so the condition holds with $a=b=0$ and $c=1$, and the antiderivative $F(x)=\log\cosh x$ produces a density that is a Gaussian weighted by $\cosh x$. That the hyperbolic tangent should be the canonical exactly-filterable drift is not a coincidence, and the reason closes a loop in this study: $\tanh$ is itself the solution of the scalar Riccati equation $f'=1-f^2$. The very function that solves a Riccati equation is the one that makes a nonlinear filter finite. The boundary of this solvable class is sharp, as Hazewinkel, Marcus, and Sussmann showed in 1983 by proving that the cubic measurement $h(x)=x^3$ admits no finite-dimensional filter at all. The Beneš condition essentially marks the exact edge of what can be solved without approximation. The modern reference for the whole subject is Bain and Crisan<sup class="cite">[11]</sup>.</p>
+  <h2><span class="sec-no">6.</span>&ensp;The turn: a linear system as a learnable layer</h2>
+  <p>Everything up to this point used a linear system to estimate the hidden state of a world that was given to us. The decisive idea of the last few years is to turn this around. Instead of being handed a system and asked to estimate its state, we treat the system's matrices as unknowns to be <em>learned</em>, and we ask the learning to make the system into a useful transformation of a long sequence of inputs. The continuous linear system at the center of all the preceding theory is</p>
+  $$\dot{\mathbf x}(t)=A\,\mathbf x(t)+B\,u(t),\qquad y(t)=C\,\mathbf x(t)+D\,u(t),$$
+  <p>where $u$ is now an input signal, $y$ an output signal, and the internal vector $\mathbf x$ plays the role of a memory that summarizes everything the system has seen so far. The question that converts this abstract object into an engineering tool is simple to state: which linear systems remember well? A system whose memory decays instantly is useless, and a system whose memory never fades is overwhelmed, so there must be a best way to compress the past into a fixed-size state, and we would like to know what it is.</p>
+
+  <h3>6.1&ensp;HiPPO: memory as the best polynomial summary</h3>
+  <p>The foundational analysis is the HiPPO framework of Gu, Dao, Ermon, Rudra, and Re<sup class="cite">[15]</sup>, and its idea is genuinely elegant. Suppose that at each moment we want our state to hold the best possible approximation of the entire history of the input by a polynomial of fixed degree, where "best" is measured against a chosen weighting that says how much the recent past matters relative to the distant past. As time advances and new input arrives, that optimal approximation must update, and the remarkable fact is that the coefficients of the best polynomial obey a linear differential equation,</p>
+  $$\dot{\mathbf c}(t)=A(t)\,\mathbf c(t)+B(t)\,u(t),$$
+  <p>which is exactly a linear state-space system whose matrices are not arbitrary but are forced by the geometry of the approximation problem. For the natural scale-invariant weighting the matrix has an explicit form, lower-triangular with entries $A_{nk}=\sqrt{(2n+1)(2k+1)}$ for $n\gt k$ and $A_{nn}=n+1$, and $B_n=\sqrt{2n+1}$. The point is conceptual rather than computational: there is a best linear system for remembering, and its dynamics are dictated by the demand that its state always carry the optimal compression of the past. This is the same spirit as the Riccati equation, where a linear object encodes an optimality condition.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>HiPPO answers the question "which linear system remembers well" by deriving the system from a principle rather than guessing it. The principle is: at every instant, keep the best fixed-degree polynomial picture of everything seen so far. The mathematics then forces a specific set of matrices. Those matrices are the seed from which the modern models grow.</p>
+  </div>
+
+  <h2><span class="sec-no">7.</span>&ensp;S4: a linear system as a fast convolution</h2>
+  <p>The S4 model of Gu, Goel, and Re<sup class="cite">[16]</sup> turns the HiPPO system into a practical layer of a neural network, and the key is that a linear time-invariant system can be computed in two completely different ways that suit two completely different needs. To use it we first <em>discretize</em>, replacing the continuous time derivative by a step of size $\Delta$, which converts the differential equation into a recurrence $\mathbf x_k=\bar A\mathbf x_{k-1}+\bar B u_k$ with matrices $\bar A,\bar B$ obtained from $A,B$ and $\Delta$ by a standard rule. Now the two faces appear.</p>
+  <p>As a <em>recurrence</em>, the system processes one input at a time, carrying the state forward, which is ideal for generating output step by step. As a <em>convolution</em>, unrolling the recurrence shows that the output sequence is simply the input sequence convolved with a fixed kernel,</p>
+  $$\bar K=\big(C\bar B,\ C\bar A\bar B,\ C\bar A^2\bar B,\ \dots,\ C\bar A^{L-1}\bar B\big),$$
+  <p>and a convolution can be applied to an entire sequence of length $L$ at once, in parallel, which is ideal for fast training on modern hardware. The reader should pause on the fact that these are the same computation, one linear system viewed two ways, exactly as the Riccati equation was one equation viewed two ways.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>A recurrence is good for answering "what comes next" one token at a time. A convolution is good for chewing through a whole sequence in parallel. A linear system is both at once, so S4 can train fast like a convolution and then generate efficiently like a recurrence. This is a practical superpower that nonlinear recurrent networks do not have.</p>
+  </div>
+  <p>The one obstruction is that building the kernel $\bar K$ naively requires multiplying by the matrix $\bar A$ over and over, which is slow. The technical heart of S4 is the discovery that the HiPPO matrix is similar to a special structured matrix, a diagonal matrix plus a low-rank correction, for which the kernel can be computed in about $(N+L)\log(N+L)$ operations instead of a cost proportional to $N^2L$. The size of this improvement is what made the difference in practice. On the Long Range Arena, a benchmark suite of tasks deliberately designed to require reasoning across thousands of positions, S4 was the first model to perform well across the board, including the notorious Path-X task, in which a model must decide whether two dots in a large image are connected by a path, presented as a flat sequence of sixteen thousand pixels. Every earlier model had scored at the level of random guessing on Path-X. S4 solved it. That result announced that a linear state-space system, properly parameterized, could capture dependencies far longer than anything attention had managed at the time.</p>
+
+  <h2><span class="sec-no">8.</span>&ensp;Diagonal simplifications and gating</h2>
+  <p>Once S4 showed what was possible, a wave of work simplified it without losing its power, and the lesson of that work is that the essential ingredient is the linear state-space recurrence itself, not any particular elaborate parameterization. Gupta, Gu, and Berant showed that a purely diagonal state matrix is essentially as expressive, the diagonal state space or DSS model<sup class="cite">[18]</sup>. Smith, Warrington, and Linderman replaced the bank of separate single-output systems with one system that has many inputs and outputs at once, evaluated by a parallel scan, the S5 model<sup class="cite">[17]</sup>, which reached ninety-eight and a half percent on Path-X. The H3 architecture of Fu and collaborators<sup class="cite">[19]</sup> added a multiplicative gate so that the layer could perform the kind of associative lookups that a pure linear system does poorly, and scaled the idea to billions of parameters on language. Each of these kept the linear system and changed only its dress.</p>
+
+  <h2><span class="sec-no">9.</span>&ensp;Mamba: making the system selective</h2>
+  <p>A linear time-invariant system has one fixed dynamics for all time, and this is its great limitation as a model of language or any sequence where context matters. Such a system cannot decide, based on what it is currently reading, to remember this word and forget that one, because its rules never change. Mamba, by Gu and Dao<sup class="cite">[20]</sup>, removes exactly this limitation by making the step size $\Delta$ and the input and output matrices $B$ and $C$ depend on the current input, so the system becomes <em>selective</em>: it can modulate how much it remembers moment to moment according to content. This input dependence breaks time-invariance, and with it the convolutional view, because the kernel is no longer fixed. Mamba therefore abandons the convolution and computes the now time-varying recurrence directly, using a carefully engineered parallel scan that keeps the large internal state in the fastest level of the hardware's memory so that no speed is lost. The result was striking: a Mamba model of three billion parameters matched the language-modeling quality of Transformers twice its size while generating several times faster, because its cost grows only linearly with sequence length rather than quadratically as attention does.</p>
+  <p>Its successor, Mamba-2, by Dao and Gu<sup class="cite">[21]</sup>, supplies the theoretical capstone. It proves a <em>state-space duality</em> showing that these selective systems are, through a decomposition of a class of structured matrices, a particular form of the attention mechanism that powers Transformers. The two great paradigms of sequence modeling, recurrence and attention, are revealed as two views of one underlying structured linear operation. With this the arc of the study is complete: the linear system whose optimal estimation required a Riccati equation has become, with learned and content-dependent matrices, a state-of-the-art engine for modeling sequences, and it turns out to be a cousin of attention all along.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>Plain S4 always follows the same rules, which is fine for signals but limiting for language, where you must choose what to keep. Mamba lets the rules depend on what is being read, so the model can focus and forget on purpose. Mamba-2 then shows that this selective recurrence and the attention used in Transformers are secretly the same kind of operation, which is a genuine unification of the field.</p>
+  </div>
+
+  <h2><span class="sec-no">10.</span>&ensp;Differentiable Kalman filters and deep state-space models</h2>
+  <p>There is a second, more literal line of descent that keeps the Kalman filter itself and places it inside a neural network. The motivation is that the Kalman filter is optimal only when its assumptions hold and its matrices are known, and learning can supply both what the assumptions miss and the matrices we do not have. Krishnan, Shalit, and Sontag introduced deep Kalman filters and structured inference networks<sup class="cite">[22]</sup>, in which neural networks parameterize the transition and the measurement and the whole model is trained by maximizing a variational lower bound on the likelihood, with a recurrent network producing the smoothing estimate. Karl and collaborators, in deep variational Bayes filters<sup class="cite">[23]</sup>, differentiate through the transition itself so that the learned latent space genuinely obeys a dynamics rather than merely fitting the data. Haarnoja and collaborators, in backprop Kalman filtering<sup class="cite">[24]</sup>, put a convolutional network in front of an ordinary Kalman filter and differentiate the filter's own update equations end to end, so that perception and estimation are trained together as one system. The Kalman variational autoencoder of Fraccaro and collaborators<sup class="cite">[25]</sup> separates a high-dimensional appearance, handled by a variational autoencoder, from a low-dimensional linear-Gaussian dynamics on which exact Kalman smoothing remains available. In all of these the covariance Riccati recursion of Section 4 survives intact inside the computational graph, and what is learned is the model it operates on. Rangapuram and collaborators carried the same idea to forecasting with deep state-space models<sup class="cite">[26]</sup>, in which a shared recurrent network emits, for each individual time series, the parameters of a classical linear state-space model that is then filtered in the standard way.</p>
+
+  <h2><span class="sec-no">11.</span>&ensp;Applications</h2>
+  <p>The estimation lineage is among the most widely deployed mathematics in all of engineering, and it is worth seeing concretely how the same equations are used. In robotics, the extended Kalman filter is the classical engine of simultaneous localization and mapping, the problem a robot solves when it must build a map of an unknown environment while tracking its own position within it, from the early work of Smith, Self, and Cheeseman through the real-time single-camera system MonoSLAM<sup class="cite">[27]</sup>, and modern visual-inertial and learned systems still keep a Kalman or factor-graph estimator at their core. In tracking for autonomous vehicles, a Kalman motion model sits inside contemporary pipelines that pair a learned object detector with a predictor to maintain the identity of each car and pedestrian across frames. In time-series forecasting, deep state-space models and their state-space-sequence successors produce probabilistic forecasts at industrial scale, for demand, energy, and finance. In sequence modeling more broadly, the S4 and Mamba families now handle raw audio generation, genomic sequences, and long-context language, and the most capable recent systems interleave state-space layers with attention layers to combine linear-time memory with content-based recall. The common thread is that one linear system, run forward to predict and corrected by data, serves equally as an optimal estimator and as a learnable transformation of sequences.</p>
+
+  <h2><span class="sec-no">12.</span>&ensp;Why this story matters</h2>
+  <p>Step back and the shape of the study is a single idea seen three times. In the scalar theory, a nonlinear equation was revealed to be a linear one in disguise, and the disguise was a change of variables. In estimation, the same matrix equation that looked like an abstract quadratic turned out to be the precise accounting of uncertainty for the best possible estimate, and its quadratic term was simply the measurements doing their work. In machine learning, the very same linear system, read backwards and given learnable matrices, became a competitive model of language and a cousin of attention. It is a striking continuity that an equation posed in 1724, made into the mathematics of optimal estimation in 1960, should in the 2020s become a layer of a neural network. The thread that runs through all of it is the one named at the start: a change of representation can turn a problem we cannot solve into one we already understand. The Riccati equation is the cleanest instance of that principle, and following it honestly leads from a calculus exercise to the frontier of artificial intelligence without a single gap. The two questions now driving the research are which linear systems remember best once selectivity is allowed, a question HiPPO began to answer for fixed systems, and whether the duality of Mamba-2 will dissolve the old boundary between recurrence and attention into a single theory of structured linear operators. If it does, the humble linear system, and the Riccati equation that estimates it, will have been the oldest member of that theory all along.</p>
+
+  <h2><span class="sec-no">13.</span>&ensp;References</h2>
+  <ol class="refs">
+    <li>S. Bittanti, A. J. Laub, J. C. Willems (eds.), <em>The Riccati Equation</em>. Springer, 1991. DOI 10.1007/978-3-642-58223-3.</li>
+    <li>R. E. Kalman, "A New Approach to Linear Filtering and Prediction Problems," <em>Trans. ASME J. Basic Eng.</em> 82(1):35–45, 1960. DOI 10.1115/1.3662552.</li>
+    <li>R. E. Kalman and R. S. Bucy, "New Results in Linear Filtering and Prediction Theory," <em>Trans. ASME J. Basic Eng.</em> 83(1):95–108, 1961. DOI 10.1115/1.3658902.</li>
+    <li>V. E. Beneš, "Exact finite-dimensional filters for certain diffusions with nonlinear drift," <em>Stochastics</em> 5(1–2):65–92, 1981. DOI 10.1080/17442508108833174.</li>
+    <li>B. D. O. Anderson and J. B. Moore, <em>Optimal Filtering</em>. Prentice-Hall, 1979. Dover, 2005. ISBN 978-0-486-43938-9.</li>
+    <li>K. J. Åström, <em>Introduction to Stochastic Control Theory</em>. Academic Press, 1970. Dover, 2006. ISBN 978-0-486-44531-1.</li>
+    <li>R. W. Brockett, <em>Finite Dimensional Linear Systems</em>. Wiley, 1970. SIAM Classics, 2015. ISBN 978-1-61197-387-7.</li>
+    <li>P. Lancaster and L. Rodman, <em>Algebraic Riccati Equations</em>. Oxford University Press, 1995. ISBN 978-0-19-853795-3.</li>
+    <li>A. H. Jazwinski, <em>Stochastic Processes and Filtering Theory</em>. Academic Press, 1970. Dover, 2007. ISBN 978-0-486-46274-5.</li>
+    <li>E. D. Sontag, <em>Mathematical Control Theory</em>, 2nd ed. Springer, 1998. DOI 10.1007/978-1-4612-0577-7.</li>
+    <li>A. Bain and D. Crisan, <em>Fundamentals of Stochastic Filtering</em>. Springer, 2009. DOI 10.1007/978-0-387-76896-0.</li>
+    <li>W. T. Reid, <em>Riccati Differential Equations</em>. Academic Press, 1972. ISBN 978-0-12-586250-9.</li>
+    <li>M. Zakai, "On the optimal filtering of diffusion processes," <em>Z. Wahrsch. Verw. Geb.</em> 11:230–243, 1969. DOI 10.1007/BF00536382.</li>
+    <li>H. J. Kushner, "Dynamical equations for optimal nonlinear filtering," <em>J. Differential Equations</em> 3(2):179–190, 1967. DOI 10.1016/0022-0396(67)90023-X.</li>
+    <li>A. Gu, T. Dao, S. Ermon, A. Rudra, C. Ré, "HiPPO: Recurrent Memory with Optimal Polynomial Projections," NeurIPS 2020. arXiv:2008.07669.</li>
+    <li>A. Gu, K. Goel, C. Ré, "Efficiently Modeling Long Sequences with Structured State Spaces" (S4), ICLR 2022. arXiv:2111.00396.</li>
+    <li>J. T. H. Smith, A. Warrington, S. W. Linderman, "Simplified State Space Layers for Sequence Modeling" (S5), ICLR 2023. arXiv:2208.04933.</li>
+    <li>A. Gupta, A. Gu, J. Berant, "Diagonal State Spaces are as Effective as Structured State Spaces" (DSS), NeurIPS 2022. arXiv:2203.14343.</li>
+    <li>D. Y. Fu, T. Dao, K. K. Saab, A. W. Thomas, A. Rudra, C. Ré, "Hungry Hungry Hippos: Towards Language Modeling with State Space Models" (H3), ICLR 2023. arXiv:2212.14052.</li>
+    <li>A. Gu and T. Dao, "Mamba: Linear-Time Sequence Modeling with Selective State Spaces," COLM 2024. arXiv:2312.00752.</li>
+    <li>T. Dao and A. Gu, "Transformers are SSMs: Generalized Models and Efficient Algorithms Through Structured State Space Duality" (Mamba-2), ICML 2024. arXiv:2405.21060.</li>
+    <li>R. G. Krishnan, U. Shalit, D. Sontag, "Structured Inference Networks for Nonlinear State Space Models," AAAI 2017. arXiv:1609.09869 (earlier "Deep Kalman Filters," arXiv:1511.05121).</li>
+    <li>M. Karl, M. Soelch, J. Bayer, P. van der Smagt, "Deep Variational Bayes Filters," ICLR 2017. arXiv:1605.06432.</li>
+    <li>T. Haarnoja, A. Ajay, S. Levine, P. Abbeel, "Backprop KF: Learning Discriminative Deterministic State Estimators," NeurIPS 2016. arXiv:1605.07148.</li>
+    <li>M. Fraccaro, S. Kamronn, U. Paquet, O. Winther, "A Disentangled Recognition and Nonlinear Dynamics Model for Unsupervised Learning" (Kalman VAE), NeurIPS 2017. arXiv:1710.05741.</li>
+    <li>S. S. Rangapuram, M. W. Seeger, J. Gasthaus, L. Stella, Y. Wang, T. Januschowski, "Deep State Space Models for Time Series Forecasting," NeurIPS 2018.</li>
+    <li>A. J. Davison, I. D. Reid, N. D. Molton, O. Stasse, "MonoSLAM: Real-Time Single Camera SLAM," <em>IEEE TPAMI</em> 29(6):1052–1067, 2007. DOI 10.1109/TPAMI.2007.1049.</li>
+  </ol>
+
+  <div class="nextprev">
+    <a class="prev" data-view="research"><span class="nplab">Back</span>All studies</a>
+    <a class="next" data-view="paper2"><span class="nplab">Study II</span>Mathematical discovery &rarr;</a>
+  </div>
+
+</div>
+</section>
+<!-- ===================== PAPER 2 ===================== -->
+<section class="view" id="view-paper2" hidden>
+<div class="container wide">
+
+  <a class="backlink" data-view="research">&larr. All studies</a>
+
+  <div class="paper-head">
+    <p class="kicker">Study II · from Problem 7</p>
+    <h1>The Golden Ratio, Diophantine Approximation, and the Machine Discovery of Mathematics</h1>
+    <p class="subtitle">We begin with a question a calculus student can ask, how well a fraction can approximate an irrational number, and end at algorithms that are now conjecturing and proving new theorems about exactly these numbers.</p>
+    <p class="paper-meta">Akshat Agarwal · Single Variable Calculus II · Research Study II</p>
+  </div>
+
+  <div class="abstract">
+    <p class="alab">Abstract</p>
+    <p>The seventh examination problem is about a rate: how quickly a Taylor approximation closes in on the value it estimates. This study asks the same kind of question for ordinary numbers. How closely can an irrational number be approached by a fraction whose denominator is not allowed to be too large? The answer is one of the most beautiful theories in mathematics, and the object that holds the answer for any given number is its continued fraction. We develop continued fractions from the algorithm that produces them, prove that their truncations are the best possible approximations, and discover that the golden ratio is, in a precise and provable sense, the single number that resists approximation more stubbornly than any other. We prove Hurwitz's theorem, which makes that statement exact, and then climb the ladder of structure above it: the Markov and Lagrange spectra, the Markov equation and its tree of solutions, and the description of what a randomly chosen number looks like, which rests on the ergodic theory of a single map of the unit interval. We then turn to a development that would have seemed like science fiction a decade ago. Computer programs now <em>discover</em> mathematics about these very objects. The Ramanujan Machine conjectures continued-fraction formulas for fundamental constants. A successor program proved a hidden order among them, and program-search systems built on large language models have improved bounds that had stood for decades. The same lattice-reduction algorithms that find such relations also secure the new post-quantum cryptography. The thread running through all of it is that the oldest question about a single number, how well it can be approximated, is now a proving ground for machine discovery and a foundation of modern security.</p>
+  </div>
+
+  <div class="toc">
+    <p class="tlab">Contents</p>
+    <ol>
+      <li>Introduction: a question about numbers</li>
+      <li>The baseline: Dirichlet's theorem</li>
+      <li>Continued fractions, from the algorithm up</li>
+      <li>Convergents and the recurrence that drives them</li>
+      <li>Why convergents are the best approximations</li>
+      <li>The golden ratio and the meaning of "most irrational"</li>
+      <li>Hurwitz's theorem</li>
+      <li>The ladder above the golden ratio: Markov and Lagrange spectra</li>
+      <li>What a typical number looks like</li>
+      <li>The golden angle and the arrangement of plants</li>
+      <li>The frontier: machines that discover mathematics</li>
+      <li>Lattice algorithms, cryptography, and the discovery of constants</li>
+      <li>Why this story matters</li>
+      <li>References</li>
+    </ol>
+  </div>
+
+  <div class="roadmap">
+    <span class="lab">How to read this study</span>
+    <p>The study moves in a straight line from a concrete question to a research frontier, and each idea is used only after it is built. Sections 2 through 5 are the machinery of approximation: a guaranteed baseline, the continued fraction that achieves the best possible approximations, and a proof that it does. Sections 6 and 7 single out the golden ratio as the extreme case and prove the sharp universal theorem around it. Sections 8 and 9 organize all numbers by how well they can be approximated. Section 10 shows the extremal number appearing in nature. Sections 11 and 12 reach the frontier, where the same objects are now studied by machines. Boxes marked <em>In plain words</em> restate each idea without symbols, and boxes marked <em>Worked example</em> carry a calculation through in full.</p>
+  </div>
+
+  <h2><span class="sec-no">1.</span>&ensp;Introduction: a question about numbers</h2>
+  <p>Problem&nbsp;7 asks how large a Taylor polynomial must be before it is guaranteed to be within one half of the value it approximates, and the answer turned on how fast the error shrinks. The error shrinking is a statement about a rate of approximation. There is an exact and far richer analogue of this question for plain real numbers, and it is the subject of this study. Every irrational number can be approached by fractions as closely as we like, that much is obvious, but if we insist that the denominator of the fraction stay small, the approximation cannot be made arbitrarily good, and the precise trade-off between accuracy and the size of the denominator is the content of the field called Diophantine approximation. The single object that records this trade-off for a given number is its continued fraction, and the most extreme case of the whole theory, the number that is hardest of all to approximate, turns out to be the golden ratio. The complex base $1+i$ that appears in the examination problem is a quiet hint in that direction, and we will follow the hint all the way to a frontier where machines make discoveries about these numbers.</p>
+
+  <h2><span class="sec-no">2.</span>&ensp;The baseline: Dirichlet's theorem</h2>
+  <p>Before we can say that some approximations are unusually good, we need to know what is guaranteed for free, for every number. The answer is a theorem of Dirichlet from 1842, and its proof is one of the first and most elegant uses of the pigeonhole principle.</p>
+  <div class="thm">
+    <span class="lab">Theorem 2.1 (Dirichlet, 1842).</span>
+    <p>For every irrational $\alpha$ there are infinitely many fractions $p/q$ in lowest terms with</p>
+    $$\left|\alpha-\frac{p}{q}\right|\lt\frac{1}{q^2}.$$
+  </div>
+  <p><em>Why it is true.</em> Fix a whole number $N$ and consider the fractional parts of the $N+1$ numbers $0,\alpha,2\alpha,\dots,N\alpha$, each of which lies somewhere in the interval from $0$ to $1$. Cut that interval into $N$ equal boxes. We have $N+1$ numbers and only $N$ boxes, so by the pigeonhole principle two of them, say the fractional parts of $j\alpha$ and $k\alpha$ with $j\gt k$, land in the same box and so differ by less than $1/N$. Setting $q=j-k$ and letting $p$ be the nearest whole number to $q\alpha$, this says $|q\alpha-p|\lt 1/N\le 1/q$, hence $|\alpha-p/q|\lt 1/(qN)\le 1/q^2$. Letting $N$ grow produces infinitely many such fractions. $\;\blacksquare$</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>Dirichlet's theorem is the floor that every number stands on. No matter how stubborn a number is, you can always find fractions that come within the square of the denominator. The entire drama of the rest of the study is about how much better than this floor a particular number can do, and the golden ratio is the number that does the least better.</p>
+  </div>
+
+  <h2><span class="sec-no">3.</span>&ensp;Continued fractions, from the algorithm up</h2>
+  <p>The fractions that achieve Dirichlet's bound, and indeed the best fractions of all, are produced by a single mechanical procedure, the continued fraction algorithm. We define it by the process that generates it, because that is the clearest way to see what it does.</p>
+  <div class="defn">
+    <span class="lab">Definition 3.1.</span>
+    <p>Given a number $\alpha$, set $\alpha_0=\alpha$ and repeat: let $a_n=\lfloor\alpha_n\rfloor$ be the whole-number part, and if $\alpha_n$ is not itself a whole number let $\alpha_{n+1}=1/(\alpha_n-a_n)$. The resulting list of whole numbers is written</p>
+    $$\alpha=a_0+\cfrac{1}{a_1+\cfrac{1}{a_2+\cfrac{1}{a_3+\cdots}}}=[a_0;a_1,a_2,a_3,\dots],$$
+    <p>with $a_0$ any integer and every later $a_n$ a positive integer. The numbers $a_n$ are called the <em>partial quotients</em>.</p>
+  </div>
+  <p>The procedure stops exactly when some $\alpha_n$ is a whole number, and a moment's thought shows this happens precisely when $\alpha$ is rational, because the algorithm is nothing other than the Euclidean algorithm for the greatest common divisor applied to the numerator and denominator. Irrational numbers therefore have infinite continued fractions, and rational numbers have finite ones.</p>
+  <div class="worked">
+    <span class="lab">Worked example</span>
+    <p><strong>A rational number.</strong> Take $\alpha=\tfrac{45}{16}$. The whole part is $2$, leaving $\tfrac{13}{16}$, so we invert to get $\tfrac{16}{13}$. Its whole part is $1$, leaving $\tfrac{3}{13}$, invert to $\tfrac{13}{3}$. Whole part $4$, leaving $\tfrac13$, invert to $3$, which is whole, so we stop. Thus $\tfrac{45}{16}=[2;1,4,3]$, and the reader can check this is exactly the Euclidean algorithm on $45$ and $16$.</p>
+    <p><strong>An irrational number.</strong> Take $\alpha=\sqrt2\approx 1.41421$. The whole part is $1$, leaving $0.41421$, and $1/0.41421\approx 2.41421$. Its whole part is $2$, leaving $0.41421$ again, so the process repeats forever: $\sqrt2=[1;2,2,2,2,\dots]$. The fact that the partial quotients are eventually periodic is, as we will see, the signature of a quadratic irrational.</p>
+  </div>
+
+  <h2><span class="sec-no">4.</span>&ensp;Convergents and the recurrence that drives them</h2>
+  <p>Truncating the continued fraction after $n$ steps gives a genuine fraction $p_n/q_n=[a_0;a_1,\dots,a_n]$, called the $n$-th <em>convergent</em>. One would not want to recompute the whole nested fraction each time, and happily there is no need: the convergents satisfy a simple recurrence that builds each from the two before it.</p>
+  <div class="thm">
+    <span class="lab">Theorem 4.1 (Convergent recurrence and the determinant identity).</span>
+    <p>With the starting values $p_{-1}=1,\,p_0=a_0,\,q_{-1}=0,\,q_0=1$, the convergents satisfy, for $n\ge 1$,</p>
+    $$p_n=a_n\,p_{n-1}+p_{n-2},\qquad q_n=a_n\,q_{n-1}+q_{n-2},$$
+    <p>and they obey the determinant identity</p>
+    $$p_n\,q_{n-1}-p_{n-1}\,q_n=(-1)^{n-1}.$$
+    <p>In particular every convergent $p_n/q_n$ is automatically in lowest terms.</p>
+  </div>
+  <p><em>Why it is true.</em> Both statements become transparent when the recurrence is written with matrices. Each step of the continued fraction corresponds to multiplying on the right by the matrix $\left(\begin{smallmatrix}a_k&1\\1&0\end{smallmatrix}\right)$, and one verifies by induction that the product of these matrices is exactly</p>
+  $$\begin{pmatrix}a_0&1\\1&0\end{pmatrix}\begin{pmatrix}a_1&1\\1&0\end{pmatrix}\cdots\begin{pmatrix}a_n&1\\1&0\end{pmatrix}=\begin{pmatrix}p_n&p_{n-1}\\q_n&q_{n-1}\end{pmatrix}.$$
+  <p>The recurrence is just this product read entry by entry. For the determinant identity, take the determinant of both sides: each of the $n+1$ factors has determinant $-1$, so the whole product has determinant $(-1)^{n+1}$, which equals $(-1)^{n-1}$, and the determinant of the right-hand matrix is $p_nq_{n-1}-p_{n-1}q_n$. Because that determinant is $\pm1$, no integer greater than one can divide both $p_n$ and $q_n$, so the fraction is already reduced. $\;\blacksquare$</p>
+  <p>The determinant identity has an immediate consequence that we will lean on repeatedly. Dividing it by $q_nq_{n-1}$ gives</p>
+  $$\frac{p_n}{q_n}-\frac{p_{n-1}}{q_{n-1}}=\frac{(-1)^{n-1}}{q_n q_{n-1}},$$
+  <p>so consecutive convergents lie on opposite sides of $\alpha$ and march toward it, with the gap between them shrinking as the denominators grow. Pushing this a little further yields the fundamental approximation bounds</p>
+  $$\frac{1}{q_n(q_n+q_{n+1})}\;\lt\;\left|\alpha-\frac{p_n}{q_n}\right|\;\lt\;\frac{1}{q_n q_{n+1}}\;\le\;\frac{1}{a_{n+1}\,q_n^2}.$$
+  <div class="worked">
+    <span class="lab">Worked example</span>
+    <p>For $\sqrt2=[1;2,2,2,\dots]$ the recurrence gives convergents $1,\ \tfrac32,\ \tfrac75,\ \tfrac{17}{12},\ \tfrac{41}{29},\dots$ Take $\tfrac{17}{12}$. The determinant identity predicts $17\cdot 5-7\cdot 12=85-84=1$, which checks. And $\big|\sqrt2-\tfrac{17}{12}\big|\approx 0.00245$, comfortably smaller than $1/12^2\approx 0.0069$, exactly as the upper bound promises. Each convergent of $\sqrt2$ approximates it to within the square of its denominator, far better than a fraction of that size has any right to.</p>
+  </div>
+  <h2><span class="sec-no">5.</span>&ensp;Why convergents are the best approximations</h2>
+  <p>The bounds above already show that convergents are good. The deeper fact is that they are the <em>best</em>: no fraction with a denominator no larger than $q_n$ comes closer to $\alpha$ than the convergent $p_n/q_n$ does. This is the theorem that justifies calling the continued fraction the right tool for approximation.</p>
+  <div class="thm">
+    <span class="lab">Theorem 5.1 (Best approximation, Lagrange).</span>
+    <p>If $1\le q\le q_n$ and the fraction $p/q$ is different from $p_n/q_n$, then $|q_n\alpha-p_n|\lt|q\alpha-p|$. Conversely, any fraction $p/q$ in lowest terms with $|\alpha-p/q|\lt 1/(2q^2)$ must be a convergent of $\alpha$.</p>
+  </div>
+  <p>The two halves fit together perfectly. The first half says the convergents are unbeatable within their denominator budget, and the second says that any fraction good enough to beat the threshold $1/(2q^2)$ has no choice but to be one of them. So the convergents are not merely some good approximations among many. Up to that threshold they are the complete list of good approximations. The bound $|\alpha-p_n/q_n|\lt 1/(a_{n+1}q_n^2)$ now tells us exactly when an approximation is spectacular: it happens precisely when the next partial quotient $a_{n+1}$ is large, because a large $a_{n+1}$ shrinks the error far below the $1/q_n^2$ floor. This single observation explains one of the most famous approximations in mathematics.</p>
+  <div class="worked">
+    <span class="lab">Worked example</span>
+    <p>The continued fraction of $\pi$ begins $\pi=[3;7,15,1,292,1,\dots]$, and its early convergents are $3,\ \tfrac{22}{7},\ \tfrac{333}{106},\ \tfrac{355}{113},\dots$ The approximation $\tfrac{22}{7}$ is the familiar schoolbook value. But look at what follows the convergent $\tfrac{355}{113}$: the next partial quotient is the unusually large number $292$. By the bound, the error of $\tfrac{355}{113}$ is smaller than $1/(292\cdot 113^2)$, which is about three parts in ten million. This is why $\tfrac{355}{113}$, known to the Chinese mathematician Zu Chongzhi in the fifth century, matches $\pi$ to six decimal places with a denominator of only $113$. The large partial quotient is the whole reason, and the continued fraction reveals it at a glance.</p>
+  </div>
+
+  <h2><span class="sec-no">6.</span>&ensp;The golden ratio and the meaning of "most irrational"</h2>
+  <p>If a large partial quotient produces a wonderful approximation, then the number that is hardest to approximate must be the one whose partial quotients are all as small as they can possibly be. The smallest a partial quotient is allowed to be is $1$, and the number every one of whose partial quotients equals $1$ is the golden ratio.</p>
+  <div class="lemma">
+    <span class="lab">Proposition 6.1.</span>
+    <p>The golden ratio $\varphi=\dfrac{1+\sqrt5}{2}\approx 1.618$ has the continued fraction $[1;1,1,1,\dots]$, and its convergents are ratios of consecutive Fibonacci numbers, $\tfrac11,\tfrac21,\tfrac32,\tfrac53,\tfrac85,\dots$</p>
+  </div>
+  <p><em>Why it is true.</em> If $x=[1;1,1,\dots]$ then the tail of the continued fraction is identical to the whole, which gives the equation $x=1+1/x$, that is $x^2-x-1=0$, whose positive root is $\varphi$. The convergent recurrence with every $a_n=1$ reads $p_n=p_{n-1}+p_{n-2}$, which is exactly the Fibonacci rule, so the convergents are consecutive Fibonacci ratios. $\;\blacksquare$</p>
+  <p>Now we can make the slogan precise. Binet's formula expresses the Fibonacci numbers as $F_n=(\varphi^n-\psi^n)/\sqrt5$, where $\psi=(1-\sqrt5)/2=-1/\varphi$ is the conjugate root, a number of size less than one. A short computation then gives the error of the Fibonacci approximations,</p>
+  $$\left|\varphi-\frac{F_{n+1}}{F_n}\right|\cdot F_n^2=\frac{F_n}{\varphi^n}=\frac{1-(\psi/\varphi)^n}{\sqrt5}\;\longrightarrow\;\frac{1}{\sqrt5}\approx 0.447,$$
+  <p>because $|\psi/\varphi|=1/\varphi^2$ is less than one and its powers vanish. The product of the error with the square of the denominator does not shrink toward zero, as it does for $\sqrt2$ or $\pi$, but settles down to the fixed positive number $1/\sqrt5$. The golden ratio's convergents do the least possible work, never beating the floor by more than the constant $1/\sqrt5$, and that constant is exactly the one that appears in the universal theorem of the next section.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>For most numbers, some of the convergents are flukes that approximate astonishingly well, because a large partial quotient happened to come along. The golden ratio never gets such a fluke, because its partial quotients are all the smallest they can be. It is the number with no lucky approximations, and that is what "most irrational" means.</p>
+  </div>
+
+  <h2><span class="sec-no">7.</span>&ensp;Hurwitz's theorem</h2>
+  <p>Dirichlet guaranteed the floor $1/q^2$. Hurwitz, in 1891, found the exact best constant by which that floor can be lowered for every number at once, and the golden ratio is what stops it from going lower.</p>
+  <div class="thm">
+    <span class="lab">Theorem 7.1 (Hurwitz, 1891).</span>
+    <p>For every irrational $\alpha$ there are infinitely many fractions $p/q$ with</p>
+    $$\left|\alpha-\frac{p}{q}\right|\lt\frac{1}{\sqrt5\,q^2}.$$
+    <p>The constant $\sqrt5$ cannot be improved: if it is replaced by any larger number, the statement becomes false for the golden ratio and the numbers related to it.</p>
+  </div>
+  <p><em>The idea of the proof.</em> The existence half rests on a clean fact about three neighbors: among any three consecutive convergents of any number, at least one satisfies the $\sqrt5$ bound. One argues by contradiction. Suppose two consecutive convergents both failed the bound. Using that $\alpha$ lies between consecutive convergents, together with the determinant identity from Section 4, the failure forces the ratio of consecutive denominators $t=q_{n+1}/q_n$ to satisfy the inequality $t^2-\sqrt5\,t+1\le 0$, which confines $t$ to the narrow band between $1/\varphi$ and $\varphi$. Applying this at two adjacent steps and combining it with the denominator recurrence squeezes the ratio toward the single value $\varphi$ exactly, which is impossible because that ratio is always rational while $\varphi$ is not. The sharpness half is exactly the computation of Section 6: for the golden ratio the product of error and squared denominator approaches $1/\sqrt5$ from below, so no constant larger than $\sqrt5$ can hold infinitely often. $\;\blacksquare$</p>
+  <p>Hurwitz's theorem is the exact universal form of the rate question that Problem&nbsp;7 raised for Taylor polynomials. Every number can be approximated to within $1/(\sqrt5\,q^2)$ infinitely often, and the golden ratio is the unique obstruction to doing any better.</p>
+
+  <h2><span class="sec-no">8.</span>&ensp;The ladder above the golden ratio: Markov and Lagrange spectra</h2>
+  <p>Hurwitz's theorem invites an irresistible next question. The golden ratio is what prevents the constant from rising above $\sqrt5$. What if we set it and its relatives aside? Then the best constant improves, and setting aside the next obstruction improves it again, producing a whole ladder of best constants. This ladder is one of the most beautiful structures in number theory.</p>
+  <div class="defn">
+    <span class="lab">Definition 8.1.</span>
+    <p>For each number $\alpha$, its <em>Lagrange number</em> $L(\alpha)$ is the largest constant $c$ for which $|\alpha-p/q|\lt 1/(c\,q^2)$ holds for infinitely many fractions. The collection of all finite Lagrange numbers is the <em>Lagrange spectrum</em>, and a closely related construction using quadratic forms gives the slightly larger <em>Markov spectrum</em>.</p>
+  </div>
+  <p>Below the value $3$ the two spectra agree exactly, and they are not a continuous range of values but a discrete, isolated sequence:</p>
+  $$\frac{\sqrt5}{1},\ \frac{\sqrt8}{1},\ \frac{\sqrt{221}}{5},\ \frac{\sqrt{1517}}{13},\ \dots,\qquad \text{generally}\quad \frac{\sqrt{9m^2-4}}{m},$$
+  <p>where the integers $m=1,2,5,13,29,34,\dots$ are the famous <em>Markov numbers</em>. The smallest value, $\sqrt5$, is Hurwitz's constant. The next, $\sqrt8$, is the best constant once the golden ratio is excluded. The values climb and pile up toward $3$, and below $3$ this discrete ladder is the entire spectrum. What makes the Markov numbers extraordinary is where they come from: they are exactly the largest entries of the positive whole-number solutions of one strikingly symmetric equation.</p>
+  <div class="thm">
+    <span class="lab">Theorem 8.2 (Markov, 1879).</span>
+    <p>Every positive integer solution of the <em>Markov equation</em></p>
+    $$x^2+y^2+z^2=3xyz$$
+    <p>is obtained from the solution $(1,1,1)$ by repeatedly applying the move that replaces one coordinate $z$ by $3xy-z$ while keeping the other two fixed. The solutions form an infinite binary tree, and the Markov numbers are the values that appear in them.</p>
+  </div>
+  <div class="worked">
+    <span class="lab">Worked example</span>
+    <p>The move that generates all solutions is an instance of a technique called Vieta jumping, and it is worth watching it run. View the equation as a quadratic in $z$. If $(x,y,z)$ is a solution, then $z$ and $3xy-z$ are the two roots of the same quadratic, so replacing $z$ by $3xy-z$ gives another solution. Start at $(1,1,1)$. Replacing the third coordinate gives $3\cdot1\cdot1-1=2$, so $(1,1,2)$. From $(1,1,2)$, replacing a $1$ gives $3\cdot1\cdot2-1=5$, so $(1,2,5)$. Replacing the $2$ gives $3\cdot1\cdot1-2=1$, returning where we came from. From $(1,2,5)$ we reach $(1,5,13)$ and $(2,5,29)$, and so on. The largest entries encountered, $1,2,5,13,29,\dots$, are precisely the Markov numbers, and they are exactly the denominators that index the rungs of the spectrum's ladder.</p>
+  </div>
+  <p>A famous open problem hangs over this structure. The <em>uniqueness conjecture</em>, posed by Frobenius in 1913, asks whether the largest coordinate of a Markov triple determines the other two completely. It has been proved in many special cases but remains open in general. Above the value $3$ the character of the spectra changes entirely: they stop being a discrete ladder and become complicated fractal sets, and a long-standing belief that the two spectra coincide on a certain range was disproved by Matheus and Moreira in 2018. The definitive book on this circle of ideas is Aigner<sup class="cite">[9]</sup>, with the spectra treated in Cusick and Flahive<sup class="cite">[10]</sup> and Bombieri<sup class="cite">[11]</sup>.</p>
+
+  <h2><span class="sec-no">9.</span>&ensp;What a typical number looks like</h2>
+  <p>We have studied special numbers, the golden ratio and the Markov numbers. One can also ask the opposite question: what does the continued fraction of a number chosen at random look like? The answer is governed by a single map of the unit interval, and the theory behind it is a beautiful piece of what is called ergodic theory. The relevant map is the <em>Gauss map</em> $T(x)=\{1/x\}$, which takes a number, inverts it, and keeps only the fractional part. Applying $T$ to a number simply deletes the first partial quotient of its continued fraction and shifts the rest forward, so iterating the Gauss map walks down the continued fraction one step at a time. The map has a special probability measure that it preserves, the Gauss measure, and it is <em>ergodic</em> with respect to it, a technical word with an intuitive meaning: the orbit of almost every starting point spends time in each region in proportion to that region's measure, so that long-run averages along a single orbit equal averages over the whole interval. This is the engine behind the following theorem.</p>
+  <div class="thm">
+    <span class="lab">Theorem 9.1 (Khinchin 1935 and Lévy 1936).</span>
+    <p>For almost every number $\alpha$, in the sense of ordinary length, two universal limits hold, independent of which $\alpha$ is chosen. The geometric mean of the partial quotients tends to a fixed constant,</p>
+    $$\big(a_1a_2\cdots a_n\big)^{1/n}\;\longrightarrow\; K_0\approx 2.6854520010,$$
+    <p>and the denominators grow at a fixed exponential rate,</p>
+    $$q_n^{1/n}\;\longrightarrow\; e^{\pi^2/(12\ln 2)}\approx 3.27582.$$
+  </div>
+  <p>The first limit is Khinchin's constant and the second is Lévy's constant, and the truly surprising thing is that the same two numbers govern almost every real number, even though particular numbers like the golden ratio behave completely differently. Both limits are proved by applying the ergodic theorem to suitable functions of the Gauss map. A complementary fact pins down the exceptions from the standpoint of approximation. A number is called <em>badly approximable</em> if its convergents never do much better than the floor, equivalently if its partial quotients stay bounded and never grow large. The quadratic irrationals, whose continued fractions are eventually periodic, like the repeating $[1;2,2,2,\dots]$ of $\sqrt2$, are the simplest badly approximable numbers, and the golden ratio, with the smallest possible partial quotients, is the worst-approximable of them all. The golden ratio is thus the most exceptional point of a theory whose typical behavior is described by Khinchin's and Lévy's constants.</p>
+
+  <h2><span class="sec-no">10.</span>&ensp;The golden angle and the arrangement of plants</h2>
+  <p>The extreme approximation property of the golden ratio has a consequence one can see in a sunflower. Suppose new elements are added around a growing center, each placed at a fixed angle turned from the last. If that angle is a rational fraction of a full turn, the elements line up into a small number of radial spokes with large empty gaps between them, because after a few turns the pattern repeats. To fill space evenly and leave no wasted room, the turning fraction should be the one that is hardest to approximate by simple rationals, so that the pattern never settles into spokes. That fraction is built from the golden ratio, and the corresponding angle, the <em>golden angle</em> of about $137.5$ degrees, is exactly the one observed in the spiral arrangements of seeds, petals, and leaves across the plant kingdom. Douady and Couder<sup class="cite">[12,13]</sup> demonstrated this both in a physical experiment, dropping magnetically repelled droplets that spontaneously arranged themselves at the golden angle, and in computer simulations that reproduced the Fibonacci-numbered spirals of real plants as the configuration nature prefers. The number that is most exceptional for pure approximation is therefore the number selected by a packing process in nature, a striking case of an abstract extremum showing up as a physical optimum.</p>
+  <h2><span class="sec-no">11.</span>&ensp;The frontier: machines that discover mathematics</h2>
+  <p>We now reach the development that makes this study urgent rather than merely beautiful. The objects of the previous sections, continued fractions and the constants they represent, have in the last few years become the subject of a new kind of mathematics in which a computer proposes, and sometimes proves, results that humans then study. It is worth being careful about what "discovery" can mean for a machine, because there are several distinct modes, and the systems below illustrate them in turn: conjecturing a formula, proving a structural law, guiding a human toward a true statement, and searching the space of programs for a better one.</p>
+
+  <h3>11.1&ensp;The Ramanujan Machine: conjecturing formulas</h3>
+  <p>Raayoni and collaborators built a system, named for the intuitive genius Srinivasa Ramanujan, that searches for continued-fraction expressions of fundamental constants such as $\pi$, $e$, and the Catalan constant<sup class="cite">[17]</sup>. It is precisely the objects of this study, continued fractions, turned into the target of an automated hunt. The machine enumerates candidate formulas of a structured polynomial kind and tests, to very high numerical precision, whether each one equals a target constant, using a fast meet-in-the-middle search and a gradient-based refinement to home in. It rediscovered classical expansions due to Gauss and produced genuinely new ones, several of which were subsequently proved by hand by human mathematicians. The significance is methodological: a machine generated true mathematical <em>conjectures</em> about exactly the kind of object we have been studying, conjectures specific enough to be checked and then proved.</p>
+
+  <h3>11.2&ensp;A proved order among the constants</h3>
+  <p>A successor program went past conjecture to proof. Elimelech and collaborators<sup class="cite">[18]</sup> uncovered a structural relation, which they call factorial reduction, that organizes the continued fractions of many different constants into a single ordered family, and they proved the statements underlying it. This is much closer to the working mathematician's ideal than a numerically supported guess. It is a theorem about the hidden architecture connecting different constants, found with algorithmic help and then established rigorously.</p>
+
+  <h3>11.3&ensp;Guiding human intuition</h3>
+  <p>In a different mode entirely, Davies and collaborators<sup class="cite">[19]</sup> used machine learning not to prove anything but to point mathematicians toward truths worth proving, by detecting patterns in large amounts of mathematical data. This led to two proved results, one relating algebraic and geometric invariants of knots and one making progress on a deep conjecture in representation theory about certain polynomials. Here the machine is a source of intuition, a generator of promising guesses, and the human supplies the proof. It is a genuine collaboration rather than an automation.</p>
+
+  <h3>11.4&ensp;Searching the space of programs</h3>
+  <p>The most general systems search not over numbers or formulas but over <em>programs</em>. AlphaTensor<sup class="cite">[20]</sup> framed the discovery of fast matrix-multiplication algorithms as a single-player game and found, for four-by-four matrices over the field with two elements, a method using forty-seven multiplications, beating a forty-nine-multiplication record that had stood since Strassen in 1969. Honesty requires noting that this particular record was itself improved within weeks by Kauers and Moosbauer using computer algebra, which is a healthy reminder that machine discoveries enter the ordinary competitive life of mathematics. FunSearch and its successor AlphaEvolve<sup class="cite">[21]</sup> pair a large language model that proposes programs with an automatic judge that scores them, and this evolutionary loop improved a longstanding lower bound on a problem in combinatorics, the cap-set problem, and produced new practical heuristics for packing problems. AlphaGeometry<sup class="cite">[22]</sup> solved twenty-five of thirty olympiad geometry problems, approaching the level of a human gold medalist, by combining a language model with a classical symbolic deduction engine. On a smaller and conceptually cleaner scale, transformers have been trained to perform symbolic integration and to solve differential equations<sup class="cite">[26]</sup>, in some cases outperforming established computer-algebra systems on problems they had not seen. Across all of these the lesson is the one the Ramanujan Machine teaches with continued fractions: search, guided by learning, can find mathematics.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>There is no single thing called machine discovery. A program can guess a formula and leave the proof to us, prove a structural law on its own, nudge a mathematician toward a true statement, or evolve a better algorithm by trial and judged error. The continued fractions of this study were among the very first objects on which the first of these modes succeeded, which is why the field traces part of its lineage straight back to the mathematics of approximation.</p>
+  </div>
+
+  <h2><span class="sec-no">12.</span>&ensp;Lattice algorithms, cryptography, and the discovery of constants</h2>
+  <p>Underneath much of this machine discovery sits a single algorithmic idea that is a direct descendant of continued fractions. A continued fraction is, at bottom, the optimal way to find a hidden whole-number relationship between two quantities, namely $1$ and $\alpha$. The natural generalization asks for small whole-number combinations of <em>several</em> quantities that nearly cancel, and this is solved by what is called lattice basis reduction. The celebrated LLL algorithm of Lenstra, Lenstra, and Lovasz<sup class="cite">[23]</sup> reduces a lattice basis to a short, nearly orthogonal one in a guaranteed reasonable amount of time, and the PSLQ algorithm of Ferguson, Bailey, and Arno<sup class="cite">[24]</sup> detects integer relations to high precision. PSLQ was used to discover the remarkable Bailey–Borwein–Plouffe formula<sup class="cite">[25]</sup>, which can compute a single hexadecimal digit of $\pi$ without computing any of the digits before it, overturning the natural assumption that any digit of $\pi$ requires all of its predecessors. These reduction algorithms are the practical heart of the constant-discovery programs of Section 11, the multidimensional engine of which the continued fraction is the one-dimensional ancestor.</p>
+  <p>The very same lattice problems, seen now as obstacles rather than tools, secure modern communication. The difficulty of finding short vectors in high-dimensional lattices is the hardness assumption behind the post-quantum cryptography standards finalized by the United States National Institute of Standards and Technology in August 2024, including the key-establishment standard built from the scheme called CRYSTALS-Kyber and the digital-signature standard built from CRYSTALS-Dilithium, which are intended to resist even a future quantum computer. In the opposite direction, lattice methods such as Coppersmith's technique and the Boneh–Durfee attack<sup class="cite">[27]</sup> break the widely used RSA cryptosystem when its secret exponent is chosen too small, and researchers are now training machine-learning systems to attack lattice problems directly. The arc of this study therefore ends on a paradox worthy of its subject. The theory of how well a number can be approximated, the most classical question one can ask about a single irrational, is at once the engine of a new automated mathematics and the foundation on which the security of the coming decades is being built.</p>
+
+  <h2><span class="sec-no">13.</span>&ensp;Why this story matters</h2>
+  <p>The study began with a question a beginner can pose, how closely a fraction can chase an irrational, and it ended at the research frontier without ever leaving that question behind. The continued fraction answered it completely, the golden ratio emerged as the unique extreme case, and the same machinery that classifies how well numbers can be approximated reappeared as the engine of machine discovery and of cryptographic security. It is fitting that the golden ratio sits at the center of all of this. The very property that makes it the worst-approximable number, the slow and perfectly uniform growth of its convergents, is exactly what makes it the natural first test for any algorithm that searches the space of continued fractions, and its appearance in the sunflower is a reminder that an abstract extremum can be a physical optimum. A question first asked about a single number has become a meeting place of number theory, computation, and security, and following it honestly required nothing beyond the tools a calculus student already owns, applied with care and carried far.</p>
+
+  <h2><span class="sec-no">14.</span>&ensp;References</h2>
+  <ol class="refs">
+    <li>A. Hurwitz, "Ueber die angenäherte Darstellung der Irrationalzahlen durch rationale Brüche," <em>Math. Ann.</em> 39:279–284, 1891. DOI 10.1007/BF01206656.</li>
+    <li>A. A. Markov, "Sur les formes quadratiques binaires indéfinies," <em>Math. Ann.</em> 15:381–406, 1879. DOI 10.1007/BF02086269.</li>
+    <li>A. A. Markov, "Sur les formes quadratiques binaires indéfinies (second mémoire)," <em>Math. Ann.</em> 17:379–399, 1880.</li>
+    <li>G. H. Hardy and E. M. Wright, <em>An Introduction to the Theory of Numbers</em>, 6th ed. Oxford University Press, 2008. ISBN 978-0-19-921986-5.</li>
+    <li>A. Ya. Khinchin, <em>Continued Fractions</em>. Univ. Chicago Press, 1964. Dover, 1997. ISBN 978-0-486-69630-0.</li>
+    <li>J. W. S. Cassels, <em>An Introduction to Diophantine Approximation</em>. Cambridge University Press, 1957.</li>
+    <li>A. M. Rockett and P. Szüsz, <em>Continued Fractions</em>. World Scientific, 1992. DOI 10.1142/1725.</li>
+    <li>W. M. Schmidt, <em>Diophantine Approximation</em>, LNM 785. Springer, 1980. DOI 10.1007/978-3-540-38645-2.</li>
+    <li>M. Aigner, <em>Markov's Theorem and 100 Years of the Uniqueness Conjecture</em>. Springer, 2013. DOI 10.1007/978-3-319-00888-2.</li>
+    <li>T. W. Cusick and M. E. Flahive, <em>The Markoff and Lagrange Spectra</em>, Math. Surveys Monogr. 30. AMS, 1989. DOI 10.1090/surv/030.</li>
+    <li>E. Bombieri, "Continued fractions and the Markoff tree," <em>Expositiones Math.</em> 25(3):187–213, 2007. DOI 10.1016/j.exmath.2006.10.002.</li>
+    <li>S. Douady and Y. Couder, "Phyllotaxis as a physical self-organized growth process," <em>Phys. Rev. Lett.</em> 68(13):2098–2101, 1992. DOI 10.1103/PhysRevLett.68.2098.</li>
+    <li>S. Douady and Y. Couder, "Phyllotaxis as a Dynamical Self-Organizing Process I–III," <em>J. Theor. Biol.</em> 178(3):255–312, 1996.</li>
+    <li>S. Lang, <em>Introduction to Diophantine Approximations</em>, new exp. ed. Springer, 1995. DOI 10.1007/978-1-4612-4220-8.</li>
+    <li>I. Niven, <em>Irrational Numbers</em>, Carus Math. Monogr. 11. MAA, 1956. ISBN 978-0-88385-038-1.</li>
+    <li>C. D. Olds, <em>Continued Fractions</em>. MAA/Random House, 1963. DOI 10.1090/nml/009.</li>
+    <li>G. Raayoni et al., "Generating conjectures on fundamental constants with the Ramanujan Machine," <em>Nature</em> 590:67–73, 2021. DOI 10.1038/s41586-021-03229-4. arXiv:1907.00205.</li>
+    <li>R. Elimelech et al., "Algorithm-assisted discovery of an intrinsic order among mathematical constants," <em>PNAS</em> 121(25):e2321440121, 2024. DOI 10.1073/pnas.2321440121.</li>
+    <li>A. Davies et al., "Advancing mathematics by guiding human intuition with AI," <em>Nature</em> 600:70–74, 2021. DOI 10.1038/s41586-021-04086-x.</li>
+    <li>A. Fawzi et al., "Discovering faster matrix multiplication algorithms with reinforcement learning," <em>Nature</em> 610:47–53, 2022. DOI 10.1038/s41586-022-05172-4.</li>
+    <li>B. Romera-Paredes et al., "Mathematical discoveries from program search with large language models," <em>Nature</em> 625:468–475, 2024. DOI 10.1038/s41586-023-06924-6.</li>
+    <li>T. H. Trinh, Y. Wu, Q. V. Le, H. He, T. Luong, "Solving olympiad geometry without human demonstrations," <em>Nature</em> 625:476–482, 2024. DOI 10.1038/s41586-023-06747-5.</li>
+    <li>A. K. Lenstra, H. W. Lenstra Jr., L. Lovász, "Factoring polynomials with rational coefficients," <em>Math. Ann.</em> 261:515–534, 1982. DOI 10.1007/BF01457454.</li>
+    <li>H. R. P. Ferguson, D. H. Bailey, S. Arno, "Analysis of PSLQ, an integer relation finding algorithm," <em>Math. Comp.</em> 68:351–369, 1999. DOI 10.1090/S0025-5718-99-00995-3.</li>
+    <li>D. H. Bailey, P. B. Borwein, S. Plouffe, "On the rapid computation of various polylogarithmic constants," <em>Math. Comp.</em> 66:903–913, 1997. DOI 10.1090/S0025-5718-97-00856-9.</li>
+    <li>G. Lample and F. Charton, "Deep Learning for Symbolic Mathematics," ICLR 2020. arXiv:1912.01412.</li>
+    <li>D. Boneh and G. Durfee, "Cryptanalysis of RSA with private key $d$ less than $N^{0.292}$," <em>IEEE Trans. Inf. Theory</em> 46(4):1339–1349, 2000. DOI 10.1109/18.850673.</li>
+  </ol>
+
+  <div class="nextprev">
+    <a class="prev" data-view="paper1"><span class="nplab">Study I</span>&larr. State-space models</a>
+    <a class="next" data-view="paper3"><span class="nplab">Study III</span>Convex duality &rarr;</a>
+  </div>
+
+</div>
+</section>
+<!-- ===================== PAPER 3 ===================== -->
+<section class="view" id="view-paper3" hidden>
+<div class="container wide">
+
+  <a class="backlink" data-view="research">&larr. All studies</a>
+
+  <div class="paper-head">
+    <p class="kicker">Study III · from Problem 3</p>
+    <h1>The Legendre Transform, Convex Duality, and the Geometry of Optimization in Machine Learning</h1>
+    <p class="subtitle">Replacing a function by the envelope of its tangent lines is a small idea with enormous reach. This study follows it from a calculus exercise to the optimization that trains modern artificial intelligence.</p>
+    <p class="paper-meta">Akshat Agarwal · Single Variable Calculus II · Research Study III</p>
+  </div>
+
+  <div class="abstract">
+    <p class="alab">Abstract</p>
+    <p>The third examination problem builds its cross-sections from the $y$-intercept of a tangent line, a quantity equal to $y-xy'$, and it evaluates a volume with Simpson's rule. Both of these carry Legendre's name, and they are not two unrelated coincidences but two faces of a single circle of ideas about convex functions and their duals. This study develops that circle from the beginning. We start with convexity itself, define the Legendre transform as the operation that records a function by its slopes rather than its values, and prove its central properties. We then complete it to the Legendre–Fenchel conjugate of convex analysis, which repairs the cases the classical transform cannot handle, and we develop Gaussian quadrature, proving carefully why placing sample points at the roots of Legendre polynomials doubles the accuracy of numerical integration. Having built the mathematics, we show that this one duality is the organizing principle of a large part of machine learning. Optimal transport, the theory of cheapest rearrangement of mass, is governed by a transform that generalizes Legendre's, and its dual form is exactly what makes Wasserstein generative networks trainable. Mirror descent is gradient descent performed in the dual space that a Legendre transform defines. The exponential families behind modern probabilistic models are organized by the Legendre duality between two natural sets of parameters. The dual formulation of the support vector machine, which makes the kernel trick possible, is a Fenchel dual. Throughout, the single recurring move is this: to take the Legendre transform of a convex function is to change to the coordinate system of its slopes, and that change of coordinates is, again and again, where a hard problem becomes an easy one.</p>
+  </div>
+
+  <div class="toc">
+    <p class="tlab">Contents</p>
+    <ol>
+      <li>Introduction: two clues with one source</li>
+      <li>Convexity, the ground we build on</li>
+      <li>The Legendre transform</li>
+      <li>Young's inequality for free</li>
+      <li>The Legendre–Fenchel conjugate</li>
+      <li>Two classical homes: mechanics and thermodynamics</li>
+      <li>Legendre polynomials and Gaussian quadrature</li>
+      <li>Optimal transport and the Wasserstein distance</li>
+      <li>Mirror descent and the geometry of the dual space</li>
+      <li>Exponential families and variational inference</li>
+      <li>Support vector machines and Bayesian quadrature</li>
+      <li>Applications</li>
+      <li>Why this story matters</li>
+      <li>References</li>
+    </ol>
+  </div>
+
+  <div class="roadmap">
+    <span class="lab">How to read this study</span>
+    <p>The study has a clear spine. Sections 2 through 5 build the pure mathematics of the Legendre transform and its convex-analytic completion, each idea introduced before it is used. Section 6 shows the transform in its two classical homes so that its later appearances feel familiar. Section 7 develops Gaussian quadrature, the examination problem's second clue, with a full proof. Sections 8 through 11 are the frontier, where the same duality organizes optimal transport, mirror descent, probabilistic models, and kernel methods. Boxes marked <em>In plain words</em> restate each idea without symbols, and boxes marked <em>Worked example</em> carry a calculation through in full. The single sentence to keep in mind is that the Legendre transform changes a function into the language of its slopes.</p>
+  </div>
+
+  <h2><span class="sec-no">1.</span>&ensp;Introduction: two clues with one source</h2>
+  <p>In Problem&nbsp;3 the side of each cross-section is the size of the $y$-intercept of the tangent line to the beam's profile $y(x)$, the quantity $y-xy'$. Read carefully, this is the intercept of the tangent line written as a function of the point of tangency, and it is one of the oldest and most fertile constructions in analysis: it is the <em>Legendre transform</em> of $y$, the operation that encodes a function not by its values but by its slopes. The same problem computes a definite integral by Simpson's rule, which is the simplest case of a family called Gaussian quadrature, whose extraordinary accuracy comes from placing its sample points at the roots of the Legendre polynomials. That Legendre's name attaches both to the tangent-intercept construction and to the quadrature nodes is not an accident of naming. They belong to one subject, the analysis of convex functions and their duals, and this study develops that subject and then shows that it is, today, the mathematical backbone of optimization in machine learning.</p>
+
+  <h2><span class="sec-no">2.</span>&ensp;Convexity, the ground we build on</h2>
+  <p>Everything rests on one property of functions, so we define it plainly. A function is <em>convex</em> if its graph never bends downward, equivalently if the line segment joining any two points on the graph lies on or above the graph between them, equivalently, for a twice-differentiable function, if its second derivative is never negative. The parabola $y=x^2$ is convex. So is $e^x$. The function $-\ln x$ is convex on the positive numbers. The single geometric fact about convex functions that drives the whole study is this: a convex function lies <em>above</em> every one of its tangent lines. At any point the tangent line touches the graph and then falls below it on both sides, so the function is the upper boundary of the whole family of its tangent lines.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>A convex function is one that holds water, a bowl rather than a dome. Its tangent lines are all supports lying underneath it, touching at one point and dropping away. The Legendre transform is simply a bookkeeping of those supporting lines, and because a convex function is completely determined by its family of tangent lines, no information is lost in the bookkeeping. That is why the transform can be reversed.</p>
+  </div>
+
+  <h2><span class="sec-no">3.</span>&ensp;The Legendre transform</h2>
+  <div class="defn">
+    <span class="lab">Definition 3.1.</span>
+    <p>For a differentiable, strictly convex function $y(x)$, its Legendre transform is the new function</p>
+    $$y^\ast(p)=\sup_x\big(p\,x-y(x)\big).$$
+    <p>The supremum is reached at the unique point $x(p)$ where the slope of $y$ equals $p$, that is where $y'(x(p))=p$, and there $y^\ast(p)=p\,x(p)-y(x(p))$.</p>
+  </div>
+  <p>The definition becomes obvious once one sees the picture. Fix a slope $p$ and look at all the straight lines with that slope. Among the lines $p\,x-c$ lying entirely on or below the graph of $y$, the highest one touches the graph, and for that highest line the constant $c$ is as large as possible. That largest value of $c$ is, by the definition, $y^\ast(p)$. In other words, $-y^\ast(p)$ is exactly the $y$-intercept of the tangent line to $y$ whose slope is $p$. This is precisely the quantity $y-xy'$ from the examination problem, now read as a function of the slope rather than of the position. The transform is a complete change of viewpoint: instead of listing, for each position $x$, the height $y(x)$, it lists, for each slope $p$, the intercept of the matching tangent line. Because a convex function is the envelope of its tangent lines, this list contains exactly the same information, repackaged.</p>
+  <div class="worked">
+    <span class="lab">Worked example</span>
+    <p><strong>The self-dual parabola.</strong> For $y=\tfrac12x^2$ the slope is $y'=x$, so the point where the slope equals $p$ is $x=p$, and $y^\ast(p)=p\cdot p-\tfrac12p^2=\tfrac12p^2$. The transform of $\tfrac12x^2$ is $\tfrac12p^2$ again: the parabola is its own Legendre transform.</p>
+    <p><strong>The exponential and the entropy.</strong> For $y=e^x$ the slope is $e^x=p$, so $x=\ln p$ for $p\gt 0$, and $y^\ast(p)=p\ln p-e^{\ln p}=p\ln p-p$. The transform of the exponential is the function $p\ln p-p$, the negative entropy, which will reappear at the center of machine learning in Sections 9 and 10. Already the transform has connected exponentials and entropy, two ideas that look unrelated until one sees they are Legendre duals.</p>
+  </div>
+  <p>The two properties that make the transform powerful are an exact symmetry and an inversion of derivatives.</p>
+  <div class="thm">
+    <span class="lab">Theorem 3.2 (Involution and the inversion of slopes).</span>
+    <p>For a differentiable strictly convex function $y$, applying the transform twice returns the original, $(y^\ast)^\ast=y$. The derivative of the transform is the inverse of the derivative of the original, $(y^\ast)'=(y')^{-1}$, and the second derivatives are reciprocals, $(y^\ast)''(p)=1/y''(x(p))$.</p>
+  </div>
+  <p>The inversion of derivatives is the algebraic heart of the matter and deserves to be stated in words. The original function knows, for each position, its slope. The transform knows, for each slope, the position that produces it. Passing to the transform turns the slope map $x\mapsto y'(x)$ into its inverse $p\mapsto (y^\ast)'(p)$. This is why the transform is the natural tool whenever a problem is easier to think about in terms of slopes, or momenta, or prices, than in terms of the original variable, and Sections 6 through 11 are a sequence of exactly such problems.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>The transform swaps the question "at this position, what is the height and the slope?" for the question "for this slope, where does it occur and what is the intercept?" Doing it twice asks the swapped question of the swapped function and lands you back where you started. The slope of one function and the slope of its transform are inverse operations, so the transform is a clean change into slope coordinates.</p>
+  </div>
+
+  <h2><span class="sec-no">4.</span>&ensp;Young's inequality for free</h2>
+  <p>The transform immediately produces, at no cost, one of the most useful inequalities in all of analysis, and seeing it appear is the first evidence of how much organizing power the construction carries. By the very definition $y^\ast(p)=\sup_x(px-y(x))$, the value $px-y(x)$ never exceeds $y^\ast(p)$ for any $x$ and $p$, which rearranges to the universal statement</p>
+  $$p\,x\le y(x)+y^\ast(p)\quad\text{for all }x,p,$$
+  <p>with equality exactly when $p$ is the slope of $y$ at $x$. Apply this to the power $y=x^r/r$ with $r\gt 1$. Its transform is $y^\ast(p)=p^s/s$, where $s$ is the exponent with $1/r+1/s=1$, and the universal inequality becomes</p>
+  $$p\,x\le \frac{x^r}{r}+\frac{p^s}{s},$$
+  <p>which is precisely <em>Young's inequality</em>, the engine behind the Hölder and Minkowski inequalities that underlie the whole theory of function spaces. That so central a result is nothing more than the statement that a convex function lies above its tangent lines is the clearest possible sign that the Legendre transform is a deep idea wearing simple clothes.</p>
+  <h2><span class="sec-no">5.</span>&ensp;The Legendre–Fenchel conjugate</h2>
+  <p>The classical transform of Section 3 needs the function to be smooth and strictly convex, so that every slope is achieved at exactly one point. Many functions we care about fail this, having corners, flat pieces, or values of infinity where they are undefined. Convex analysis generalizes the transform to handle all of them, and the beautiful thing is that the obstructions the smooth theory had to avoid become, in the general theory, features the transform handles automatically. The generalized definition simply keeps the supremum and drops every smoothness assumption.</p>
+  <div class="defn">
+    <span class="lab">Definition 5.1.</span>
+    <p>For any function $f$ that is not identically infinite, its Legendre–Fenchel conjugate is</p>
+    $$f^\ast(p)=\sup_{x}\big(p\,x-f(x)\big).$$
+    <p>Because it is the supremum of a family of straight-line functions of $p$, one for each $x$, the conjugate $f^\ast$ is automatically convex and has no downward jumps, whatever $f$ was.</p>
+  </div>
+  <p>The first fundamental theorem says exactly when applying the transform twice recovers the original, and what it gives when it does not.</p>
+  <div class="thm">
+    <span class="lab">Theorem 5.2 (Fenchel–Moreau).</span>
+    <p>Applying the conjugate twice returns the original function, $f^{\ast\ast}=f$, exactly when $f$ is convex and has no downward jumps (it is lower semicontinuous) and is not identically infinite. For any other reasonable $f$, the double conjugate $f^{\ast\ast}$ is the <em>convex envelope</em> of $f$, the largest convex function lying on or below it.</p>
+  </div>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>If you start with a convex function and transform it twice, you get it back, because all the information was in its tangent lines. If you start with a non-convex function, transforming twice cannot recover the bumps, because tangent lines from below cannot see them. Instead it returns the best convex approximation from below, the shape you would get by stretching a rubber sheet underneath the graph. So the double transform does convexification for free, and convexification is exactly what optimization wants, because convex problems are the ones we can solve reliably.</p>
+  </div>
+  <div class="worked">
+    <span class="lab">Worked example</span>
+    <p>Take the non-convex double-well function $f(x)=(x^2-1)^2$, which dips to zero at $x=\pm 1$ and rises to one at $x=0$, so its graph has two valleys with a hill between them. Its convex envelope is flat at height zero across the whole interval from $-1$ to $1$, then rises outside it, because the lowest convex shape under the two wells simply fills in the hill with a flat floor. The Fenchel–Moreau theorem says this flat-bottomed function is exactly $f^{\ast\ast}$. The transform has erased the hill and kept the lowest convex description, which is precisely the information an optimizer needs and the bump it does not.</p>
+  </div>
+  <p>The second fundamental result is the inequality that defines the conjugate, together with the exact condition for equality, and it generalizes Young's inequality of Section 4 to the non-smooth world.</p>
+  <div class="thm">
+    <span class="lab">Theorem 5.3 (Fenchel–Young inequality).</span>
+    <p>For all $x$ and $p$, $f(x)+f^\ast(p)\ge p\,x$, with equality exactly when $p$ is a slope of a supporting line of $f$ at $x$, written $p\in\partial f(x)$. Consequently the slope correspondences of $f$ and of $f^\ast$ are inverse to each other.</p>
+  </div>
+  <p>For a function with corners there may be many supporting slopes at a single point, so $\partial f(x)$ is a set, called the subdifferential, rather than a single number, and the theorem says that the set-valued slope map of $f$ and that of $f^\ast$ invert one another. This is the precise non-smooth version of the derivative inversion in Theorem 3.2, and it is the mechanism behind the duality theorems that convert a minimization over the original variables into a maximization over the dual ones, the trade that powers Sections 8 through 11. The canonical references for this material are Rockafellar<sup class="cite">[1]</sup>, Hiriart-Urruty and Lemaréchal<sup class="cite">[2,3]</sup>, Boyd and Vandenberghe<sup class="cite">[4]</sup>, and Bertsekas<sup class="cite">[5]</sup>, with the conjugate originating in the work of Fenchel<sup class="cite">[6]</sup> and Moreau<sup class="cite">[7]</sup>.</p>
+
+  <h2><span class="sec-no">6.</span>&ensp;Two classical homes: mechanics and thermodynamics</h2>
+  <p>Before the modern applications it helps to meet the transform in its two oldest homes, because the same structure recurs in machine learning and will then feel familiar. In mechanics, a system is described by a quantity called the Lagrangian, written $L$, which depends on position and velocity and is convex in the velocity. The Legendre transform in the velocity replaces velocity by a new variable, the momentum, defined as the slope of $L$ with respect to velocity, and the transformed function is the Hamiltonian, the total energy expressed in terms of position and momentum. Convexity guarantees that the relation between velocity and momentum can be inverted, exactly as in Theorem 3.2, and the equations of motion take their most symmetric form in the new coordinates. In thermodynamics the internal energy of a substance is a convex function of quantities like entropy and volume, and the various free energies that physicists use, the Helmholtz and Gibbs energies and the enthalpy, are all Legendre transforms that trade one of those quantities for its conjugate, entropy for temperature or volume for pressure, choosing whichever pair is most convenient for the experiment at hand. In both subjects the transform does one thing: it passes from one natural set of variables to a dual set in which the description is simplest. That is exactly the role it will play for the exponential families of Section 10, where it trades one set of statistical parameters for another. The classical references are Arnold<sup class="cite">[13]</sup> and Callen<sup class="cite">[14]</sup>, and the pedagogical article of Zia, Redish, and McKay<sup class="cite">[15]</sup> is an unusually clear account of the geometry.</p>
+
+  <h2><span class="sec-no">7.</span>&ensp;Legendre polynomials and Gaussian quadrature</h2>
+  <p>We turn to the examination problem's second clue, numerical integration. To approximate a definite integral one samples the integrand at a few points and takes a weighted sum of the values. The question is where to put the points and how to weight them so that the approximation is as accurate as possible, and the answer involves a special family of functions, the Legendre polynomials. The <em>Legendre polynomials</em> $P_n$ are the polynomials on the interval from $-1$ to $1$ that are mutually <em>orthogonal</em>, meaning that the integral of the product of any two different ones is zero. They are completely standard objects, generated by a simple three-term recurrence, and the first few are $P_0=1$, $P_1=x$, and $P_2=\tfrac12(3x^2-1)$. Their relevance to integration is the following theorem, which is the reason Gaussian quadrature is so accurate.</p>
+  <div class="thm">
+    <span class="lab">Theorem 7.1 (Gauss–Legendre quadrature).</span>
+    <p>Choose the $n$ sample points to be the roots of the Legendre polynomial $P_n$, and choose matching positive weights $w_i$. Then the approximation</p>
+    $$\int_{-1}^1 f(x)\,dx\approx\sum_{i=1}^n w_i\,f(x_i)$$
+    <p>is <em>exact</em> for every polynomial of degree up to $2n-1$. This is twice the degree that $n$ freely chosen points could guarantee, and it is the best possible.</p>
+  </div>
+  <p><em>Why it is true.</em> The argument is short and shows clearly where the orthogonality does its work. Let $f$ be any polynomial of degree at most $2n-1$. Divide it by the Legendre polynomial $P_n$ to write $f=P_n\,q+r$, where the quotient $q$ and remainder $r$ each have degree at most $n-1$. Now integrate. The term $\int_{-1}^1 P_n\,q\,dx$ is zero, because $P_n$ is orthogonal to every polynomial of degree below $n$ and $q$ is such a polynomial, so the whole integral of $f$ equals the integral of the remainder $r$. On the other side, at each sample point $x_i$ we have $P_n(x_i)=0$ by the choice of points, so $f(x_i)=r(x_i)$, and because the weights are designed to integrate every polynomial of degree at most $n-1$ exactly, the weighted sum of the $f(x_i)$ equals the integral of $r$. The two sides are therefore equal to the same thing, and the rule is exact. $\;\blacksquare$</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>An ordinary $n$-point rule can be made exact for polynomials up to degree $n-1$, because it has $n$ weights to tune. Gauss-Legendre doubles this by also tuning the $n$ positions, and the magic of choosing the roots of $P_n$ is that the error of interpolation is always a multiple of $P_n$, which integrates to zero against everything of low degree. So the leading error is annihilated by orthogonality, and the same number of samples buys twice the accuracy.</p>
+  </div>
+  <div class="worked">
+    <span class="lab">Worked example</span>
+    <p>Take two points, $n=2$. The roots of $P_2=\tfrac12(3x^2-1)$ are $x=\pm 1/\sqrt3$, and the matching weights are both equal to $1$. The rule is $\int_{-1}^1 f\,dx\approx f(-1/\sqrt3)+f(1/\sqrt3)$. Test it. For $f=1$ it gives $2$, matching $\int_{-1}^1 1\,dx=2$. For $f=x^2$ it gives $\tfrac13+\tfrac13=\tfrac23$, matching $\int_{-1}^1 x^2\,dx=\tfrac23$. For $f=x^3$ it gives zero by symmetry, matching the integral of an odd function. So two points integrate every cubic exactly, the promised degree $2n-1=3$. Push one step further to $f=x^4$, of degree $4$: the rule gives $\tfrac19+\tfrac19=\tfrac29$, while the true integral is $\tfrac25$, and they differ. The accuracy stops exactly where the theorem says it must.</p>
+  </div>
+  <p>Simpson's rule, used in Problem&nbsp;3, is the first and simplest member of this family of interpolatory rules, and the Gaussian rules are the ones that squeeze out the maximal accuracy by the orthogonality argument above. The remaining error of the Gaussian rule is controlled by the size of the high derivative $f^{(2n)}$, so the rule is essentially exact for functions that are well approximated by polynomials. One practical worry remains, that finding the roots of $P_n$ seems to require solving a polynomial, but the Golub–Welsch algorithm<sup class="cite">[11]</sup> dispatches it elegantly: the nodes are exactly the eigenvalues of a simple symmetric tridiagonal matrix built from the recurrence coefficients of the polynomials, and the weights are read off from the first entries of its eigenvectors, all computed quickly and stably. The theory of orthogonal polynomials behind this is in Szegő<sup class="cite">[12]</sup> and Gautschi<sup class="cite">[10]</sup>, and the quadrature itself is treated in Stoer and Bulirsch<sup class="cite">[8]</sup> and Davis and Rabinowitz<sup class="cite">[9]</sup>.</p>
+  <h2><span class="sec-no">8.</span>&ensp;Optimal transport and the Wasserstein distance</h2>
+  <p>We now reach the frontier, and the first and most important application is a problem about moving mass. Imagine a pile of sand in one shape that must be moved to fill a hole of another shape, where moving a grain a longer distance costs more. What is the cheapest plan? This is the optimal transport problem, posed by Monge in 1781, and its modern theory is governed by a duality that is a direct generalization of the Legendre transform of Section 3. Monge insisted that each grain go to a single destination, which makes the problem rigid and sometimes unsolvable, so Kantorovich relaxed it in the 1940s to allow a grain to be split among destinations, described by a transport plan. The cost of the best plan can then be computed in two equivalent ways, and the second way is the dual that matters for us.</p>
+  $$\min_{\text{transport plans}}\ \int c(x,y)\,d(\text{plan})\;=\;\max_{\varphi(x)+\psi(y)\,\le\, c(x,y)}\ \Big(\int\varphi\,d\mu+\int\psi\,d\nu\Big).$$
+  <p>On the left we minimize the cost over all ways of moving the first distribution $\mu$ onto the second distribution $\nu$. On the right we maximize over pairs of <em>potential functions</em> $\varphi$ and $\psi$ that are not allowed to exceed the cost when added. The two values are equal, a fact called Kantorovich duality, and the relationship between the best $\varphi$ and the best $\psi$ is given by an operation, the $c$-transform, that reduces to the Legendre transform of Section 3 exactly when the cost is the simple product of the variables. The dual potentials are the optimal-transport version of the tangent-intercept bookkeeping we have been studying all along.</p>
+  <p>The shape of the optimal plan, in the most important case, is the precise analogue of the derivative-inversion in Theorem 3.2.</p>
+  <div class="thm">
+    <span class="lab">Theorem 8.1 (Brenier, 1991).</span>
+    <p>When the cost is the squared distance, and the starting distribution $\mu$ is spread out with a finite spread (it is absolutely continuous with finite second moment), the cheapest transport is achieved by moving each point $x$ to the point $\nabla u(x)$, the gradient of a single convex function $u$. The reverse transport is given by the gradient of the Legendre conjugate $u^\ast$.</p>
+  </div>
+  <p>Read what this says. The cheapest way to rearrange one distribution into another is to push every point along the gradient of a convex potential, and the forward and backward rearrangements are Legendre duals of each other, exactly as the slope map of a function and the slope map of its transform are inverse. The Legendre transform of Section 3 is not an analogy here. It is literally the operation that links the two directions of optimal transport.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>The best way to morph one pile of sand into another is to slide every grain downhill on a convex landscape, and undoing the morph means sliding downhill on the Legendre-transformed landscape. Convexity is what guarantees the plan never has two grains crossing paths wastefully, and the Legendre transform is what turns the forward plan into the backward one.</p>
+  </div>
+  <p>From the cost of optimal transport one builds a distance between probability distributions, the <em>Wasserstein distance</em>. For the simplest cost it has a strikingly usable dual form, the Kantorovich–Rubinstein formula,</p>
+  $$W_1(\mu,\nu)=\sup_{f\,:\,\text{slope}\le 1}\Big(\int f\,d\mu-\int f\,d\nu\Big),$$
+  <p>a maximization over all functions $f$ whose slope never exceeds one. This single formula is what made the Wasserstein distance practical in machine learning, and the application is worth describing carefully because it solved a real and stubborn problem. A generative model tries to produce samples, say images, whose distribution matches that of real data, and the original way of training such models, the generative adversarial network, broke down badly when the generated distribution and the real one barely overlapped, because the gradient that should guide the generator vanished. In the Wasserstein generative adversarial network of Arjovsky, Chintala, and Bottou<sup class="cite">[22]</sup>, a neural network is trained to be the best slope-one function $f$ in the formula above, and the Wasserstein distance it computes provides a useful gradient even when the two distributions do not overlap at all, because the distance measures how far apart they are rather than merely whether they coincide. The slope constraint, enforced crudely by clipping weights in the first version, is imposed cleanly by a gradient penalty in the improved training of Gulrajani and collaborators<sup class="cite">[23]</sup>. The entire lineage, from Legendre's tangent intercept through Kantorovich's dual potentials to a trainable image generator, runs through the duality of Sections 3 and 5.</p>
+  <p>A parallel idea makes optimal transport fast enough for everyday use. Cuturi's entropic optimal transport<sup class="cite">[21]</sup> adds a small penalty that prefers spread-out transport plans, and the resulting problem has a solution of an especially simple form computed by the Sinkhorn iteration, which alternately rescales the rows and columns of a matrix until it has the required totals. This iteration is fast and runs naturally on the parallel hardware that machine learning depends on, and it is the reason optimal transport has moved from theory to a routine tool. The comprehensive references are Villani<sup class="cite">[17,18]</sup>, Santambrogio<sup class="cite">[19]</sup>, and Peyré and Cuturi<sup class="cite">[20]</sup>, with Brenier's original theorem in<sup class="cite">[16]</sup>.</p>
+
+  <h2><span class="sec-no">9.</span>&ensp;Mirror descent and the geometry of the dual space</h2>
+  <p>The second application concerns how optimization itself is performed. Ordinary gradient descent takes a step in the direction that decreases a function fastest, but "fastest" secretly assumes that distance is measured in the ordinary Euclidean way, and for many problems that is the wrong way to measure. When the variable is a probability distribution living on the simplex, where the coordinates are nonnegative and sum to one, the Euclidean geometry fits badly and gradient descent behaves poorly. Mirror descent, introduced by Nemirovski and Yudin<sup class="cite">[26]</sup> and put in modern form by Beck and Teboulle<sup class="cite">[27]</sup>, fixes this by performing the descent in a dual space defined by a Legendre transform. Its update can be written in three readable steps,</p>
+  $$x_{k+1}=\nabla\varphi^\ast\big(\nabla\varphi(x_k)-\eta\,g_k\big),$$
+  <p>which says: carry the current point into the dual space by the slope map $\nabla\varphi$ of a chosen convex potential, take an ordinary gradient step there using the gradient $g_k$, and carry the result back by $\nabla\varphi^\ast$, the slope map of the Legendre conjugate. The descent happens in the slope coordinates that the Legendre transform provides, which is why it can respect the true geometry of the problem.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>Plain gradient descent walks downhill as if the ground were flat in the ordinary sense. Mirror descent first changes into coordinates suited to the problem, walks downhill there, and changes back. The change of coordinates is a Legendre transform, the very same change into slope variables from Section 3, now used to fit the optimizer to the shape of the space it works in.</p>
+  </div>
+  <p>The most famous special case makes the connection to entropy vivid. Choose the convex potential to be the negative entropy, whose Legendre transform we computed in Section 3 to be the exponential-type function. Then the mirror-descent update becomes the multiplicative-weights algorithm, in which the weight on each option is multiplied by an exponential factor of its recent performance and then renormalized. This algorithm is central to online learning and to the theory of games, and its error grows only logarithmically in the number of options, far better than the Euclidean method manages on the simplex. The negative entropy and its exponential conjugate, which first appeared as a textbook example of the Legendre transform, turn out to be the exact pair that makes learning on probability distributions efficient. The general theory connecting these updates to the geometry induced by a convex potential is the theory of Bregman divergences<sup class="cite">[28]</sup>, surveyed in Bubeck<sup class="cite">[29]</sup>.</p>
+  <h2><span class="sec-no">10.</span>&ensp;Exponential families and variational inference</h2>
+  <p>The third application reaches into the heart of how modern probabilistic models are organized. A great many of the probability distributions used in statistics and machine learning, including the Gaussian, the Poisson, the Bernoulli, and many more, share a common form called an <em>exponential family</em>,</p>
+  $$p(x;\theta)=h(x)\,\exp\big(\langle\theta,T(x)\rangle-A(\theta)\big),$$
+  <p>in which $\theta$ is a vector of parameters called the natural parameters, $T(x)$ is a vector of summaries of the data called the sufficient statistics, and $A(\theta)$ is a normalizing term, the log-partition function, chosen so that the probabilities add up to one. The log-partition function $A$ is convex, and its gradient has a beautiful meaning: $\nabla A(\theta)$ is the average value of the sufficient statistics under the distribution, a vector $\mu$ called the mean parameters. The map from natural parameters to mean parameters, $\theta\mapsto\mu$, is therefore the slope map of a convex function, and by Theorem 3.2 its inverse is the slope map of the Legendre transform $A^\ast$. That transform $A^\ast$ turns out, on the natural domain, to be the negative entropy of the distribution. So the relationship between the two most natural ways to describe a distribution, by its natural parameters or by its mean parameters, is exactly a Legendre duality, and the entropy is the dual function that links them.</p>
+  <div class="plain">
+    <span class="lab">In plain words.</span>
+    <p>Every distribution in this huge family can be described in two languages, one in terms of its raw parameters and one in terms of the averages it produces, and translating between the two languages is a Legendre transform. This is the same trade we saw in thermodynamics in Section 6, where energy was traded for free energy and entropy for temperature. The statistics and the physics are the same mathematics.</p>
+  </div>
+  <p>This duality is the organizing principle of an entire approach to a central hard problem, that of computing quantities from complicated probability models when exact computation is infeasible. In the variational framework of Wainwright and Jordan<sup class="cite">[30]</sup>, computing such a quantity is recast as an optimization over the mean parameters, governed by the dual function $A^\ast$, and the standard practical methods, including mean-field approximation and belief propagation, are revealed as systematic ways of relaxing that one convex-dual optimization problem. The Legendre transform is the lens that turns a tangle of probabilistic computations into a single, well-understood optimization.</p>
+
+  <h2><span class="sec-no">11.</span>&ensp;Support vector machines and Bayesian quadrature</h2>
+  <p>Two further pieces of machine learning rest on the same duality, and including them shows how wide its reach is. The first is the support vector machine, a classical and still widely used method for classification, introduced by Boser, Guyon, and Vapnik<sup class="cite">[31]</sup> and Cortes and Vapnik<sup class="cite">[32]</sup>. It separates two classes of data by the boundary that leaves the widest possible margin between them. The natural statement of this problem, the primal, asks for the boundary directly. Its Fenchel dual, obtained by exactly the conjugate duality of Section 5, has a remarkable feature: it depends on the data only through the inner products between pairs of data points. This is what makes the celebrated <em>kernel trick</em> possible, in which those inner products are replaced by a more expressive similarity measure, allowing the machine to draw curved boundaries in the original space while still solving a simple problem. The kernel trick rides entirely on the passage from the primal to the dual, which is a Fenchel duality. The treatment in Schölkopf and Smola<sup class="cite">[33]</sup> develops this in full.</p>
+  <p>The second piece returns us to the integration of Section 7, now reinterpreted. Bayesian quadrature, originating with O'Hagan<sup class="cite">[34]</sup> and developed in the probabilistic-numerics program of Hennig, Osborne, and Girolami<sup class="cite">[36,37]</sup> and the Bayesian Monte Carlo of Rasmussen and Ghahramani<sup class="cite">[35]</sup>, treats numerical integration itself as a problem of statistical inference. One places a probability model over the unknown integrand, observes its values at the sample points, and obtains a probability distribution over the value of the integral, complete with an estimate of its own uncertainty. The striking outcome is that the optimal places to sample, under natural assumptions, are closely related to the classical Gaussian nodes of Section 7. This closes a circle in the study: integration, which began as the examination problem's second clue and was developed through orthogonal polynomials, returns at the end reinterpreted through the same optimization-and-inference lens that the Legendre transform opened.</p>
+
+  <h2><span class="sec-no">12.</span>&ensp;Applications</h2>
+  <p>The practical reach of this single duality is broad, and it is worth seeing concretely where it lands. Wasserstein distances and their fast Sinkhorn approximation are used to train generative models of images, to align distributions when adapting a model trained in one setting to work in another, to measure the distance between documents through the word mover's distance<sup class="cite">[25]</sup>, and, in computational biology, to reconstruct the developmental trajectories of individual cells from snapshots of gene expression taken at different times<sup class="cite">[24]</sup>. Mirror descent and its multiplicative-weights special case are standard tools in online learning and in the solving of large games, and the policy-optimization methods at the center of modern reinforcement learning use the same entropy-based geometry to take stable steps in the space of strategies. The exponential-family duality underlies the variational autoencoders and the variational-inference toolkits in wide use, and the dual form of the support vector machine remains a workhorse of classification. Across all of these the recurring move is the one identified at the very beginning: change to the dual coordinates given by a Legendre transform, and a problem that was constrained, or badly shaped, or computationally tangled becomes one that is unconstrained, or well shaped, or simple.</p>
+  <h2><span class="sec-no">13.</span>&ensp;Why this story matters</h2>
+  <p>The study began with two small clues in a calculus problem, a tangent intercept and a numerical integral, and it ended at the optimization that trains modern artificial intelligence, without ever leaving the single idea that connects them. To take the Legendre transform of a convex function is to stop describing it by its values and start describing it by its slopes, and that change of description is, over and over, exactly where a hard problem becomes an easy one. It convexifies a stubborn function for free, it turns the forward and backward directions of optimal transport into duals of one another, it fits an optimizer to the true geometry of its space, and it translates between the two natural languages of a probability model. That an operation as elementary as computing the $y$-intercept of a tangent line, the quantity $y-xy'$ that a student writes down without a second thought, should turn out to be the same operation that organizes optimal transport, mirror descent, and variational inference is the kind of unity that makes mathematics worth doing.</p>
+  <p>It is the right place, too, to draw the three studies together, because they are three tellings of one story. The first study found a nonlinear differential equation that was secretly a linear one, and the change of variables that revealed this also let the linear system be run backwards as a learnable layer. The second study found that a real number, an unstructured thing, became completely transparent once rewritten as its continued fraction, in which its best approximations and its deepest arithmetic stood out at a glance. This third study found that a convex function, rewritten in the language of its slopes, made an enormous range of hard optimization problems simple. In every case the move was the same: find the representation in which the difficulty dissolves. The Riccati substitution, the continued fraction, and the Legendre transform are three faces of that one principle, and the fact that each leads, by an unbroken chain of reasoning a calculus student can follow, from a routine examination problem to a genuine research frontier is, to me, the most convincing evidence there is that the elementary mathematics we learn first and the advanced mathematics shaping the present are not two subjects but one.</p>
+
+  <h2><span class="sec-no">14.</span>&ensp;References</h2>
+  <ol class="refs">
+    <li>R. T. Rockafellar, <em>Convex Analysis</em>. Princeton University Press, 1970. ISBN 978-0-691-01586-6.</li>
+    <li>J.-B. Hiriart-Urruty and C. Lemaréchal, <em>Convex Analysis and Minimization Algorithms</em>, I–II. Springer, 1993. DOI 10.1007/978-3-662-02796-7.</li>
+    <li>J.-B. Hiriart-Urruty and C. Lemaréchal, <em>Fundamentals of Convex Analysis</em>. Springer, 2001. DOI 10.1007/978-3-642-56468-0.</li>
+    <li>S. Boyd and L. Vandenberghe, <em>Convex Optimization</em>. Cambridge University Press, 2004. ISBN 978-0-521-83378-3.</li>
+    <li>D. P. Bertsekas, <em>Convex Optimization Theory</em>. Athena Scientific, 2009. ISBN 978-1-886529-31-1.</li>
+    <li>W. Fenchel, "On conjugate convex functions," <em>Can. J. Math.</em> 1:73–77, 1949. DOI 10.4153/CJM-1949-007-x.</li>
+    <li>J.-J. Moreau, "Proximité et dualité dans un espace hilbertien," <em>Bull. Soc. Math. France</em> 93:273–299, 1965. DOI 10.24033/bsmf.1625.</li>
+    <li>J. Stoer and R. Bulirsch, <em>Introduction to Numerical Analysis</em>, 3rd ed. Springer, 2002. DOI 10.1007/978-0-387-21738-3.</li>
+    <li>P. J. Davis and P. Rabinowitz, <em>Methods of Numerical Integration</em>, 2nd ed. Academic Press, 1984. Dover, 2007. ISBN 978-0-486-45339-2.</li>
+    <li>W. Gautschi, <em>Orthogonal Polynomials: Computation and Approximation</em>. Oxford University Press, 2004. ISBN 978-0-19-850672-0.</li>
+    <li>G. H. Golub and J. H. Welsch, "Calculation of Gauss quadrature rules," <em>Math. Comp.</em> 23:221–230, 1969. DOI 10.1090/S0025-5718-69-99647-1.</li>
+    <li>G. Szegő, <em>Orthogonal Polynomials</em>, AMS Colloq. Publ. 23, 1939. DOI 10.1090/coll/023.</li>
+    <li>V. I. Arnold, <em>Mathematical Methods of Classical Mechanics</em>, 2nd ed. Springer GTM 60, 1989. DOI 10.1007/978-1-4757-2063-1.</li>
+    <li>H. B. Callen, <em>Thermodynamics and an Introduction to Thermostatistics</em>, 2nd ed. Wiley, 1985. ISBN 978-0-471-86256-7.</li>
+    <li>R. K. P. Zia, E. F. Redish, S. R. McKay, "Making sense of the Legendre transform," <em>Am. J. Phys.</em> 77(7):614–622, 2009. DOI 10.1119/1.3119512.</li>
+    <li>Y. Brenier, "Polar factorization and monotone rearrangement of vector-valued functions," <em>Comm. Pure Appl. Math.</em> 44(4):375–417, 1991. DOI 10.1002/cpa.3160440402.</li>
+    <li>C. Villani, <em>Topics in Optimal Transportation</em>, AMS GSM 58, 2003. ISBN 978-0-8218-3312-4.</li>
+    <li>C. Villani, <em>Optimal Transport: Old and New</em>. Springer, 2009. DOI 10.1007/978-3-540-71050-9.</li>
+    <li>F. Santambrogio, <em>Optimal Transport for Applied Mathematicians</em>. Birkhäuser, 2015. DOI 10.1007/978-3-319-20828-2.</li>
+    <li>G. Peyré and M. Cuturi, "Computational Optimal Transport," <em>Found. Trends ML</em> 11(5–6):355–607, 2019. DOI 10.1561/2200000073.</li>
+    <li>M. Cuturi, "Sinkhorn Distances: Lightspeed Computation of Optimal Transport," NeurIPS 2013. arXiv:1306.0895.</li>
+    <li>M. Arjovsky, S. Chintala, L. Bottou, "Wasserstein Generative Adversarial Networks," ICML 2017, PMLR 70:214–223. arXiv:1701.07875.</li>
+    <li>I. Gulrajani, F. Ahmed, M. Arjovsky, V. Dumoulin, A. Courville, "Improved Training of Wasserstein GANs," NeurIPS 2017. arXiv:1704.00028.</li>
+    <li>G. Schiebinger et al., "Optimal-Transport Analysis of Single-Cell Gene Expression …," <em>Cell</em> 176(4):928–943, 2019. DOI 10.1016/j.cell.2019.01.006.</li>
+    <li>M. J. Kusner, Y. Sun, N. I. Kolkin, K. Q. Weinberger, "From Word Embeddings to Document Distances," ICML 2015, PMLR 37:957–966.</li>
+    <li>A. S. Nemirovski and D. B. Yudin, <em>Problem Complexity and Method Efficiency in Optimization</em>. Wiley, 1983.</li>
+    <li>A. Beck and M. Teboulle, "Mirror descent and nonlinear projected subgradient methods for convex optimization," <em>Oper. Res. Lett.</em> 31(3):167–175, 2003. DOI 10.1016/S0167-6377(02)00231-6.</li>
+    <li>A. Banerjee, S. Merugu, I. S. Dhillon, J. Ghosh, "Clustering with Bregman Divergences," <em>JMLR</em> 6:1705–1749, 2005.</li>
+    <li>S. Bubeck, "Convex Optimization: Algorithms and Complexity," <em>Found. Trends ML</em> 8(3–4):231–357, 2015. DOI 10.1561/2200000050.</li>
+    <li>M. J. Wainwright and M. I. Jordan, "Graphical Models, Exponential Families, and Variational Inference," <em>Found. Trends ML</em> 1(1–2):1–305, 2008. DOI 10.1561/2200000001.</li>
+    <li>B. E. Boser, I. M. Guyon, V. N. Vapnik, "A training algorithm for optimal margin classifiers," COLT 1992. DOI 10.1145/130385.130401.</li>
+    <li>C. Cortes and V. Vapnik, "Support-Vector Networks," <em>Mach. Learn.</em> 20(3):273–297, 1995. DOI 10.1007/BF00994018.</li>
+    <li>B. Schölkopf and A. J. Smola, <em>Learning with Kernels</em>. MIT Press, 2002. ISBN 978-0-262-19475-4.</li>
+    <li>A. O'Hagan, "Bayes–Hermite quadrature," <em>J. Statist. Plann. Inf.</em> 29(3):245–260, 1991. DOI 10.1016/0378-3758(91)90002-V.</li>
+    <li>C. E. Rasmussen and Z. Ghahramani, "Bayesian Monte Carlo," NeurIPS 2002 (vol. 15), pp. 505–512.</li>
+    <li>P. Hennig, M. A. Osborne, M. Girolami, "Probabilistic numerics and uncertainty in computations," <em>Proc. Roy. Soc. A</em> 471:20150142, 2015. DOI 10.1098/rspa.2015.0142.</li>
+    <li>P. Hennig, M. A. Osborne, H. P. Kersting, <em>Probabilistic Numerics: Computation as Machine Learning</em>. Cambridge University Press, 2022. DOI 10.1017/9781316681411.</li>
+  </ol>
+
+  <div class="nextprev">
+    <a class="prev" data-view="paper2"><span class="nplab">Study II</span>&larr. Mathematical discovery</a>
+    <a class="next" data-view="overview"><span class="nplab">Return</span>Examination overview &rarr;</a>
+  </div>
+
+</div>
+</section>
+</main>
+
+<script>
+  (function(){
+    var NAVMAP = {overview:'nav-overview', research:'nav-research', paper1:'nav-research', paper2:'nav-research', paper3:'nav-research'};
+    function showView(id){
+      var views = document.querySelectorAll('.view');
+      for (var i=0;i<views.length;i++){ views[i].hidden = true; }
+      var el = document.getElementById('view-'+id);
+      if(!el){ el = document.getElementById('view-overview'); id='overview'; }
+      el.hidden = false;
+      var links = document.querySelectorAll('.topnav a');
+      for (var j=0;j<links.length;j++){ links[j].classList.remove('active'); }
+      var nv = document.getElementById(NAVMAP[id]);
+      if(nv){ nv.classList.add('active'); }
+      window.scrollTo(0,0);
+    }
+    window.__showView = showView;
+    document.addEventListener('click', function(e){
+      var t = e.target.closest ? e.target.closest('[data-view]') : null;
+      if(t){ e.preventDefault(); showView(t.getAttribute('data-view')); }
+    });
+    function renderMath(){
+      if(window.renderMathInElement){
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left:'$$', right:'$$', display:true},
+            {left:'\\[', right:'\\]', display:true},
+            {left:'$', right:'$', display:false},
+            {left:'\\(', right:'\\)', display:false}
+          ],
+          throwOnError:false,
+          ignoredTags:['script','noscript','style','textarea','pre','code']
+        });
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function(){
+      showView('overview');
+      renderMath();
+      // safety re-render once fonts/KaTeX settle
+      setTimeout(renderMath, 350);
+    });
+  })();
+</script>
+
+</body>
+</html>
