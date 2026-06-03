@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Single Variable Calculus II: Final Examination and Studies · A. Agarwal</title>
+<title>Calculus 2 Final Project Extension · A. Agarwal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -229,6 +229,12 @@
   .latex-paper .lx-questions .lx-qtitle{font-family:"Computer Modern Sans",sans-serif;font-weight:700;font-size:0.95rem;margin:0 0 0.5rem;}
   .latex-paper .lx-questions ol{margin:0.3rem 0 0;padding-left:1.3rem;}
   .latex-paper .lx-questions li{margin:0.4rem 0;}
+  .latex-paper .lx-thesis{display:block; text-align:center; margin:1.15rem 0;}
+  .latex-paper .lx-thesis span{display:inline-block; border:1.2px solid #444; border-radius:6px; padding:0.5rem 1.1rem; text-align:center; line-height:1.45;}
+  .latex-paper .lx-map{margin:0.6rem 0;}
+  .latex-paper ul.lx-list{margin:0.7rem 0 0.3rem;padding-left:1.4rem;}
+  .latex-paper ul.lx-list li{margin:0.6rem 0;line-height:1.5;text-align:left;}
+  .latex-paper .lx-studynote{margin:0.9rem 0;text-align:left;}
   /* references */
   .latex-paper .lx-refs{margin:0.6rem 0 0;font-size:0.97rem;}
   .latex-paper .lx-refs .lx-ref{padding-left:2.6em;text-indent:-2.6em;margin:0.32rem 0;text-align:left;}
@@ -236,14 +242,55 @@
   .latex-paper .lx-nav{display:flex;justify-content:space-between;gap:1rem;margin:3rem 0 0;padding-top:1.3rem;border-top:1px solid #c9c9c9;font-family:"Computer Modern Sans",sans-serif;font-size:0.92rem;}
   .latex-paper .lx-nav a{color:#0b6e4f;text-decoration:none;cursor:pointer;}
   .latex-paper .lx-nav a:hover{text-decoration:underline;}
+  .latex-paper .lx-buttonwrap{display:flex;justify-content:center;margin:1.7rem 0 0.4rem;}
+  .latex-paper .lx-button{display:inline-block;background:#0b6e4f;color:#fff;font-family:"Computer Modern Sans",sans-serif;font-weight:700;font-size:0.98rem;padding:0.72rem 1.55rem;border-radius:7px;text-decoration:none;cursor:pointer;transition:background 0.15s;}
+  .latex-paper .lx-button:hover{background:#0a5c42;text-decoration:none;}
   @media (max-width:620px){ .latex-paper{font-size:1.02rem;padding:0 16px 5rem;} .latex-paper .lx-abstract{margin:0 0 1.8rem;} }
+  /* ===== LaTeX skin for overview + research landing ===== */
+  .latexish{
+    font-family:"Computer Modern Serif","Latin Modern Roman",Georgia,"Times New Roman",serif;
+    color:#171717; max-width:45rem; margin:0 auto; padding:0 24px 7rem;
+    font-size:1.08rem; line-height:1.55; text-align:justify; -webkit-hyphens:auto; hyphens:auto;
+  }
+  .latexish ::selection{background:#d9ece3;}
+  .latexish p{margin:0 0 0.7rem; color:#171717;}
+  .latexish a{color:#0b6e4f; text-decoration:none;}
+  .latexish a:hover{text-decoration:underline; color:#0b6e4f;}
+  .latexish .kicker{font-family:"Computer Modern Sans",sans-serif; font-weight:700; font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; color:#0a5c42; text-align:center; margin:0.5rem 0 0.5rem;}
+  .latexish h1{font-family:"Computer Modern Serif",serif; font-weight:700; font-size:1.9rem; line-height:1.22; letter-spacing:-0.005em; text-align:center; margin:0 0 0.7rem;}
+  .latexish .subtitle{font-family:"Computer Modern Serif",serif; font-weight:400; font-style:italic; font-size:1.15rem; line-height:1.4; color:#2a2a2a; text-align:center; margin:0 auto 0.9rem; max-width:38rem; letter-spacing:0;}
+  .latexish .byline{font-family:"Computer Modern Serif",serif; font-size:1.0rem; color:#333; text-align:center; margin:0.3rem 0 0; font-weight:400;}
+  .latexish hr{border:none; border-top:1px solid #b9b9b9; margin:1.6rem auto; width:55%;}
+  .latexish .lead{margin:1.6rem 1.8rem 2rem; font-size:1.0rem; line-height:1.5;}
+  .latexish .lead p, .latexish .lead p:first-of-type{margin:0 0 0.7rem; text-indent:0;}
+  .latexish h2{font-family:"Computer Modern Serif",serif; font-weight:700; font-size:1.34rem; line-height:1.25; letter-spacing:0; text-align:left; color:#171717; margin:2.4rem 0 0.8rem;}
+  .latexish h3{font-family:"Computer Modern Serif",serif; font-weight:700; font-size:1.14rem; letter-spacing:0; color:#171717; margin:1.6rem 0 0.4rem;}
+  .latexish .problem{border-top:none; padding-top:0; margin-top:2.1rem;}
+  .latexish .problem:first-of-type{margin-top:1.4rem;}
+  .latexish .pk{font-family:"Computer Modern Serif",serif; font-weight:700; font-size:1.16rem; letter-spacing:0; text-transform:none; color:#171717; margin:0 0 0.5rem;}
+  .latexish .statement{color:#1f1f1f; border-left:2px solid #d2d2d2; padding-left:0.9rem; margin:0.3rem 0 0.8rem;}
+  .latexish .answerline{text-align:center; margin:0.9rem 0;}
+  .latexish .katex-display{overflow-x:auto; overflow-y:hidden;}
+  .latexish .connection{border-left:2px solid #d2d2d2; padding:0.3rem 0 0.3rem 0.9rem; margin:1.1rem 0;}
+  .latexish .connect-label{font-family:"Computer Modern Serif",serif; font-weight:700; font-style:italic; color:#171717;}
+  .latexish .studylink{font-family:"Computer Modern Sans",sans-serif; font-weight:700; font-size:0.86rem; color:#0b6e4f; text-decoration:none;}
+  .latexish .studylink:hover{text-decoration:underline;}
+  .latexish .studycard{border-top:none; padding:0; margin:1.7rem 0;}
+  .latexish .studycard:first-of-type{margin-top:1.4rem;}
+  .latexish .studycard h3{font-family:"Computer Modern Serif",serif; font-weight:700; font-size:1.2rem; letter-spacing:0; margin:0.15rem 0 0.4rem;}
+  .latexish .studycard .meta{font-family:"Computer Modern Sans",sans-serif; font-weight:700; font-size:0.7rem; letter-spacing:0.07em; text-transform:uppercase; color:#0a5c42; margin:0;}
+  .latexish .readlink{display:inline-block; font-family:"Computer Modern Sans",sans-serif; font-weight:700; font-size:1.12rem; color:#0b6e4f; text-decoration:none; margin-top:1rem; cursor:pointer;}
+  .latexish .readlink:hover{text-decoration:underline; color:#0b6e4f;}
+  .latexish .arr{display:inline-block;}
+  .latexish .footnote{font-family:"Computer Modern Serif",serif; font-style:italic; font-size:0.9rem; color:#555;}
+  @media (max-width:620px){ .latexish{font-size:1.02rem; padding:0 16px 5rem;} .latexish .lead{margin:1.4rem 0 1.8rem;} }
 </style>
 </head>
 <body>
 
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="brand">Akshat Agarwal<span class="sep">/</span><span class="course">Single Variable Calculus II</span></div>
+    <div class="brand">Akshat Agarwal<span class="sep">/</span><span class="course">Calculus 2 Final Project Extension</span></div>
     <nav class="topnav">
       <a id="nav-overview" data-view="overview">Overview</a>
       <a id="nav-research" data-view="research">Research</a>
@@ -255,130 +302,55 @@
 
 <!-- ===================== OVERVIEW ===================== -->
 <section class="view" id="view-overview">
-<div class="container">
+<div class="latex-paper">
 
-  <p class="kicker">Final Examination</p>
-  <h1>Single Variable Calculus II</h1>
-  <p class="subtitle">A concise solution to each examination problem, together with the advanced mathematics that the problem was built to anticipate.</p>
-  <p class="byline">Akshat Agarwal &nbsp;·&nbsp;Grade 11</p>
-
-  <div class="lead">
-  <p>This document collects the problems from my Single Variable Calculus II final examination. For each problem it records a short solution, giving the essential steps and the final value, and then names the higher mathematics to which the problem is connected. Every problem can be solved entirely with the methods of the course: substitution and integrating factors, convergence tests and telescoping, the methods of disks and shells, polar area and arc length, Taylor's theorem with the Lagrange remainder, numerical integration, optimization, and the geometry of space curves. Each was nevertheless constructed so that its solution opens onto a structure of independent and current mathematical interest.</p>
-
-  <p>The connection noted after each problem identifies the field it points toward. Three of these fields are studied in depth in the accompanying research section: the theory of the Riccati equation and its role in estimation and modern sequence models, the approximation of irrational numbers and the machine discovery of mathematics, and the Legendre transform with the convex duality that organizes contemporary optimization. The solutions below are deliberately brief. The full development of the three highlighted themes is reserved for the research papers.</p>
+  <div class="lx-titleblock">
+    <div class="lx-title">Calculus 2 Final Project Extension</div>
+    <div class="lx-subtitle">Overview</div>
+    <div class="lx-meta"><strong>Akshat Agarwal</strong></div>
+    <div class="lx-meta">Calculus 2 Final Project Extension</div>
   </div>
 
-  <h2>The problems</h2>
+  <hr class="lx-rule">
 
-  <!-- Problem 1 -->
-  <div class="problem">
-    <p class="pk">Problem 1 · Riccati differential equation</p>
-    <p class="statement">Let $f$ satisfy $f(0)=1$ and $\dfrac{d}{dx}\!\left[\ln\dfrac{\sqrt{f(x)}}{1-x}\right]=\dfrac{\sqrt{f(x)}}{(1-x)^3}.$ Determine the coefficient of $x^4$ in the Maclaurin series of $f$.</p>
-    <p>Write $y=\sqrt{f}$. The left side is $y'/y+1/(1-x)$, so the equation becomes the Bernoulli equation $y'+\dfrac{y}{1-x}=\dfrac{y^2}{(1-x)^3}.$ Substituting $v=1/y$ linearizes it to $v'-\dfrac{v}{1-x}=-\dfrac{1}{(1-x)^3},$ whose integrating factor is $1-x$. Solving with $v(0)=1$ gives $v=\dfrac{1-2x}{(1-x)^2},$ hence</p>
-    $$f=\frac{1}{v^2}=\frac{(1-x)^4}{(1-2x)^2}.$$
-    <p>Expanding $(1-2x)^{-2}=\sum_{m\ge 0}(m+1)2^m x^m$ against $(1-x)^4$, the coefficient of $x^4$ is $80-128+72-16+1$.</p>
-    <p class="answerline">$$\boxed{\,[x^4]\,f = 9\,}$$</p>
-    <p class="connection"><span class="connect-label">Higher-level connection.</span> The same kind of equation that governs this problem guided the Apollo spacecraft to the Moon and today keeps every GPS receiver, self-driving car, and weather model honest about its own uncertainty. The governing equation is a <em>Riccati equation</em>, the most general first-order equation that is quadratic in the unknown, and its defining feature is a hidden double nature: although it is nonlinear and resists direct integration, a single substitution reveals that it is a second-order linear equation in disguise. In matrix form this very equation propagates the error covariance of the Kalman filter, the optimal way to fuse a noisy model with noisy measurements, and the quadratic term that earns it the name Riccati is precisely the measurements removing uncertainty. What makes the story compelling is its reach across three centuries: an equation Riccati studied in 1724 became the heart of optimal estimation in 1960 and, read backwards as a learnable system, now drives the state-space sequence models that rival the Transformer. <a class="studylink" data-view="paper1">Developed in Study I &rarr;</a></p>
+  <p>For this project I started from the ten problems on the Calculus 2 final examination. Instead of stopping once each problem was solved, I looked at the higher level mathematics that each problem is secretly an example of. The list below gives, for each of the ten problems, the advanced idea or field that it connects to. From these I chose the three connections I found most intriguing, Problem 1, Problem 7, and Problem 3, and developed each one into a full research study that carries the simple calculus idea all the way to a modern method in machine learning.</p>
+
+  <h2 class="lx-section">The higher level connection in each problem</h2>
+  <ul class="lx-list">
+    <li><strong>Problem 1.</strong> A nonlinear Riccati differential equation becomes linear after a single substitution, and the same equation governs the Kalman filter and the modern state space sequence models S4 and Mamba.</li>
+    <li><strong>Problem 2.</strong> A spiral with finite area but infinite length shows that size depends on the dimension being measured, which is the starting point of Hausdorff measure and fractal dimension.</li>
+    <li><strong>Problem 3.</strong> The $y$-intercept of a tangent line is the Legendre transform, which opens into convex duality, optimization, optimal transport, and support vector machines.</li>
+    <li><strong>Problem 4.</strong> A telescoping series is a discrete antiderivative, the discrete form of the Fundamental Theorem of Calculus that lies behind symbolic summation algorithms.</li>
+    <li><strong>Problem 5.</strong> The pair $\tanh x$ and $\operatorname{sech}^2 x$ are natural bounded coordinates, the same saturating nonlinearity used in neural network activations and soliton profiles.</li>
+    <li><strong>Problem 6.</strong> The quotient $\frac{1-iu}{1+iu}$ always has modulus one, which is the Cayley transform that turns straight line motion into motion on a circle.</li>
+    <li><strong>Problem 7.</strong> A Taylor remainder bound is really a question about rate of approximation, which leads to Diophantine approximation, continued fractions, and the golden ratio.</li>
+    <li><strong>Problem 8.</strong> A volume of revolution reduces to the Beta function, connecting an elementary integral to the Gamma function and the continuous extension of the factorial.</li>
+    <li><strong>Problem 9.</strong> The binormal of a helix measures torsion through the Frenet Serret frame, so a curve in space is encoded by its curvature and torsion.</li>
+    <li><strong>Problem 10.</strong> Maximizing an inscribed cone is a first order optimality condition, the smallest version of the constrained optimization and gradient methods that train machine learning models.</li>
+  </ul>
+
+  <h2 class="lx-section">The three I chose to research</h2>
+  <p>The three connections I most wanted to explore became the three studies in the research section. In each one I began from the exact problem on the exam and then followed the mathematics, step by step, into a current method in machine learning.</p>
+
+  <p class="lx-studynote"><strong>Study I, from Problem 1.</strong> I took the Riccati equation from the exam, showed how one reciprocal substitution makes it linear, and then followed it in matrix form to the Kalman filter and to the state space sequence models S4 and Mamba that now compete with attention on long sequences. <a class="studylink" data-view="paper1">Read Study I &rarr;</a></p>
+
+  <p class="lx-studynote"><strong>Study II, from Problem 7.</strong> I started from the Taylor error bound, reframed it as a question about how well a number can be approximated by fractions, and developed continued fractions, the golden ratio as the hardest number to approximate, and the recent algorithms that discover and even prove this kind of mathematics. <a class="studylink" data-view="paper2">Read Study II &rarr;</a></p>
+
+  <p class="lx-studynote"><strong>Study III, from Problem 3.</strong> I started from the tangent intercept, recognized it as the Legendre transform, and followed convex duality into optimal transport, mirror descent, exponential families, and the dual form of support vector machines. <a class="studylink" data-view="paper3">Read Study III &rarr;</a></p>
+
+  <div class="lx-buttonwrap">
+    <a class="lx-button" data-view="research">Continue to the research section &rarr;</a>
   </div>
-
-  <!-- Problem 2 -->
-  <div class="problem">
-    <p class="pk">Problem 2 · Polar area, arc length, and a threshold</p>
-    <p class="statement">For the spiral $r=\theta^{-p}$ with $\theta\ge 1$, determine the set of exponents $p$ for which the enclosed area is finite while the arc length is infinite, and give the length of that set.</p>
-    <p>The area $\tfrac12\int_1^\infty \theta^{-2p}\,d\theta$ is finite exactly when $p\gt \tfrac12$. The arc-length integrand $\theta^{-p}\sqrt{1+p^2/\theta^2}$ is squeezed between $\theta^{-p}$ and $\sqrt{1+p^2}\,\theta^{-p}$ for $\theta\ge 1$, so the length is finite exactly when $p\gt 1$ and infinite when $p\le 1$. Finite area with infinite length therefore holds on $\big(\tfrac12,\,1\big]$.</p>
-    <p class="answerline">$$\boxed{\,\text{length of }\big(\tfrac12,1\big]=\tfrac12\,}$$</p>
-    <p class="connection"><span class="connect-label">Higher-level connection.</span> The lungs fold the surface area of a tennis court into the volume of a chest, and the antenna inside a phone packs many wavelengths of conductor into a fingernail of space, both exploiting the fact that boundary and bulk are independent. This problem is the cleanest first encounter with that independence: a spiral can enclose a finite area while its boundary runs on to infinite length. The true depth lies just past calculus, in the recognition that length and area are different notions of size that need not scale together, which is the seed of <em>Hausdorff measure and the fractional dimensions of fractal geometry</em>, and the same finite-area, infinite-length paradox is the painter's paradox of Gabriel's horn. It is striking precisely because it overturns the intuition that an infinite edge must enclose an infinite region, an intuition that coastlines, blood vessels, and snowflakes have been quietly violating all along.</p>
-  </div>
-
-  <!-- Problem 3 -->
-  <div class="problem">
-    <p class="pk">Problem 3 · Tangent intercepts, quadrature, and the Legendre transform</p>
-    <p class="statement">A beam has profile $y=a\big(2x^2+x\ln(1+x)\big)$. At each $x$ the side of an equilateral cross-section equals the magnitude of the $y$-intercept of the tangent line to the profile, and the cross-sectional area is calibrated so that $A(3)=\tfrac{50}{3}$. With $V$ the exact volume on $[0,3]$ and $S_2$ its two-subinterval Simpson estimate, decide whether Simpson is exact and, if not, find $|S_2-V|$.</p>
-    <p>The $y$-intercept of the tangent line at $x$ is $y-xy'=-a\,\dfrac{x^2(2x+3)}{1+x},$ so the side is $s(x)=a\,\dfrac{x^2(2x+3)}{1+x}$ and $A(x)=\tfrac{\sqrt3}{4}s^2$. Calibration absorbs the constant into $A(x)=\dfrac{800}{19683}\Big(\dfrac{x^2(2x+3)}{1+x}\Big)^2.$ Polynomial division gives $\dfrac{x^4(2x+3)^2}{(1+x)^2}=4x^4+4x^3-3x^2+2x-1+\dfrac{1}{(x+1)^2},$ a degree-four integrand, so Simpson, exact only through cubics, cannot be exact. Then $V=\dfrac{800}{19683}\cdot\dfrac{5103}{20}=\dfrac{280}{27}.$ Simpson with $h=\tfrac32$ uses $A(0)=0,\ A(\tfrac32)=\tfrac{32}{27},\ A(3)=\tfrac{50}{3}$, giving $S_2=\tfrac12\big(0+4\cdot\tfrac{32}{27}+\tfrac{50}{3}\big)=\dfrac{289}{27}.$</p>
-    <p class="answerline">$$\boxed{\,|S_2-V|=\left|\tfrac{289}{27}-\tfrac{280}{27}\right|=\tfrac13\,}$$</p>
-    <p class="connection"><span class="connect-label">Higher-level connection.</span> The tangent-intercept at the centre of this problem is the same operation that lets physicists pass between the two great formulations of mechanics and that, in its modern form, helps train the generative models behind image synthesis. The $y$-intercept of the tangent line, the quantity $y-xy'$, is exactly the <em>Legendre transform</em> of the profile, which re-describes a convex function by the family of its tangent lines rather than by its values, and Simpson's rule is the first nontrivial case of Gaussian quadrature, whose sample points are the roots of Legendre polynomials. The deeper truth is that this single transform is the language of duality: it converts the Lagrangian of mechanics into the Hamiltonian, internal energy into the thermodynamic free energies, and, in current machine learning, organizes optimal transport, mirror descent, and the dual view of learning. What is remarkable is that an idea as humble as the intercept of a tangent line, computed without a second thought, turns out to be the hinge on which modern optimization swings. <a class="studylink" data-view="paper3">Developed in Study III &rarr;</a></p>
-  </div>
-
-  <!-- Problem 4 -->
-  <div class="problem">
-    <p class="pk">Problem 4 · Telescoping series</p>
-    <p class="statement">Evaluate $\displaystyle\sum_{n=1}^{\infty}\frac{n^3-2n^2+1}{(n+1)!}.$</p>
-    <p>Seek a summand of the form $b_n=\dfrac{n^2+\beta n+\gamma}{n!}$ for which the general term equals $b_n-b_{n+1}$. Matching numerators forces $\beta=-2,\ \gamma=2$, so</p>
-    $$\frac{n^3-2n^2+1}{(n+1)!}=\frac{n^2-2n+2}{n!}-\frac{(n+1)^2+1}{(n+1)!}=b_n-b_{n+1}.$$
-    <p>The sum telescopes to $b_1=\dfrac{1-2+2}{1!}$, since $b_n\to 0$.</p>
-    <p class="answerline">$$\boxed{\,\sum_{n=1}^{\infty}\frac{n^3-2n^2+1}{(n+1)!}=1\,}$$</p>
-    <p class="connection"><span class="connect-label">Higher-level connection.</span> The collapse-by-cancellation that makes this sum exact is the same mechanism computer-algebra systems exploit to prove identities automatically, and the speed with which factorial-denominator series converge is why a calculator can return a sine or an exponential in microseconds. Finding the antidifference $b_n$ so that the term equals $b_n-b_{n+1}$ is the discrete analogue of finding an antiderivative, the summation form of the Fundamental Theorem of Calculus. The true connection is to mechanical summation: <em>Gosper's algorithm</em> finds such antidifferences automatically, and the Wilf–Zeilberger theory of creative telescoping proves whole families of binomial identities and supplied the engine behind Apéry's proof that $\zeta(3)$ is irrational. It is intriguing that an infinite sum collapses to exactly $1$ through a structure invisible at first glance, and more intriguing still that machines now discover such structure on their own, a theme taken up in Study II.</p>
-  </div>
-
-  <!-- Problem 5 -->
-  <div class="problem">
-    <p class="pk">Problem 5 · Hyperbolic functions, critical points, and a symmetric area</p>
-    <p class="statement">Let $q(x)=\sqrt{1-\tfrac32\tanh^2 x}$ and $f(x)=\dfrac{9}{4}\cdot\dfrac{\tanh x\,\operatorname{sech}^2 x\,(5q-1)}{q\,(1+q)^3}$ on the interval where $q$ is real. Let $a$ and $b$ be the two nonzero critical numbers of $f$. Find the area enclosed by $y=f(x)$ and $y=f(-x)$ from $x=a$ to $x=b$.</p>
-    <p>Since $\tanh x$ is odd and $\operatorname{sech} x$ is even, $q(-x)=q(x)$ and therefore $f(-x)=-f(x)$: the two curves are reflections of each other across the $x$-axis. Writing $f$ as a function of $q$ and differentiating, the critical condition factors so that the only admissible root is $2q-1=0$, that is $q=\tfrac12$, giving $\tanh^2 x=\tfrac12$ and $b=\operatorname{artanh}(1/\sqrt2)=-a$. Because $f\gt 0$ on $(0,b)$ and $f$ is odd, the enclosed area is $A=4\displaystyle\int_0^b f\,dx$. The substitution $u=\tanh x$, then $u=\sqrt{\tfrac23}\sin\theta$, then $v=\cos\theta$ turns this into $\displaystyle\int_{1/2}^{1}\!\Big(\tfrac{15}{2}(1+v)^{-2}-9(1+v)^{-3}\Big)dv=\tfrac38$.</p>
-    <p class="answerline">$$\boxed{\,A=4\cdot\tfrac38=\tfrac32\,}$$</p>
-    <p class="connection"><span class="connect-label">Higher-level connection.</span> The hyperbolic functions in this problem are the natural language of the hanging cable and the soaring arch, of Einstein's law for adding velocities near the speed of light, and of the light pulses that carry the internet through optical fiber. The profile is built from $\tanh$ and its derivative $\operatorname{sech}^2$, and because $f$ is odd, it and its mirror image $y=f(-x)$ bound a region symmetric across the axis whose area a careful substitution evaluates exactly. The connection runs in two directions: $\tanh$ is the classic activation function that gave early neural networks their nonlinearity, and the bump $\operatorname{sech}^2$ is the exact profile of a <em>soliton</em>, a solitary wave that travels without spreading, first seen by a man on horseback chasing a wave down a Scottish canal in 1834 and now the basis of soliton transmission in fiber optics. What makes the hyperbolic functions fascinating is that they do for the hyperbola, and for the geometry of spacetime, exactly what the circular sine and cosine do for the circle.</p>
-  </div>
-
-  <!-- Problem 6 -->
-  <div class="problem">
-    <p class="pk">Problem 6 · Surface of revolution and the Cayley transform</p>
-    <p class="statement">With $A_n=\sum_{k=1}^{2n}\frac{(-1)^{k+1}}{k}$, the curve $x+i(y-3)=\left(\dfrac{1-3i\tanh(t/2)}{1+3i\tanh(t/2)}\right)^{4}$ for $t\in[0,A_n]$ is revolved about the $x$-axis. Find $\displaystyle\lim_{n\to\infty} S_n/\pi^2$, where $S_n$ is the surface area.</p>
-    <p>Put $u=3\tanh(t/2)$. The quotient $\dfrac{1-iu}{1+iu}$ has modulus $1$ and argument $-2\arctan u$, so the fourth power equals $\cos w-i\sin w$ with $w=8\arctan\!\big(3\tanh(t/2)\big)$. The curve is therefore $x=\cos w,\ y=3-\sin w$: a unit circle centered at $(0,3)$. As $n\to\infty$, $A_n\to\ln 2$, and since $\tanh\!\big(\tfrac{\ln 2}{2}\big)=\tfrac13$ we get $w\to 8\arctan 1=2\pi$, a full revolution. The surface is a torus with center-radius $R=3$ and tube-radius $r=1$, so $S_n\to 2\pi\!\int_0^{2\pi}(3-\sin w)\,dw=12\pi^2.$</p>
-    <p class="answerline">$$\boxed{\,\lim_{n\to\infty} S_n/\pi^2 = 12\,}$$</p>
-    <p class="connection"><span class="connect-label">Higher-level connection.</span> The algebraic fraction at the centre of this problem is the same transform that turns an analog filter into the digital filter running in your headphones and that aerodynamicists use to convert the flow around a circle into the flow around a wing. The map $z\mapsto(1-iz)/(1+iz)$ is the <em>Cayley transform</em>, the canonical conformal identification of a half-plane with a disk and of the real line with the circle, which is why a fourth power of it traces a perfect circle and sweeps out a torus. Its true depth is that it translates between the additive world of lines and the multiplicative world of rotations, the same translation the bilinear, or Tustin, transform performs in signal processing when it carries continuous-time stability to discrete-time stability, the very step taken when the state-space models of Study I are discretized. It is intriguing that one short fraction can turn straight lines into circles and addition into rotation, bridging the analog and the digital in a single gesture.</p>
-  </div>
-
-  <!-- Problem 7 -->
-  <div class="problem">
-    <p class="pk">Problem 7 · Taylor remainder, the complex exponential, and approximation</p>
-    <p class="statement">Let $f(x)=e^{x}(\cos x+i\sin x)$, and let $P_n$ be its degree-$n$ Maclaurin polynomial, with $P_n(1)=A_n+B_n i$. Find the smallest $n$ for which the Lagrange remainder bound guarantees $|R_n(1)|\lt \tfrac12$, and for that $n$ compute $A_n+B_n$.</p>
-    <p>Here $f(x)=e^{(1+i)x}$, so $f^{(n+1)}(x)=(1+i)^{n+1}e^{(1+i)x}$ and on $[0,1]$ the Lagrange bound is $|R_n(1)|\le \dfrac{e\,(\sqrt2)^{\,n+1}}{(n+1)!}.$ This equals $e\sqrt2/3\approx 1.28$ at $n=2$ and $e/6\approx 0.45$ at $n=3$, so $n=3$ is the first index below $\tfrac12$. Using $(1+i)^2=2i$ and $(1+i)^3=-2+2i$, $P_3(1)=1+(1+i)+\tfrac{2i}{2}+\tfrac{-2+2i}{6}=\tfrac{5}{3}+\tfrac{7}{3}i.$</p>
-    <p class="answerline">$$\boxed{\,n=3,\qquad A_3+B_3=4\,}$$</p>
-    <p class="connection"><span class="connect-label">Higher-level connection.</span> The complex exponential at the heart of this problem, $e$ raised to an imaginary power, is the single most useful function in engineering, underlying alternating-current circuits, all of signal processing, and the wavefunctions of quantum mechanics. By Euler's formula the function is $e^{(1+i)x}$, a spiral that rotates and grows at once, and the Lagrange error bound is exactly the tool by which a processor decides how many Taylor terms it needs to reach a guaranteed accuracy. The deeper thread is the question that the base $1+i$, a Gaussian integer, quietly raises: how well can a number be approximated by simpler ones, and which numbers resist approximation most? That is the field of <em>Diophantine approximation</em>, where the golden ratio is provably the hardest number to approximate and Hurwitz's constant $\sqrt5$ is the sharp limit. It is striking that the same complex exponential that runs the electrical grid lives inside a number system, the Gaussian integers, with its own primes and its own deep approximation theory. <a class="studylink" data-view="paper2">Developed in Study II &rarr;</a></p>
-  </div>
-
-  <!-- Problem 8 -->
-  <div class="problem">
-    <p class="pk">Problem 8 · Volumes and the Beta function</p>
-    <p class="statement">The region under $y=6(1-\sqrt{x})^{k}$ on $[0,1]$ is revolved about the $x$-axis and, separately, about the line $x=-1$. Find the value of $k\gt 0$ for which the two volumes are equal.</p>
-    <p>With the substitution $u=\sqrt{x}$ every integral becomes an Euler Beta integral $B(p,q)=\int_0^1 u^{p-1}(1-u)^{q-1}\,du=\dfrac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}.$ The disk method gives $V_x=\dfrac{36\pi}{(k+1)(2k+1)},$ while shells about $x=-1$ give $V_{-1}=24\pi\big[B(4,k+1)+B(2,k+1)\big].$ Equating and clearing denominators reduces to $(k-2)(k^2+5k+18)=0$, whose only real root is positive.</p>
-    <p class="answerline">$$\boxed{\,k = 2\,}$$</p>
-    <p class="connection"><span class="connect-label">Higher-level connection.</span> The integrals that solve this volume define the Beta and Gamma functions, which describe random proportions in Bayesian A/B testing, waiting times in queues, and the rounded-square icons on a phone screen. Every integral here reduces, through one substitution, to an Euler Beta integral, and the Beta function is built from the <em>Gamma function</em>, the unique smooth extension of the factorial to all real and complex numbers. The true connection is that factorials need not stop at the whole numbers: the Gamma function interpolates between them, singled out by the Bohr–Mollerup theorem as the only log-convex extension, and the boundary of this region is a superellipse, the Lamé curve that designers from Piet Hein to Apple have chosen for its pleasing fullness. It is intriguing that the same Beta integral measuring this beam reappears as the Veneziano amplitude at the historical origin of string theory.</p>
-  </div>
-
-  <!-- Problem 9 -->
-  <div class="problem">
-    <p class="pk">Problem 9 · Space curves and the Frenet–Serret frame</p>
-    <p class="statement">For the helix $\mathbf r(\theta)=\langle 2\cos\theta,\,2\sin\theta,\,b\theta\rangle$, the binormal makes an angle $\pi/4$ with the vertical at $\theta=\pi/2$. With the height of a moving point evolving so that its speed is determined at $\theta=\pi/2$, find $\lVert d\mathbf B/dt\rVert$ at that instant. (The data give $b=2$ and arc-speed $24$.)</p>
-    <p>The binormal is $\mathbf B=\dfrac{\langle b\sin\theta,-b\cos\theta,2\rangle}{\sqrt{4+b^2}}.$ The angle condition $\dfrac{2}{\sqrt{4+b^2}}=\dfrac{\sqrt2}{2}$ gives $b=2$, and the torsion is $\tau=\dfrac{8}{32}=\dfrac14.$ By the Frenet–Serret relation $d\mathbf B/ds=-\tau\,\mathbf N$, the magnitude is $\lVert d\mathbf B/dt\rVert=\tau\,v$ where $v$ is the speed. With $v=24$,</p>
-    <p class="answerline">$$\boxed{\,\lVert d\mathbf B/dt\rVert=\tfrac14\cdot 24=6\,}$$</p>
-    <p class="connection"><span class="connect-label">Higher-level connection.</span> The torsion computed here is the precise quantity that measures how DNA supercoils on itself, how a roller coaster or a highway on-ramp must twist so that riders are not jerked, and how a charged particle spirals through the field of a mass spectrometer. The tangent, normal, and binormal vectors, with curvature and torsion, form the <em>Frenet–Serret apparatus</em>, the differential geometry that describes any space curve by how it bends and how it twists out of its plane. The true connection is that two numbers, curvature and torsion, determine a curve completely up to its position, so torsion is exactly the single quantity that distinguishes a flat spiral from a three-dimensional spring. It is intriguing that this one local twist rate governs structures as different as the genetic molecule, a railway transition curve, and the orientation frame a drone or a camera carries with it.</p>
-  </div>
-
-  <!-- Problem 10 -->
-  <div class="problem">
-    <p class="pk">Problem 10 · Optimization of an inscribed cone</p>
-    <p class="statement">The polar curve $r=\dfrac{9\cos\theta}{1+\cos^2\theta}$ is revolved about the $x$-axis. A cone is inscribed with its apex at the origin and its base a cross-section of the solid. Find the base radius of the cone of maximum volume.</p>
-    <p>In Cartesian form the curve is $2x^2+y^2=9x$, so the solid has radius $y=\sqrt{9x-2x^2}$. A cone with apex at the origin and base at abscissa $x$ has volume $V(x)=\tfrac{\pi}{3}y^2x=\tfrac{\pi}{3}\big(9x^2-2x^3\big).$ Then $V'(x)=2\pi x(3-x)=0$ gives the interior maximum at $x=3$, where $y=\sqrt{27-18}=3.$</p>
-    <p class="answerline">$$\boxed{\,\text{base radius}=3\,}$$</p>
-    <p class="connection"><span class="connect-label">Higher-level connection.</span> The single derivative set to zero that solves this problem embodies the same principle that designs the lightest safe beam, schedules an airline, and, scaled to billions of variables, trains every modern neural network by gradient descent. The task maximizes a volume over a family of inscribed cones, a constrained extremal problem dispatched by the first-derivative test, and its polar curve conceals a clean conic, the ellipse $2x^2+y^2=9x$. The true connection is that optimization, choosing the best member of an infinite family, is the spine of applied mathematics, and inscribed-extremum problems of this kind generalize to the calculus of variations and to convex optimization, where first-order conditions become the universal language of optimality. It is a fitting close to the examination that the same act of setting a derivative to zero that finds the best cone is the act that, repeated a trillion times, teaches an artificial intelligence to see and to speak, as the optimization sections of Study III make explicit.</p>
-  </div>
-
-  <hr>
-  <p>Three of the connections above are not merely historical footnotes. The Riccati equation of Problem&nbsp;1, the Legendre transform of Problem&nbsp;3, and the approximation question behind Problem&nbsp;7 each sit at the foundation of an active research frontier in mathematics and artificial intelligence. The following section develops them as three self-contained studies.</p>
-  <p style="margin-top:1.6rem;"><a class="readlink" data-view="research">Continue to the research studies <span class="arr">&rarr;</span></a></p>
 
 </div>
 </section>
 
 <!-- ===================== RESEARCH LANDING ===================== -->
 <section class="view" id="view-research" hidden>
-<div class="container">
+<div class="latexish">
 
   <p class="kicker">Research</p>
   <h1>Three Studies</h1>
-  <p class="subtitle">Each begins with a single examination problem and follows the mathematics to a contemporary frontier of artificial intelligence.</p>
-  <p class="byline">Akshat Agarwal &nbsp;·&nbsp;Single Variable Calculus II</p>
 
   <div class="lead">
   <p>The examination problems were designed so that elementary techniques would reveal deeper structure. Three of those structures are not finished chapters of mathematics but living research programs, and in each the classical idea from the examination turns out to be the mathematical core of a current method in machine learning. The three studies below are written to be read on their own. Each opens with the precise classical mathematics, including statements and proofs at the level of the course and a little beyond, and then traces, carefully and without gaps, how that mathematics became central to modern artificial intelligence. Citations are given inline in numbered form and collected at the end of each paper.</p>
@@ -388,25 +360,23 @@
     <p class="meta">Study I · from Problem 1</p>
     <h3>The Riccati Equation, Kalman Filtering, and State-Space Models</h3>
     <p>A first-order equation that is quadratic in its unknown cannot, in general, be integrated in closed form, yet it linearizes under a single substitution and reappears, in matrix form, as the equation governing optimal estimation. This study develops the scalar and matrix Riccati equations, the Kalman and Kalman–Bucy filters, and the exactly solvable nonlinear filters of Beneš, and then shows how the same linear state-space recurrence became the foundation of the structured state-space sequence models, S4 and Mamba, that now rival attention on long sequences.</p>
-    <a class="readlink" data-view="paper1">Read the full paper <span class="arr">&rarr;</span></a>
+    <a class="readlink" data-view="paper1">Read the full report <span class="arr">&rarr;</span></a>
   </div>
 
   <div class="studycard">
     <p class="meta">Study II · from Problem 7</p>
     <h3>The Golden Ratio, Diophantine Approximation, and the Machine Discovery of Mathematics</h3>
     <p>How well a number can be approximated by fractions is measured by its continued fraction, and the golden ratio is, in a precise sense, the number that resists approximation most stubbornly. This study develops continued fractions, Hurwitz's theorem, the Markov and Lagrange spectra, and the metric theory of the Gauss map, and then turns to a recent and striking development: algorithms, from the Ramanujan Machine to program-search systems, that conjecture and even prove new mathematics about exactly these objects.</p>
-    <a class="readlink" data-view="paper2">Read the full paper <span class="arr">&rarr;</span></a>
+    <a class="readlink" data-view="paper2">Read the full report <span class="arr">&rarr;</span></a>
   </div>
 
   <div class="studycard">
     <p class="meta">Study III · from Problem 3</p>
     <h3>The Legendre Transform, Convex Duality, and Optimization in Machine Learning</h3>
     <p>Replacing a convex function by the envelope of its tangent lines is a small idea with enormous reach. This study develops the Legendre transform and its convex-analytic completion, the Legendre–Fenchel conjugate, together with Gaussian quadrature and its Legendre-polynomial nodes, and then shows that this single duality organizes optimal transport and Wasserstein distances, mirror descent, the exponential families behind variational inference, and the dual formulation of support vector machines.</p>
-    <a class="readlink" data-view="paper3">Read the full paper <span class="arr">&rarr;</span></a>
+    <a class="readlink" data-view="paper3">Read the full report <span class="arr">&rarr;</span></a>
   </div>
 
-  <hr>
-  <p class="footnote">A note on sources. Every reference below is a real, published work. Theorems are stated with their actual hypotheses, and where a recent system is a preprint rather than a peer-reviewed article, or where a record has since been improved, this is noted in the text.</p>
 
 </div>
 </section>
@@ -421,7 +391,7 @@
     <div class="lx-title">The Riccati Equation, Kalman Filtering, and Structured State-Space Models</div>
     <div class="lx-subtitle">A Mathematical Study Beginning from a Calculus II Differential Equation</div>
     <div class="lx-meta"><strong>Akshat Agarwal</strong></div>
-    <div class="lx-meta">Single Variable Calculus II</div>
+    <div class="lx-meta">Calculus 2 Final Project Extension</div>
     <div class="lx-meta">Research Study I from Problem 1</div>
   </div>
 
@@ -1331,7 +1301,7 @@
     <div class="lx-title">The Golden Ratio, Diophantine Approximation, and Machine Discovery of Mathematics</div>
     <div class="lx-subtitle">A Mathematical Study Beginning from Problem 7</div>
     <div class="lx-meta"><strong>Akshat Agarwal</strong></div>
-    <div class="lx-meta">Single Variable Calculus II</div>
+    <div class="lx-meta">Calculus 2 Final Project Extension</div>
     <div class="lx-meta">Research Study II from Problem 7</div>
   </div>
 
@@ -2090,7 +2060,7 @@
     <div class="lx-title">The Legendre Transform, Convex Duality, and the Geometry of Optimization in Machine Learning</div>
     <div class="lx-subtitle">A Mathematical Study Beginning from Problem 3</div>
     <div class="lx-meta"><strong>Akshat Agarwal</strong></div>
-    <div class="lx-meta">Single Variable Calculus II</div>
+    <div class="lx-meta">Calculus 2 Final Project Extension</div>
     <div class="lx-meta">Research Study III from Problem 3</div>
   </div>
 
